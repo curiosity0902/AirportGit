@@ -68,8 +68,113 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AllAircompaniesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AllAirportsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AllCitiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AllClientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AllCountriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AllTeamsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AllWorkersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FlightsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainMenuClientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainMenuWorkerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddWorkerPage.xaml.cs">
+      <DependentUpon>AddWorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllAircompaniesPage.xaml.cs">
+      <DependentUpon>AllAircompaniesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllAirportsPage.xaml.cs">
+      <DependentUpon>AllAirportsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllCitiesPage.xaml.cs">
+      <DependentUpon>AllCitiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllClientsPage.xaml.cs">
+      <DependentUpon>AllClientsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllCountriesPage.xaml.cs">
+      <DependentUpon>AllCountriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllTeamsPage.xaml.cs">
+      <DependentUpon>AllTeamsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllWorkersPage.xaml.cs">
+      <DependentUpon>AllWorkersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AuthorizationPage.xaml.cs">
+      <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditClientPage.xaml.cs">
+      <DependentUpon>EditClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditWorkerPage.xaml.cs">
+      <DependentUpon>EditWorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FlightsPage.xaml.cs">
+      <DependentUpon>FlightsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainMenuClientPage.xaml.cs">
+      <DependentUpon>MainMenuClientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainMenuWorkerPage.xaml.cs">
+      <DependentUpon>MainMenuWorkerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -95,8 +200,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

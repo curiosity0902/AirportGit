@@ -8,5 +8,6 @@ namespace AirportGit.DB
 {
     internal class DBConnection
     {
+        public static DBConnection AirportEntities airportEntities = new AirportEntities
     }
 }
