@@ -37,12 +37,7 @@ namespace AirportGit.Pages
             DBConnection.loginedWorker = currentWorker;
             if (currentWorker != null)
             {
-                //if (currentWorker.Position.Nazvanie == "преподаватель")
-                //    NavigationService.Navigate(new ExamPage());
-                //else if (currentWorker.Position.Nazvanie == "зав. кафедрой")
-                //    NavigationService.Navigate(new ChairPage());
-                //else if (currentWorker.Position.Nazvanie == "инженер")
-                //    NavigationService.Navigate(new WorkerPage());
+                NavigationService.Navigate(new MainMenuWorkerPage());
             }
             else
             {
