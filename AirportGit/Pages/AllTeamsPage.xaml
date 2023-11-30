@@ -36,11 +36,17 @@
             VerticalAlignment="Center"            
             />
 
-        <ListView>
+        <ListView 
+            x:Name="TeamLv"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+            Grid.RowSpan="5"
+            >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn>
+                        <GridViewColumn Header="Номер экапажа">
                   
                     </GridViewColumn>
                     </GridView.Columns>
