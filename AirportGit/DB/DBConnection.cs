@@ -9,5 +9,7 @@ namespace AirportGit.DB
     internal class DBConnection
     {
         public static AirportEntities airportEntities = new AirportEntities();
+        public static Worker loginedWorker;
+        public static Client loginedClient;
     }
 }

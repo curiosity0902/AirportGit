@@ -5,10 +5,94 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="40"
       Title="AuthorizationPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Авторизация"
+    Grid.Column="2"
+    Grid.ColumnSpan="2"
+    Grid.Row="0"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Bottom"
+    FontSize="50"/>
+        <TextBlock Text="Введите логин"
+    Grid.Column="2"
+    Grid.ColumnSpan="2"
+    Grid.Row="1"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Bottom"/>
+        <TextBox x:Name="LoginTB"
+    Grid.Column="2"
+    Grid.ColumnSpan="2"
+    Grid.Row="2"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Width="400"
+    Height="60"/>
+        <TextBlock Text="Введите пароль"
+    Grid.Column="2"
+    Grid.ColumnSpan="2"
+    Grid.Row="3"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Bottom"/>
+        <PasswordBox x:Name="PasswordTB"
+    Grid.Column="2"
+    Grid.ColumnSpan="2"
+    Grid.Row="4"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Width="400"
+    Height="60"/>
+        <Button Content="Войти"
+    x:Name="EnterBTN"
+    Grid.Column="2"
+    Grid.ColumnSpan="2"
+    Grid.Row="6"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Width="400"
+    Height="60"
+    Click="EnterBTN_Click"/>
+        <Button Content="Регистрация"
+        x:Name="RegistrBTN"
+        Grid.Column="2"
+        Grid.ColumnSpan="2"
+        Grid.Row="7"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Width="400"
+        Height="60"
+        Click="RegistrBTN_Click"/>
+        <Button Content="Я гость"
+    x:Name="GuestBTN"
+    Grid.Column="2"
+    Grid.ColumnSpan="2"
+    Grid.Row="8"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Width="400"
+    Height="60"
+    Click="GuestBTN_Click"/>
     </Grid>
 </Page>
