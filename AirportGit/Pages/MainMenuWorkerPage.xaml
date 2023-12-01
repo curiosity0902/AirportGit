@@ -9,6 +9,143 @@
       Title="MainMenuWorkerPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Главное меню"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="60"/>
+        <TextBlock Text="Пользователь:"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"/>
+        <TextBlock
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            x:Name="UserTB"
+            Grid.Row="2"
+            Width="640"
+            Height="60"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+        <TextBlock Text="Логин:"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"/>
+        <TextBlock
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            x:Name="EmailTB"
+            Grid.Row="3"
+            FontSize="25"
+            Width="640"
+            Height="60"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"/>
+        <Button Content="Изменить свои данные"
+            x:Name="EditBTN"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Grid.Row="4"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="500"
+            Height="60"
+            Click="EditBTN_Click"/>
+        <Button Content="Сотрудники"
+            x:Name="WorkersBTN"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="6"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="400"
+            Height="60"
+            Click="WorkersBTN_Click"/>
+        <Button Content="Клиенты"
+            x:Name="MyTicketsBTN"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Grid.Row="6"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="400"
+            Height="60"
+            Click="ClientsBTN_Click"/>
+        <Button Content="Рейсы"
+            x:Name="FlightsBTN"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+            Grid.Row="6"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="400"
+            Height="60"
+            Click="FlightsBTN_Click"/>
+        <Button Content="Самолеты"
+            x:Name="AirplaneBTN"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="7"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="400"
+            Height="60"
+            Click="AirplaneBTN_Click"/>
+        <Button Content="Авиакомпании"
+            x:Name="AircompanyBTN"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Grid.Row="7"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="400"
+            Height="60"
+            Click="AircompanyBTN_Click"/>
+        <Button Content="Страны"
+            x:Name="CountryBTN"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
+            Grid.Row="7"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="400"
+            Height="60"
+            Click="CountryBTN_Click"/>
+        <Button Content="Назад"
+            x:Name="BackBTN"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Grid.Row="8"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="400"
+            Height="60"
+            Click="BackBTN_Click"/>
     </Grid>
 </Page>

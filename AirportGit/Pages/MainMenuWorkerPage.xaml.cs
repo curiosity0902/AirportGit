@@ -24,5 +24,22 @@ namespace AirportGit.Pages
         {
             InitializeComponent();
         }
+        private void WorkersBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AllWorkersPage());
+        }
+        private void ClientsBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AllClientsPage());
+        }
+        private void FlightsBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FlightsPage());
+        }
+
+        private void AirplaneBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AllAirportsPage());
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace AirportGit.Pages
     {
         public static List<Worker> workers { get; set; }
 
-        public static AllWorkersPage()
+        public AllWorkersPage()
         {
             InitializeComponent();
             workers = DBConnection.airportEntities

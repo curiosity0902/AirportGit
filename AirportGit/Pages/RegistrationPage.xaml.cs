@@ -77,5 +77,10 @@ namespace AirportGit.Pages
                 }
             }
         }
+
+        private void AuthBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthorizationPage());
+        }
     }
 }
