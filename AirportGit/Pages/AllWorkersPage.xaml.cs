@@ -22,16 +22,18 @@ namespace AirportGit.Pages
     public partial class AllWorkersPage : Page
     {
         public static List<Worker> workers { get; set; }
+
         public static AllWorkersPage()
         {
             InitializeComponent();
-            workers = DBConnection.AirportEntities.Worker.ToList();
+            workers = DBConnection.airportEntities
+                .Worker.ToList();
             this.DataContext = this;
             Refresh();
         }
         private void Refresh()
         {
-            WorkersLV.ItemsSource = DBConnection.AirportEntities.Worker.ToList();
+            WorkersLV.ItemsSource = DBConnection.airportEntities.Worker.ToList();
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -51,8 +53,8 @@ namespace AirportGit.Pages
         {
             if (WorkersLV.SelectedItem is Worker work)
             {
-                DBConnection.AirportEntities.Worker.Remove(work);
-                DBConnection.AirportEntities.SaveChanges();
+                DBConnection.airportEntities.Worker.Remove(work);
+                DBConnection.airportEntities.SaveChanges();
             }
             Refresh();
         }
