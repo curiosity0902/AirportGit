@@ -42,13 +42,16 @@
             Grid.Column="1"
             Grid.ColumnSpan="5"
             Grid.RowSpan="5"
+            ItemsSource="{Binding teams}"
             >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Номер экапажа">
-                  
-                    </GridViewColumn>
+                        <GridViewColumn Header="Номер экипажа" DisplayMemberBinding="{Binding IDTeam}" Width="280"/>
+                        <GridViewColumn Header="Номер экапажа" DisplayMemberBinding="{Binding Worker.Name}" Width="380"/>
+                        <GridViewColumn Header="Номер экапажа" DisplayMemberBinding="{Binding Worker.Name}" Width="380"/>
+                        <GridViewColumn Header="Номер экапажа" DisplayMemberBinding="{Binding Worker.Name}" Width="380"/>
+
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

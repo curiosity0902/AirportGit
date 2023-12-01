@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AirportGit.DB;
 
 namespace AirportGit.Pages
 {
@@ -20,9 +21,22 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class AllTeamsPage : Page
     {
+        public static List<Worker> workers { get; set; }
+        public static List<Team> teams { get; set; }
+        
         public AllTeamsPage()
         {
             InitializeComponent();
+            workers = new List<Worker>(DBConnection.airportEntities.Worker.ToList());
+            teams = new List<Team>(DBConnection.airportEntities.Team.ToList());
+            TeamLv.ItemsSource = new List<Team>(DBConnection.airportEntities.Team.ToList());
+            Refresh();
+            this.DataContext = this;
+        }
+
+        public void Refresh()
+        {
+            TeamLv.ItemsSource = DBConnection.airportEntities.Team.ToList();
         }
     }
 }

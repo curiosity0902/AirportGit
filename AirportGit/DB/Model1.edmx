@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище AirportModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище AirportModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aircompany">
           <Key>
             <PropertyRef Name="IDAircompany" />
@@ -169,6 +169,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nchar" MaxLength="10" />
           <Property Name="IDAircompany" Type="int" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_Airplane_Aircompany">
           <End Role="Aircompany" Type="Self.Aircompany" Multiplicity="0..1" />
@@ -524,7 +525,8 @@
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AirportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -624,7 +626,7 @@
           <Key>
             <PropertyRef Name="IDFlight" />
           </Key>
-          <Property Name="IDFlight" Type="Int32" Nullable="false" />
+          <Property Name="IDFlight" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DepartureDate" Type="DateTime" Precision="3" />
           <Property Name="ArivalDate" Type="DateTime" Precision="3" />
           <Property Name="IDFlyghport1" Type="Int32" />
@@ -726,6 +728,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="IDAircompany" Type="Int32" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Aircompany" Relationship="Self.FK_Worker_Aircompany" FromRole="Worker" ToRole="Aircompany" />
           <NavigationProperty Name="Flight" Relationship="Self.FK_Flight_Worker" FromRole="Worker" ToRole="Flight" />
           <NavigationProperty Name="Flight1" Relationship="Self.FK_Flight_Worker1" FromRole="Worker" ToRole="Flight" />
@@ -987,7 +990,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AirportEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AirportEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aircompany" EntityType="Self.Aircompany" />
           <EntitySet Name="Airplane" EntityType="Self.Airplane" />
           <EntitySet Name="AirplaneModel" EntityType="Self.AirplaneModel" />
@@ -1094,7 +1097,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище AirportModelContainer" CdmEntityContainer="AirportEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AirportModelContainer" CdmEntityContainer="AirportEntities1">
           <EntitySetMapping Name="Aircompany">
             <EntityTypeMapping TypeName="AirportModel.Aircompany">
               <MappingFragment StoreEntitySet="Aircompany">
@@ -1273,6 +1276,7 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IDAircompany" ColumnName="IDAircompany" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
