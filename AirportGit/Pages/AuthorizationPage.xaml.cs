@@ -40,6 +40,7 @@ namespace AirportGit.Pages
             DBConnection.loginedClient = currentClient;
             if (currentWorker != null)
             {
+
                 NavigationService.Navigate(new MainMenuWorkerPage());
             }
             
