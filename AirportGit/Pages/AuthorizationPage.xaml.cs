@@ -35,16 +35,20 @@ namespace AirportGit.Pages
             workers = new List<Worker>(DBConnection.airportEntities.Worker.ToList());
             var currentWorker = workers.FirstOrDefault(i => i.Email.Trim() == login && i.Password.Trim() == password);
             DBConnection.loginedWorker = currentWorker;
-            clients = new List<Client>(DBConnection.airportEntities.Client.ToList());
-            var currentClient = clients.FirstOrDefault(i => i.Email.Trim() == login && i.Password.Trim() == password);
-            DBConnection.loginedClient = currentClient;
             if (currentWorker != null)
             {
 
                 NavigationService.Navigate(new MainMenuWorkerPage());
             }
-            
-            else if (currentClient != null)
+            else
+            {
+                MessageBox.Show("Неверный логин или пароль. Попробуйте снова.");
+            }
+
+            clients = new List<Client>(DBConnection.airportEntities.Client.ToList());
+            var currentClient = clients.FirstOrDefault(i => i.Email == login && i.Password == password);
+            DBConnection.loginedClient = currentClient;
+            if (currentClient != null)
             {
                 NavigationService.Navigate(new MainMenuClientPage());
             }
