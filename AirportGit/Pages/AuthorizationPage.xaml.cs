@@ -48,6 +48,7 @@ namespace AirportGit.Pages
                 NavigationService.Navigate(new MainMenuClientPage());
             }
             else
+
             {
                 MessageBox.Show("Неверный логин или пароль. Попробуйте снова.");
             }
