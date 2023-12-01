@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirportGit.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,45 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class AllWorkersPage : Page
     {
-        public AllWorkersPage()
+        public static List<Worker> workers { get; set; }
+        public static AllWorkersPage()
         {
             InitializeComponent();
+            workers = DBConnection.AirportEntities.Worker.ToList();
+            this.DataContext = this;
+            Refresh();
+        }
+        private void Refresh()
+        {
+            WorkersLV.ItemsSource = DBConnection.AirportEntities.Worker.ToList();
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+        private void AddWorkerBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddWorkerPage());
+        }
+
+        private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EditWorkerPage());
+        }
+
+        private void DeleteWorkerBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (WorkersLV.SelectedItem is Worker work)
+            {
+                DBConnection.AirportEntities.Worker.Remove(work);
+                DBConnection.AirportEntities.SaveChanges();
+            }
+            Refresh();
+        }
+
+        private void BackBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddWorkerPage());
         }
     }
 }

@@ -9,6 +9,177 @@
       Title="AllWorkersPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Сотрудники"
+        FontSize="30"
+        Margin="10"
+        Grid.Column="2"
+        Grid.Row="1"
+        Grid.ColumnSpan="2"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"/>
+        <ListView x:Name="WorkersLV"
+        Grid.Column="0"
+        Grid.ColumnSpan="6"
+        Grid.Row="2"
+        Grid.RowSpan="6"
+        Height="400"
+        Width="1660">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header ="ID" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding IDWorker}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Фамилия" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Surname}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Имя" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Отчество" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Patronymic}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Дата рождения" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DateOfBirth, StringFormat = dd.MM.yyyy}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Паспортные данные" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Passport}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Телефон" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Phone}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Стаж" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Stach}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Оклад" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Salary}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Должность" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Position.Nazvanie}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Компания" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Aircompany.Name}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header ="Фото" Width="200">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Image}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="BackBTN"
+        Content="Назад"
+        FontWeight="DemiBold"
+        FontSize="20"
+        Margin="10"
+        Width="250"
+        Height="30"
+        Grid.Column="2"
+        Grid.ColumnSpan="2"
+        Grid.Row="9"
+        Click="BackBTN_Click"/>
+        <Button x:Name="EditWorkerBTN"
+        Content="Изменить сотрудника"
+        FontWeight="DemiBold"
+        FontSize="20"
+        Margin="10"
+        Width="250"
+        Height="30"
+        Grid.Column="0"
+        Grid.ColumnSpan="2"
+        Grid.Row="8"
+        Click="EditWorkerBTN_Click" RenderTransformOrigin="0.501,0.5"/>
+        <Button x:Name="AddWorkerBTN"
+        Content="Добавить сотрудника"
+        FontWeight="DemiBold"
+        FontSize="20"
+        Margin="10"
+        Width="250"
+        Height="30"
+        Grid.Column="2"
+        Grid.ColumnSpan="2"
+        Grid.Row="8"
+        Click="AddWorkerBTN_Click"/>
+        <Button x:Name="DeleteWorkerBTN"
+        Content="Удалить сотрудника"
+        FontWeight="DemiBold"
+        FontSize="20"
+        Margin="10"
+        Width="250"
+        Height="30"
+        Grid.Column="4"
+        Grid.ColumnSpan="2"
+        Grid.Row="8"
+        Click="DeleteWorkerBTN_Click"/>
+
     </Grid>
 </Page>
