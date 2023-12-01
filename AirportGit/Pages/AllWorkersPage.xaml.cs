@@ -60,7 +60,7 @@ namespace AirportGit.Pages
 
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddWorkerPage());
+            NavigationService.Navigate(new MainMenuWorkerPage());
         }
     }
 }
