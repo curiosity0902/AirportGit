@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,20 +22,22 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class AllCitiesPage : Page
     {
-        public static List<City> cities { get; set; }
+        public static List<City> cities = new List<City>();
         public static List<Country> countries { get; set; }
         public AllCitiesPage(Country country)
         {
             InitializeComponent();
-            cities = new List<City>(DBConnection.airportEntities.City.ToList());
-            countries = new List<Country>(DBConnection.airportEntities.Country.ToList());
-            CitiesLv.ItemsSource = cities.Where(x => x.IDCounrty == country.IDCountry);
+            contextCountry = country;
+            InitializeDataInPage();
             this.DataContext = this;
         }
 
-        private void CitiesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void InitializeDataInPage()
         {
-
+            cities = new List<City>(DBConnection.airportEntities.City.ToList().Where(x => x.IDCounrty == contextCountry.IDCountry));
+            countries = new List<Country>(DBConnection.airportEntities.Country.ToList());
+            CitiesLv.ItemsSource = new List<City>(DBConnection.airportEntities.City.ToList());
+            this.DataContext = this;
         }
     }
 }

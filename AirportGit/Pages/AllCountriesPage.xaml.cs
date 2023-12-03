@@ -32,7 +32,11 @@ namespace AirportGit.Pages
 
         private void CountiesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            NavigationService.Navigate(new AllCitiesPage(CountiesLv.SelectedItem as Country));
+            if (CountiesLv.SelectedItem is Country country)
+            {
+                CountiesLv.SelectedItem = null;
+                NavigationService.Navigate(new AllCitiesPage(country));
+            }
         }
     }
 }
