@@ -59,5 +59,15 @@ namespace AirportGit.Pages
         {
             NavigationService.Navigate(new AllCountriesPage());
         }
+
+        //private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    if (SearchTB.Text.Length > 0)
+
+        //        CitiesLv.ItemsSource = DBConnection.airportEntities.City.Where(i => i.Nazvanie.Contains(SearchTB.Text.Trim()) && i.IDCounrty == contextCountry.IDCountry).ToList();
+
+        //    else
+        //        CitiesLv.ItemsSource = new List<City>(DBConnection.airportEntities.City.ToList());
+        //}
     }
 }

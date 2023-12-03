@@ -43,5 +43,16 @@ namespace AirportGit.Pages
         {
             NavigationService.Navigate(new MainMenuWorkerPage());
         }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (SearchTB.Text.Length > 0)
+
+                CountiesLv.ItemsSource = DBConnection.airportEntities.Country.Where(i => i.Nazvanie.Contains(SearchTB.Text.Trim())).ToList();
+
+            else
+                CountiesLv.ItemsSource = new List<Country>(DBConnection.airportEntities.Country.ToList());
+        }
     }
 }
