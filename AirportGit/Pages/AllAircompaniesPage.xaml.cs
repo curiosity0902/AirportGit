@@ -29,5 +29,10 @@ namespace AirportGit.Pages
             AircompaniesLv.ItemsSource = new List<Aircompany>(DBConnection.airportEntities.Aircompany.ToList());
             this.DataContext = this;
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainMenuWorkerPage());
+        }
     }
 }
