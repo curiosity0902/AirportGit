@@ -9,6 +9,49 @@
       Title="AllAirportsPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ListView
+            x:Name="ClientsLv"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="7"
+            Grid.RowSpan="6"
+            ItemsSource="{Binding clients}"
+            >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding Surname}" Width="220"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}" Width="160"/>
+                        <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic}" Width="280"/>
+                        <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding DateOfBirth, StringFormat = dd.MM.yyyy}" Width="270"/>
+                        <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding Phone}" Width="250"/>
+                        <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="320"/>
+
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

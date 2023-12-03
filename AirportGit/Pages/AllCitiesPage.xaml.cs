@@ -22,12 +22,12 @@ namespace AirportGit.Pages
     public partial class AllCitiesPage : Page
     {
         public static List<City> cities { get; set; }
-        public static List<Flyghtport> flyghtports { get; set; }
+        public static List<Country> countries { get; set; }
         public AllCitiesPage()
         {
             InitializeComponent();
             cities = new List<City>(DBConnection.airportEntities.City.ToList());
-            flyghtports = new List<Flyghtport>(DBConnection.airportEntities.Flyghtport.ToList());
+            countries = new List<Country>(DBConnection.airportEntities.Country.ToList());
             CitiesLv.ItemsSource = new List<City>(DBConnection.airportEntities.City.ToList());
             this.DataContext = this;
         }

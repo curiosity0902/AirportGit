@@ -42,8 +42,8 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Город" DisplayMemberBinding="{Binding Name}" Width="450"/>
-                        <GridViewColumn Header="Аэропорт" DisplayMemberBinding="{Binding Flyghtport.Name}" Width="550"/>
+                        <GridViewColumn Header="Страна" DisplayMemberBinding="{Binding Nazvanie}" Width="450"/>
+                        <GridViewColumn Header="Город" DisplayMemberBinding="{Binding Ctiy.Nazvanie}" Width="550"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
