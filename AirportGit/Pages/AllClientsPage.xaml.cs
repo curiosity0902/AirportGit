@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AirportGit.DB;
 
 namespace AirportGit.Pages
 {
@@ -20,9 +21,29 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class AllClientsPage : Page
     {
+        public static List<Client> clients { get; set; }
         public AllClientsPage()
         {
             InitializeComponent();
+            clients = new List<Client>(DBConnection.airportEntities.Client.ToList());
+            ClientsLv.ItemsSource = new List<Client>(DBConnection.airportEntities.Client.ToList());
+            this.DataContext = this;
+            Refresh();
+        }
+
+        public void Refresh()
+        {
+            ClientsLv.ItemsSource = new List<Client>(DBConnection.airportEntities.Client.ToList());
+        }
+
+        private void AddClientBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainMenuWorkerPage());
         }
     }
 }
