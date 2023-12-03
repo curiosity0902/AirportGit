@@ -28,29 +28,34 @@ namespace AirportGit.Pages
         public static List<Position> positions { get; set; }
         public static List<Aircompany> aircompanies { get; set; }
         Worker contextWorker;
-        public EditWorkerPage(Worker worker)
+
+        private void InitializeDataInPage()
         {
-            InitializeComponent();
-            contextWorker = worker;
             workers = DBConnection.airportEntities.Worker.ToList();
             positions = DBConnection.airportEntities.Position.ToList();
             aircompanies = DBConnection.airportEntities.Aircompany.ToList();
             this.DataContext = this;
-            Worker w = DBConnection.selectedForEditWorker;
-            SurnameTB.Text = w.Surname;
-            NameTB.Text = w.Name;
-            PatronymicTB.Text = w.Patronymic;
-            DateOfBirthDP.SelectedDate = w.DateOfBirth;
-            PassportTB.Text = w.Passport;
-            PhoneTB.Text = w.Phone;
-            PositionCB.SelectedIndex = (int)w.IDPosition - 1;
-            AircompanyCB.SelectedIndex = (int)w.IDAircompany - 1;
-            EmailTB.Text = w.Email;
-            PasswordTB.Text = w.Password;
-            if (w.Photo != null)
+            SurnameTB.Text = contextWorker.Surname;
+            NameTB.Text = contextWorker.Name;
+            PatronymicTB.Text = contextWorker.Patronymic;
+            DateOfBirthDP.SelectedDate = contextWorker.DateOfBirth;
+            PassportTB.Text = contextWorker.Passport;
+            PhoneTB.Text = contextWorker.Phone;
+            PositionCB.SelectedIndex = (int)contextWorker.IDPosition - 1;
+            AircompanyCB.SelectedIndex = (int)contextWorker.IDAircompany - 1;
+            EmailTB.Text = contextWorker.Email;
+            PasswordTB.Text = contextWorker.Password;
+            if (contextWorker.Photo != null)
             {
-                PhotoWorker.Source = new BitmapImage(new Uri(w.Photo.ToString()));
+                PhotoWorker.Source = new BitmapImage(new Uri(contextWorker.Photo.ToString()));
             }
+        }
+        public EditWorkerPage(Worker worker)
+        {
+            InitializeComponent();
+            contextWorker = worker;
+            InitializeDataInPage();
+            this.DataContext = this;
         }
 
         private void AddPhotoBTN_Click(object sender, RoutedEventArgs e)
@@ -61,42 +66,60 @@ namespace AirportGit.Pages
             };
             if (openFileDialog.ShowDialog().GetValueOrDefault())
             {
-                DBConnection.selectedForEditWorker.Photo = File.ReadAllBytes(openFileDialog.FileName);
+                DBConnection.loginedWorker.Photo = File.ReadAllBytes(openFileDialog.FileName);
                 PhotoWorker.Source = new BitmapImage(new Uri(openFileDialog.FileName));
             }
         }
-
         private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
         {
-            var error = string.Empty;
-            var validationContext = new ValidationContext(contextWorker);
-            var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
-            if (!Validator.TryValidateObject(contextWorker, validationContext, results, true))
+            try
             {
-                foreach (var result in results)
+                Worker worker = contextWorker;
+                if (string.IsNullOrWhiteSpace(SurnameTB.Text) || string.IsNullOrWhiteSpace(NameTB.Text) || string.IsNullOrWhiteSpace(PatronymicTB.Text) ||
+                        DateOfBirthDP.SelectedDate == null || string.IsNullOrWhiteSpace(PassportTB.Text) || string.IsNullOrWhiteSpace(PhoneTB.Text) ||
+                        string.IsNullOrWhiteSpace(EmailTB.Text) || string.IsNullOrWhiteSpace(PasswordTB.Text))
                 {
-                    error += $"{result.ErrorMessage}\n";
+                    MessageBox.Show("Заполните все поля!");
+                }
+                else
+                {
+                    worker.Surname = SurnameTB.Text;
+                    worker.Name = NameTB.Text;
+                    worker.Patronymic = PatronymicTB.Text;
+                    if (DateOfBirthDP.SelectedDate != null && (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 18 + 4)
+                    {
+                        MessageBox.Show("Сотрудник не может быть младше 18 лет.");
+                    }
+                    else
+                    {
+                        worker.DateOfBirth = Convert.ToDateTime(DateOfBirthDP.Text);
+                    }
+                    worker.IDPosition = (PositionCB.SelectedItem as Position).IDPosition;
+                    worker.IDAircompany = (AircompanyCB.SelectedItem as Aircompany).IDAircompany;
+                    worker.Phone = PhoneTB.Text;
+                    worker.Email = EmailTB.Text;
+                    worker.Password = PasswordTB.Text;
+                    DBConnection.airportEntities.SaveChanges();
+
+                    SurnameTB.Text = String.Empty;
+                    NameTB.Text = String.Empty;
+                    PatronymicTB.Text = String.Empty;
+                    DateOfBirthDP = null;
+                    PositionCB.Text = String.Empty;
+                    PositionCB.Text = String.Empty;
+                    PhoneTB.Text = String.Empty;
+                    EmailTB.Text = String.Empty;
+                    PasswordTB.Text = String.Empty;
+
+                    DBConnection.airportEntities.SaveChanges();
+                    NavigationService.Navigate(new AllWorkersPage());
                 }
             }
-            if (!string.IsNullOrEmpty(error))
+            catch
             {
-                MessageBox.Show(error);
-                return;
+                MessageBox.Show("Произошла ошибка!");
             }
-            if (contextWorker.IDWorker == 0)
-                DBConnection.airportEntities.Worker.Add(contextWorker);
-            DBConnection.airportEntities.SaveChanges();
-            NavigationService.Navigate(new AllWorkersPage());
-            //try
-            //{
-
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Возникла ошибка");
-            //}
         }
-
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AllWorkersPage());

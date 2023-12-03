@@ -44,7 +44,7 @@
         Grid.Row="2"
         Grid.RowSpan="6"
         Height="400"
-        Width="1660">
+        Width="1400">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -118,7 +118,7 @@
                         <GridViewColumn Header ="Фото" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding Image}"/>
+                                    <Image Source="{Binding Photo}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
