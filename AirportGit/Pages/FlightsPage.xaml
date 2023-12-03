@@ -45,12 +45,11 @@
             Grid.Row="1"/>
         <ListView x:Name="FlightsLV"
             ItemsSource="{Binding flights}"
-            Grid.Column="1"
-            Grid.ColumnSpan="5"
+            Grid.ColumnSpan="6"
             Grid.Row="2"
             Grid.RowSpan="6"
-            Margin="10"
-                  FontSize="11">
+            Margin="157,5,137,15"
+                  FontSize="11" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -157,6 +156,6 @@
             Grid.ColumnSpan="2"
             Grid.Row="8"
             Click="AddBTN_Click"/>
-        
+
     </Grid>
 </Page>

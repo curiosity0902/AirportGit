@@ -36,7 +36,7 @@ namespace AirportGit.Pages
 
         private void AddBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddFlightPage());
         }
 
     }

@@ -42,10 +42,11 @@ namespace AirportGit.Pages
                 DBConnection.loginedClient = currentClient;
                 if (currentWorker != null)
                 {
-                    if (currentWorker.Position.Nazvanie == "Администратор")
-                    {
-                        NavigationService.Navigate(new MainMenuWorkerPage());
-                    }
+                    NavigationService.Navigate(new MainMenuWorkerPage());
+
+                    //if (currentWorker.Position.Nazvanie == "Администратор")
+                    //{
+                    //}
                 }
 
                 else if (currentClient != null)

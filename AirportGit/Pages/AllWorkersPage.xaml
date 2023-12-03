@@ -111,7 +111,7 @@
                         <GridViewColumn Header ="Компания" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Aircompany.Name}"/>
+                                    <TextBlock Text="{Binding Aircompany.Nazvanie}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
