@@ -43,7 +43,15 @@ namespace AirportGit.Pages
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainMenuWorkerPage());
+            if (DBConnection.loginedWorker != null)
+            {
+                NavigationService.Navigate(new MainMenuWorkerPage());
+            }
+
+            if (DBConnection.loginedClient != null)
+            {
+                NavigationService.Navigate(new MainMenuClientPage());
+            }
         }
     }
 }

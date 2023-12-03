@@ -234,7 +234,7 @@
                 Grid.Column="4"
                 Grid.Row="8"
                 Grid.ColumnSpan="2"
-                Width="150"/>
+                Width="150" Click="AddBtn_Click"/>
 
     </Grid>
 </Page>

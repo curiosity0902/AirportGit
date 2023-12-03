@@ -129,5 +129,64 @@ namespace AirportGit.Pages
         {
             NavigationService.Navigate(new FlightsPage());
         }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                StringBuilder error = new StringBuilder();
+                if (DepartureDateDP.SelectedDate == null || DepartureTimeTb.Text.Trim() == "" ||
+                    ArivalDateDP.SelectedDate == null || ArivalTimeTb.Text.Trim() == "" ||
+                    StartFlyghtportCb.SelectedIndex == -1 || EndFlyghtportCb.SelectedIndex == -1 ||
+                    AirplaneCb.SelectedIndex == -1 || StatusCb.SelectedIndex == -1 || PriceTb.Text.Trim() == "")
+                {
+                    error.AppendLine("Заполните все поля");
+                }
+                if(WorkerList1Cb.SelectedIndex == -1 && WorkerList2Cb.SelectedIndex == -1 &&
+                    WorkerList3Cb.SelectedIndex == -1)
+                {
+                    error.AppendLine("Выберите бортпроводника");
+                }
+
+                if(error.Length > 0)
+                {
+                    MessageBox.Show(error.ToString());
+                }
+                else
+                {
+                    Flight flight = new Flight();
+                    DateTime d = (DateTime)DepartureDateDP.SelectedDate;
+                    int hour = int.Parse(DepartureTimeTb.Text.Split(':')[0]);
+                    int minute = int.Parse(DepartureTimeTb.Text.Split(':')[1]);
+                    DateTime dateTime = new DateTime(d.Year, d.Month, d.Day, hour, minute, 0);
+                    flight.DepartureDate = dateTime;
+
+                    d = (DateTime)ArivalDateDP.SelectedDate;
+                    hour = int.Parse(ArivalTimeTb.Text.Split(':')[0]);
+                    minute = int.Parse(ArivalTimeTb.Text.Split(':')[1]);
+                    dateTime = new DateTime(d.Year, d.Month, d.Day, hour, minute, 0);
+                    flight.ArivalDate = dateTime;
+
+                    flight.IDFlyghport1 = (StartFlyghtportCb.SelectedItem as Flyghtport).IDFlyghtport;
+                    flight.IDFlyghtport = (EndFlyghtportCb.SelectedItem as Flyghtport).IDFlyghtport;
+                    if (worker1 != null)
+                        flight.IDBortworker1 = worker1.IDWorker;
+                    if(worker2 !=  null)
+                        flight.IDBortworker2 = worker2.IDWorker;
+                    if(worker3 != null)
+                        flight.IDBortworker3 = worker3.IDWorker;
+                    flight.IDFlightStatus = (StatusCb.SelectedItem as FlightStatus).IDFlightStatus;
+                    flight.IDAirplane = (AirplaneCb.SelectedItem as Airplane).IDAirplane;
+                    flight.Price = int.Parse(PriceTb.Text);
+                    DBConnection.airportEntities.Flight.Add(flight);
+                    DBConnection.airportEntities.SaveChanges();
+                    NavigationService.Navigate(new FlightsPage());
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Возникла ошибка");
+            }
+        }
     }
 }
