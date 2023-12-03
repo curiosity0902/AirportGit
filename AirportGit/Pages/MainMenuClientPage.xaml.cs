@@ -40,7 +40,7 @@ namespace AirportGit.Pages
         }
         private void FlightsBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new FlightsPage());
+            NavigationService.Navigate(new ViewFlightsPage());
         }
         private void AirplaneBTN_Click(object sender, RoutedEventArgs e)
         {

@@ -52,8 +52,8 @@
                     <GridView.Columns>
                         <GridViewColumn Header="Номер экипажа" DisplayMemberBinding="{Binding IDTeam}" Width="280"/>
                         <GridViewColumn Header="Номер экапажа" DisplayMemberBinding="{Binding Worker.Name}" Width="380"/>
-                        <GridViewColumn Header="Номер экапажа" DisplayMemberBinding="{Binding Worker.Name}" Width="380"/>
-                        <GridViewColumn Header="Номер экапажа" DisplayMemberBinding="{Binding Worker.Name}" Width="380"/>
+                        <GridViewColumn Header="Номер экапажа" DisplayMemberBinding="{Binding Worker1.Name}" Width="380"/>
+                        <GridViewColumn Header="Номер экапажа" DisplayMemberBinding="{Binding Worker2.Name}" Width="380"/>
 
                     </GridView.Columns>
                 </GridView>

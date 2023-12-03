@@ -24,5 +24,20 @@ namespace AirportGit.Pages
         {
             InitializeComponent();
         }
+
+        private void AddPhotoBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
