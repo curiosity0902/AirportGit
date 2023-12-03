@@ -51,16 +51,34 @@ namespace AirportGit.Pages
         {
             try
             {
-                var dcvd = SurnameTB.Text + " " + NameTB.Text + " " + PatronymicTB.Text + " " + DateOfBirthDP.Text;
-
-                if (MessageBox.Show(dcvd, "Проверьте корректность введенных данных", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+                if (string.IsNullOrWhiteSpace(SurnameTB.Text) || string.IsNullOrWhiteSpace(NameTB.Text) || string.IsNullOrWhiteSpace(PatronymicTB.Text) ||
+                        DateOfBirthDP.SelectedDate == null || string.IsNullOrWhiteSpace(PassportTB.Text) || string.IsNullOrWhiteSpace(PhoneTB.Text) ||
+                        string.IsNullOrWhiteSpace(EmailTB.Text) || string.IsNullOrWhiteSpace(PasswordTB.Text))
+                {
+                    MessageBox.Show("Заполните все поля!");
+                }
+                else
                 {
                     worker.Surname = SurnameTB.Text.Trim();
                     worker.Name = NameTB.Text.Trim();
                     worker.Patronymic = PatronymicTB.Text.Trim();
-                    worker.DateOfBirth = DateOfBirthDP.SelectedDate;
+                    if (DateOfBirthDP.SelectedDate != null && (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 18 + 4)
+                    {
+                        MessageBox.Show("Сотрудник не может быть младше 18 лет.");
+                    }
+                    else
+                    {
+                        worker.DateOfBirth = DateOfBirthDP.SelectedDate;
+                    }
                     worker.Passport = PassportTB.Text.Trim();
-                    worker.Email = EmailTB.Text.Trim();
+                    if (AddCheck.SameEmail(EmailTB.Text.Trim()))
+                    {
+                        MessageBox.Show("Такая почта уже используется!");
+                    }
+                    else
+                    {
+                        worker.Email = EmailTB.Text.Trim();
+                    }
                     worker.Password = PasswordTB.Text.Trim();
                     var a = PositionCB.SelectedItem as Position;
                     worker.IDPosition = a.IDPosition;
@@ -72,7 +90,7 @@ namespace AirportGit.Pages
             }
             catch
             {
-                MessageBox.Show("Возникла ошибка");
+                MessageBox.Show("Заполните все поля!");
             }
         }
         private void BackBTN_Click(object sender, RoutedEventArgs e)
