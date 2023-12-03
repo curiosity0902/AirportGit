@@ -30,6 +30,7 @@ namespace AirportGit.Pages
             contextCountry = country;
             InitializeDataInPage();
             this.DataContext = this;
+
         }
 
         public void InitializeDataInPage()
