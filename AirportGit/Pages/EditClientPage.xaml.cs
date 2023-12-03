@@ -21,52 +21,74 @@ namespace AirportGit.Pages
     //public partial class EditClientPage : Page
     //{
     //    public static List<Client> clients { get; set; }
-    //    public static Client client { get; set; }
-    //    public static Client loggedClient;
-    //    public EditClientPage(Client client)
-    //    {
-    //        InitializeComponent();
-    //        contextClient = client;
-    //        clients = DBConnection.airportEntities.Client.ToList();
-    //        this.DataContext = this;
-    //        Worker w = DBConnection.selectedForEditWorker;
-    //        SurnameTB.Text = w.Surname;
-    //        NameTB.Text = w.Name;
-    //        PatronymicTB.Text = w.Patronymic;
-    //        DateOfBirthDP.SelectedDate = w.DateOfBirth;
-    //        PassportTB.Text = w.Passport;
-    //        PhoneTB.Text = w.Phone;
-    //        EmailTB.Text = w.Email;
-    //        PasswordTB.Text = w.Password;
-    //    }
+    public static Client client { get; set; }
+    public static Client loggedClient;
+    public EditClientPage(Client client)
+    {
+        InitializeComponent();
+        loggedClient = client;
+        InitializeDataInPage();
+        this.DataContext = this;
+    }
 
-    //    private void BackBTN_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        NavigationService.Navigate(new MainMenuClientPage());
-    //    }
+    private void InitializeDataInPage()
+    {
+        clients = DBConnection.airportEntities.Client.ToList();
+        loggedClient = DBConnection.loginedClient;
+        this.DataContext = this;
+        SurnameTB.Text = loggedClient.Surname;
+        NameTB.Text = loggedClient.Name;
+        PatronymicTB.Text = loggedClient.Patronymic;
+        DateOfBirthDP.SelectedDate = loggedClient.DateOfBirth;
+        PassportTB.Text = loggedClient.Passport;
+        PhoneTB.Text = loggedClient.Phone;
+        EmailTB.Text = loggedClient.Email;
+        PasswordTB.Text = loggedClient.Password;
+    }
 
-    //    private void EditClientBTN_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        var error = string.Empty;
-    //        var validationContext = new ValidationContext(contextWorker);
-    //        var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
-    //        if (!Validator.TryValidateObject(contextWorker, validationContext, results, true))
-    //        {
-    //            foreach (var result in results)
-    //            {
-    //                error += $"{result.ErrorMessage}\n";
-    //            }
-    //        }
-    //        if (!string.IsNullOrEmpty(error))
-    //        {
-    //            MessageBox.Show(error);
-    //            return;
-    //        }
-    //        if (contextWorker.ID == 0)
-    //            DBConnection.airportEntities.Worker.Add(contextWorker);
-    //        DBConnection.airportEntities.SaveChanges();
-    //        NavigationService.Navigate(new WorkerPage());
-    //    }
+    private void BackBTN_Click(object sender, RoutedEventArgs e)
+    {
+        NavigationService.Navigate(new MainMenuClientPage());
+    }
 
-    //}
+    private void EditClientBTN_Click(object sender, RoutedEventArgs e)
+    {
+        Client client = loggedClient;
+        if (string.IsNullOrWhiteSpace(SurnameTB.Text) || string.IsNullOrWhiteSpace(NameTB.Text) || string.IsNullOrWhiteSpace(PatronymicTB.Text) ||
+                DateOfBirthDP.SelectedDate == null || string.IsNullOrWhiteSpace(PassportTB.Text) || string.IsNullOrWhiteSpace(PhoneTB.Text) ||
+                string.IsNullOrWhiteSpace(EmailTB.Text) || string.IsNullOrWhiteSpace(PasswordTB.Text))
+        {
+            MessageBox.Show("Заполните все поля!");
+        }
+        else
+        {
+            client.Surname = SurnameTB.Text;
+            client.Name = NameTB.Text;
+            client.Patronymic = PatronymicTB.Text;
+            if (DateOfBirthDP.SelectedDate != null &&
+                    (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 14 + 4)
+            {
+                MessageBox.Show("Вы не можете быть младше 14 лет.");
+            }
+            else
+            {
+                client.DateOfBirth = Convert.ToDateTime(DateOfBirthDP.Text);
+            }
+            client.Phone = PhoneTB.Text;
+            client.Email = EmailTB.Text;
+            client.Password = PasswordTB.Text;
+            DBConnection.airportEntities.SaveChanges();
+
+            SurnameTB.Text = String.Empty;
+            NameTB.Text = String.Empty;
+            PatronymicTB.Text = String.Empty;
+            DateOfBirthDP = null;
+            PhoneTB.Text = String.Empty;
+            EmailTB.Text = String.Empty;
+            PasswordTB.Text = String.Empty;
+
+            DBConnection.airportEntities.SaveChanges();
+            NavigationService.Navigate(new MainMenuClientPage());
+        }
+    }
 }
