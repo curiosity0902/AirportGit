@@ -24,5 +24,15 @@ namespace AirportGit.Pages
         {
             InitializeComponent();
         }
+
+        private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BackBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
