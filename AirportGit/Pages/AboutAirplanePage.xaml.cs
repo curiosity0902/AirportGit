@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,20 +24,28 @@ namespace AirportGit.Pages
     public partial class AboutAirplanePage : Page
     {
         public static List<AirplaneModel> airplaneModels = new List<AirplaneModel>();
-        public static List<Airplane> airplanes { get; set; }
+        public static Airplane air{ get; set; }
+
         Airplane contextAirplane;
         public AboutAirplanePage(Airplane airplane)
         {
             InitializeComponent();
             contextAirplane = airplane;
-            airplanes = new List <Airplane> (DBConnection.airportEntities.Airplane.ToList());
-            airplaneModels = new List<AirplaneModel> (DBConnection.airportEntities.AirplaneModel.ToList().Where(x => x.NumberModel == contextAirplane.IDAirplaneModel));
+            airplane = air;
+            InitializeDataInPage();
             this.DataContext = this;
 
-            AirplaneModel a = DBConnection.selectedForAboutAirplane;
-            DecodingTB.Text = a.Decoding;
+            //DecodingTB.Text = a.Decoding;
             //MaxSpeedTB 
         }
+        public void InitializeDataInPage()
+        {
+            airplaneModels = new List<AirplaneModel>(DBConnection.airportEntities.AirplaneModel).ToList();
+        }
 
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

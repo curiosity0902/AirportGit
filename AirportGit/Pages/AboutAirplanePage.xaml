@@ -93,5 +93,7 @@
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
         Text="Скорость"/>
+        <Button x:Name="BackBtn"
+                Grid.Row="6" Click="BackBtn_Click"/>
     </Grid>
 </Page>
