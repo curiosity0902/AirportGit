@@ -9,6 +9,85 @@
       Title="AllAirplanesPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ListView
+            x:Name="AirplanesLv"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Grid.RowSpan="6"
+            ItemsSource="{Binding airplanes}"
+            >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Самолет"                
+                         DisplayMemberBinding="{Binding AirplaneModel.Decoding}" 
+                         Width="220"/>
+                        <GridViewColumn Header ="Команда" Width="400">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Team.Worker.Surname}"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock Text="{Binding Team.Worker.Name}"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock Text="{Binding Team.Worker.Patronymic}"/>
+                                            <TextBlock Text=" - главный пилот"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Team.Worker1.Surname}"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock Text="{Binding Team.Worker1.Name}"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock Text="{Binding Team.Worker1.Patronymic}"/>
+                                            <TextBlock Text=" - второй пилот"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Team.Worker2.Surname}"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock Text="{Binding Team.Worker2.Name}"/>
+                                            <TextBlock Text=" "/>
+                                            <TextBlock Text="{Binding Team.Worker2.Patronymic}"/>
+                                            <TextBlock Text=" - бортмеханик"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Авиакомпания" DisplayMemberBinding="{Binding Aircompany.Nazvanie}" Width="270"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button x:Name="BackBtn"
+            Grid.Column="3"
+            Grid.Row="7"
+            Height="65"
+            Content="Вернуться назад" Click="BackBtn_Click"
+            />
     </Grid>
 </Page>
