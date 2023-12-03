@@ -63,5 +63,10 @@ namespace AirportGit.Pages
         {
             NavigationService.Navigate(new MyTicketsPage());
         }
+
+        private void EditBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
