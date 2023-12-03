@@ -142,7 +142,7 @@
         HorizontalAlignment="Left"
         Text="Должность"
         Grid.ColumnSpan="2"
-        VerticalAlignment="Bottom" Margin="0,0,0,25"/>
+        VerticalAlignment="Center"/>
         <ComboBox x:Name="PositionCB"
         Grid.Row="1"
         Grid.Column="12"
@@ -229,7 +229,5 @@
         Width="200"
         Height="40"
         Click="BackBTN_Click"/>
-
-
     </Grid>
 </Page>

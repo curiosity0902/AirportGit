@@ -65,7 +65,7 @@ namespace AirportGit.Pages
 
         private void EditBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new EditClientPage());
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,9 +27,11 @@ namespace AirportGit.Pages
         public static List<Worker> workers { get; set; }
         public static List<Position> positions { get; set; }
         public static List<Aircompany> aircompanies { get; set; }
-        public EditWorkerPage()
+        Worker contextWorker;
+        public EditWorkerPage(Worker worker)
         {
             InitializeComponent();
+            contextWorker = worker;
             workers = DBConnection.airportEntities.Worker.ToList();
             positions = DBConnection.airportEntities.Position.ToList();
             aircompanies = DBConnection.airportEntities.Aircompany.ToList();
@@ -65,14 +68,33 @@ namespace AirportGit.Pages
 
         private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
         {
-            try
+            var error = string.Empty;
+            var validationContext = new ValidationContext(contextWorker);
+            var results = new List<System.ComponentModel.DataAnnotations.ValidationResult>();
+            if (!Validator.TryValidateObject(contextWorker, validationContext, results, true))
             {
+                foreach (var result in results)
+                {
+                    error += $"{result.ErrorMessage}\n";
+                }
+            }
+            if (!string.IsNullOrEmpty(error))
+            {
+                MessageBox.Show(error);
+                return;
+            }
+            if (contextWorker.IDWorker == 0)
+                DBConnection.airportEntities.Worker.Add(contextWorker);
+            DBConnection.airportEntities.SaveChanges();
+            NavigationService.Navigate(new AllWorkersPage());
+            //try
+            //{
 
-            }
-            catch
-            {
-                MessageBox.Show("Возникла ошибка");
-            }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Возникла ошибка");
+            //}
         }
 
         private void BackBTN_Click(object sender, RoutedEventArgs e)
