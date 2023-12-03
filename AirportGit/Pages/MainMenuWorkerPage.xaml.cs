@@ -48,7 +48,7 @@ namespace AirportGit.Pages
         }
         private void AircompanyBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AllAirportsPage());
+            NavigationService.Navigate(new AllAircompaniesPage());
         }
         private void CountryBTN_Click(object sender, RoutedEventArgs e)
         {

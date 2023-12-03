@@ -30,5 +30,23 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <ListView
+            x:Name="CitiesLv"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+            Grid.RowSpan="6"
+            ItemsSource="{Binding cities}"
+            >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Город" DisplayMemberBinding="{Binding Name}" Width="450"/>
+                        <GridViewColumn Header="Аэропорт" DisplayMemberBinding="{Binding Flyghtport.Name}" Width="550"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

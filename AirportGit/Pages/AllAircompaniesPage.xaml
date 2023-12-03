@@ -9,6 +9,49 @@
       Title="AllAircompaniesPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ListView
+            x:Name="AircompaniesLv"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="5"
+            Grid.RowSpan="6"
+            ItemsSource="{Binding aircompanies}"
+            >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Nazvanie}" Width="200"/>
+                        <GridViewColumn Header="Рейтинг" DisplayMemberBinding="{Binding Rating}" Width="200"/>
+                        <GridViewColumn Header="Фактический адрес" DisplayMemberBinding="{Binding FactAdress}" Width="200"/>
+                        <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding ContactPhone}" Width="200"/>
+                        <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding ContactEmail}" Width="200"/>
+                        <GridViewColumn Header="Год создания" DisplayMemberBinding="{Binding YearOfCreate}" Width="200"/>
+                        
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

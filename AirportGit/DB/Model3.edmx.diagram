@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0180db94e8cc487c86eea76b3e5b86e2" Name="Diagram1">
+      <Diagram DiagramId="06417f3cd81844678cf4ead8b2c977cb" Name="Diagram1">
         <EntityTypeShape EntityType="AirportModel.Aircompany" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AirportModel.Airplane" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AirportModel.AirplaneModel" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="AirportModel.FlightStatus" Width="1.5" PointX="9" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AirportModel.Flyghtport" Width="1.5" PointX="9" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="AirportModel.Position" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirportModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="AirportModel.Team" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AirportModel.Ticket" Width="1.5" PointX="13.5" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AirportModel.Worker" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
