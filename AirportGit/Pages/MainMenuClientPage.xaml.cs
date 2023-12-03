@@ -43,11 +43,11 @@ namespace AirportGit.Pages
         }
         private void AirplaneBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AllAirportsPage());
+            NavigationService.Navigate(new AllAirplanesPage());
         }
         private void AircompanyBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AllAirportsPage());
+            NavigationService.Navigate(new AllAircompaniesPage());
         }
         private void CountryBTN_Click(object sender, RoutedEventArgs e)
         {

@@ -167,6 +167,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AllAirplanesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AllAirportsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -238,6 +242,9 @@
     </Compile>
     <Compile Include="Pages\AllAircompaniesPage.xaml.cs">
       <DependentUpon>AllAircompaniesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllAirplanesPage.xaml.cs">
+      <DependentUpon>AllAirplanesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AllAirportsPage.xaml.cs">
       <DependentUpon>AllAirportsPage.xaml</DependentUpon>
