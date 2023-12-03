@@ -31,6 +31,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <ComboBox x:Name="CBStudents"
+                      DisplayMemberPath="Nazvanie" SelectionChanged="CBStudents_SelectionChanged"/>
         <TextBlock Text="Рейсы"
             FontSize="30"
             Margin="10"

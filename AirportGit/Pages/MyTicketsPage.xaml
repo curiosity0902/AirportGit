@@ -9,6 +9,98 @@
       Title="MyTicketsPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView
+            x:Name="TicketsLv"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="7"
+            Grid.RowSpan="6"
+            ItemsSource="{Binding tickets}"
+            >
+                <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Дата покупки билета" DisplayMemberBinding="{Binding DateOfBuy, StringFormat = dd.MM.yyyy}" Width="220"/>
+                        <GridViewColumn Header="Класс резервации" DisplayMemberBinding="{Binding ClassReservation.Name}" Width="260"/>
+                        <GridViewColumn Header="Рейс" Width="570">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="Дата отлета"/>
+                                                <TextBlock Text="{Binding Flight.DepartureDate, StringFormat = dd.MM.yyyy}"/>
+                                                <TextBlock Text="{Binding Flight.DepartureDate, StringFormat = HH:mm}"/>
+                                            </StackPanel>
+                                            
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="Дата прилета"/>
+                                                <TextBlock Text="{Binding Flight.ArivalDate, StringFormat = dd.MM.yyyy}"/>
+                                                <TextBlock Text="{Binding Flight.ArivalDate, StringFormat = HH:mm}"/>
+                                            </StackPanel>
+                                            
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="Город отлета"/>
+                                                <TextBlock Text="{Binding Flight.Flyghtport1.City.Nazvanie}"/>
+                                            </StackPanel>
+                                            
+                                            <StackPanel Margin="5">
+                                                <TextBlock Text="Город прилета"/>
+                                                <TextBlock Text="{Binding Flight.Flyghtport.City.Nazvanie}"/>
+                                            </StackPanel>
+                                            
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Cost}" Width="220"/>
+                        <GridViewColumn Header="Багаж" Width="350">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Baggage.Weight}"/>
+                                            <TextBlock Text=" x "/>
+                                            <TextBlock Text="{Binding Baggage.Lenght}"/>
+                                            <TextBlock Text=" x "/>
+                                            <TextBlock Text="{Binding Baggage.Height}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Button x:Name="BackBtn"
+            Grid.Column="3"
+            Grid.Row="7"
+            Height="65"
+            Content="Вернуться назад" Click="BackBtn_Click_1"
+            />
     </Grid>
 </Page>
