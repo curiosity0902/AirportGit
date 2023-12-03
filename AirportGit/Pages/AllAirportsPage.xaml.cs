@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AirportGit.DB;
 
 namespace AirportGit.Pages
 {
@@ -20,9 +21,33 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class AllAirportsPage : Page
     {
-        public AllAirportsPage()
+        public static List<Flyghtport> flyghtports = new List<Flyghtport>();
+        public static List<City> cities { get; set; }
+        City contextCity;
+        public AllAirportsPage(City city)
         {
             InitializeComponent();
+            contextCity = city;
+            InitializeDataInPage();
+            this.DataContext = this;
+            Refresh();
+        }
+
+        public void InitializeDataInPage()
+        {
+            cities = new List<City>(DBConnection.airportEntities.City.ToList());
+            flyghtports = new List<Flyghtport>(DBConnection.airportEntities.Flyghtport.ToList().Where(x => x.IDCity == contextCity.IDCity));
+            FlyghtportLv.ItemsSource = new List <Flyghtport>(DBConnection.airportEntities.Flyghtport.ToList());
+            this.DataContext = this;
+        }
+        private void Refresh() //Обновление листа
+        {
+            FlyghtportLv.ItemsSource = new List<Flyghtport>(DBConnection.airportEntities.Flyghtport.ToList().Where(i => i.IDCity == contextCity.IDCity));
+        }
+
+        private void BackBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
     }
 }

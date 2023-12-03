@@ -24,13 +24,14 @@ namespace AirportGit.Pages
     {
         public static List<City> cities = new List<City>();
         public static List<Country> countries { get; set; }
+        Country contextCountry;
         public AllCitiesPage(Country country)
         {
             InitializeComponent();
             contextCountry = country;
             InitializeDataInPage();
             this.DataContext = this;
-
+            Refresh();
         }
 
         public void InitializeDataInPage()
@@ -39,6 +40,24 @@ namespace AirportGit.Pages
             countries = new List<Country>(DBConnection.airportEntities.Country.ToList());
             CitiesLv.ItemsSource = new List<City>(DBConnection.airportEntities.City.ToList());
             this.DataContext = this;
+        }
+        private void Refresh() //Обновление листа
+        {
+            CitiesLv.ItemsSource = new List<City>(DBConnection.airportEntities.City.ToList().Where(i => i.IDCounrty == contextCountry.IDCountry));
+        }
+
+        private void CitiesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (CitiesLv.SelectedItem is City city)
+            {
+                CitiesLv.SelectedItem = null;
+                NavigationService.Navigate(new AllAirportsPage(city));
+            }
+        }
+
+        private void BackBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AllCountriesPage());
         }
     }
 }
