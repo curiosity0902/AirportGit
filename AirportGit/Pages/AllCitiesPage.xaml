@@ -37,7 +37,7 @@
             Grid.Column="1"
             Grid.ColumnSpan="5"
             Grid.RowSpan="6"
-            ItemsSource="{Binding cities}"
+            ItemsSource="{Binding cities}" SelectionChanged="CitiesLv_SelectionChanged"
             >
             <ListView.View>
                 <GridView>

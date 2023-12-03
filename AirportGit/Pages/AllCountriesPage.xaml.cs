@@ -29,5 +29,10 @@ namespace AirportGit.Pages
             CountiesLv.ItemsSource = new List<Country>(DBConnection.airportEntities.Country.ToList());
             this.DataContext = this;
         }
+
+        private void CountiesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            NavigationService.Navigate(new AllCitiesPage(CountiesLv.SelectedItem as Country));
+        }
     }
 }

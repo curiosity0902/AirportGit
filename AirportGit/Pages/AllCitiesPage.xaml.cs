@@ -23,13 +23,18 @@ namespace AirportGit.Pages
     {
         public static List<City> cities { get; set; }
         public static List<Country> countries { get; set; }
-        public AllCitiesPage()
+        public AllCitiesPage(Country country)
         {
             InitializeComponent();
             cities = new List<City>(DBConnection.airportEntities.City.ToList());
             countries = new List<Country>(DBConnection.airportEntities.Country.ToList());
-            CitiesLv.ItemsSource = new List<City>(DBConnection.airportEntities.City.ToList());
+            CitiesLv.ItemsSource = cities.Where(x => x.IDCounrty == country.IDCountry);
             this.DataContext = this;
+        }
+
+        private void CitiesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

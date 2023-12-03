@@ -33,7 +33,7 @@
              Grid.Column="0"
              Grid.ColumnSpan="3"
              Grid.RowSpan="7"
-                  ItemsSource="{Binding countries}">
+                  ItemsSource="{Binding countries}" SelectionChanged="CountiesLv_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>

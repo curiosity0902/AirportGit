@@ -48,7 +48,7 @@ namespace AirportGit.Pages
             if (WorkersLV.SelectedItem is Worker)
             {
                 DBConnection.selectedForEditWorker = WorkersLV.SelectedItem as Worker;
-                //NavigationService.Navigate(new EditWorkerPage());
+                NavigationService.Navigate(new EditWorkerPage(WorkersLV.SelectedItem as Worker));
             }
         }
 
