@@ -21,6 +21,8 @@ namespace AirportGit.DB
         public static Client loginedClient;
 
         public static Worker selectedForEditWorker;
+
+        public static AirplaneModel selectedForAboutAirplane;
     }
 }
 

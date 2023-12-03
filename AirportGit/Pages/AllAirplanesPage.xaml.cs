@@ -53,5 +53,14 @@ namespace AirportGit.Pages
                 NavigationService.Navigate(new MainMenuClientPage());
             }
         }
+
+        private void AirplanesLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (AirplanesLv.SelectedItem is Airplane airplane)
+            {
+                AirplanesLv.SelectedItem = null;
+                NavigationService.Navigate(new AllCitiesPage(airplane));
+            }
+        }
     }
 }

@@ -66,5 +66,15 @@ namespace AirportGit.Pages
         {
             NavigationService.Navigate(new MainMenuWorkerPage());
         }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchTB.Text.Length > 0)
+
+                WorkersLV.ItemsSource = DBConnection.airportEntities.Worker.Where(i => i.Surname.Contains(SearchTB.Text.Trim()) || i.Name.Contains(SearchTB.Text.Trim()) || i.Name.Contains(SearchTB.Text.Trim())).ToList();
+
+            else
+                WorkersLV.ItemsSource = new List<Worker>(DBConnection.airportEntities.Worker.ToList());
+        }
     }
 }

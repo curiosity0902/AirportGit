@@ -37,7 +37,7 @@
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Grid.RowSpan="6"
-            ItemsSource="{Binding airplanes}"
+            ItemsSource="{Binding airplanes}" SelectionChanged="AirplanesLv_SelectionChanged"
             >
             <ListView.View>
                 <GridView>

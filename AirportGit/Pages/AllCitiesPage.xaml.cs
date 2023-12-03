@@ -34,6 +34,10 @@ namespace AirportGit.Pages
             Refresh();
         }
 
+        public AllCitiesPage(Airplane airplane)
+        {
+        }
+
         public void InitializeDataInPage()
         {
             cities = new List<City>(DBConnection.airportEntities.City.ToList().Where(x => x.IDCounrty == contextCountry.IDCountry));

@@ -164,7 +164,7 @@
         Grid.ColumnSpan="4"
         Grid.Row="9"
         Width="300"
-        Height="40" Click="EditWorkerBTN_Click"
+        Height="40" 
         />
         <Button x:Name="BackBTN"      
         Content="Назад"
