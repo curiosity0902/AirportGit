@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
+      FontSize="30"
       Title="ViewFlightsPage">
 
     <Grid>

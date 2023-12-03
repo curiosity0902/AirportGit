@@ -49,23 +49,30 @@ namespace AirportGit.Pages
         }
         private void AddWorkerBTN_Click(object sender, RoutedEventArgs e)
         {
-            var dcvd = SurnameTB.Text + " " + NameTB.Text + " " + PatronymicTB.Text + " " + DateOfBirthDP.Text;
-
-            if (MessageBox.Show(dcvd, "Проверьте корректность введенных данных", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+            try
             {
-                worker.Surname = SurnameTB.Text.Trim();
-                worker.Name = NameTB.Text.Trim();
-                worker.Patronymic = PatronymicTB.Text.Trim();
-                worker.DateOfBirth = DateOfBirthDP.SelectedDate;
-                worker.Passport = PassportTB.Text.Trim();
-                worker.Email = EmailTB.Text.Trim();
-                worker.Password = PasswordTB.Text.Trim();
-                var a = PositionCB.SelectedItem as Position;
-                worker.IDPosition = a.IDPosition;
+                var dcvd = SurnameTB.Text + " " + NameTB.Text + " " + PatronymicTB.Text + " " + DateOfBirthDP.Text;
 
-                DBConnection.airportEntities.Worker.Add(worker);
-                DBConnection.airportEntities.SaveChanges();
-                NavigationService.Navigate(new AllWorkersPage());
+                if (MessageBox.Show(dcvd, "Проверьте корректность введенных данных", MessageBoxButton.YesNoCancel) == MessageBoxResult.Yes)
+                {
+                    worker.Surname = SurnameTB.Text.Trim();
+                    worker.Name = NameTB.Text.Trim();
+                    worker.Patronymic = PatronymicTB.Text.Trim();
+                    worker.DateOfBirth = DateOfBirthDP.SelectedDate;
+                    worker.Passport = PassportTB.Text.Trim();
+                    worker.Email = EmailTB.Text.Trim();
+                    worker.Password = PasswordTB.Text.Trim();
+                    var a = PositionCB.SelectedItem as Position;
+                    worker.IDPosition = a.IDPosition;
+
+                    DBConnection.airportEntities.Worker.Add(worker);
+                    DBConnection.airportEntities.SaveChanges();
+                    NavigationService.Navigate(new AllWorkersPage());
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Возникла ошибка");
             }
         }
         private void BackBTN_Click(object sender, RoutedEventArgs e)

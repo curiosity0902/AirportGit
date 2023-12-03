@@ -29,30 +29,40 @@ namespace AirportGit.Pages
         }
         private void EnterBTN_Click(object sender, RoutedEventArgs e)
         {
-            string login = LoginTB.Text.Trim();
-            string password = PasswordTB.Password.Trim();
-
-            workers = new List<Worker>(DBConnection.airportEntities.Worker.ToList());
-            var currentWorker = workers.FirstOrDefault(i => i.Email.Trim() == login && i.Password.Trim() == password);
-            DBConnection.loginedWorker = currentWorker;
-            clients = new List<Client>(DBConnection.airportEntities.Client.ToList());
-            var currentClient = clients.FirstOrDefault(i => i.Email.Trim() == login && i.Password.Trim() == password);
-            DBConnection.loginedClient = currentClient;
-            if (currentWorker != null)
+            try
             {
+                string login = LoginTB.Text.Trim();
+                string password = PasswordTB.Password.Trim();
 
-                NavigationService.Navigate(new MainMenuWorkerPage());
+                workers = new List<Worker>(DBConnection.airportEntities.Worker.ToList());
+                var currentWorker = workers.FirstOrDefault(i => i.Email.Trim() == login && i.Password.Trim() == password);
+                DBConnection.loginedWorker = currentWorker;
+                clients = new List<Client>(DBConnection.airportEntities.Client.ToList());
+                var currentClient = clients.FirstOrDefault(i => i.Email.Trim() == login && i.Password.Trim() == password);
+                DBConnection.loginedClient = currentClient;
+                if (currentWorker != null)
+                {
+                    if (currentWorker.Position.Nazvanie == "Администратор")
+                    {
+                        NavigationService.Navigate(new MainMenuWorkerPage());
+                    }
+                }
+
+                else if (currentClient != null)
+                {
+                    NavigationService.Navigate(new MainMenuClientPage());
+                }
+                else
+
+                {
+                    MessageBox.Show("Неверный логин или пароль. Попробуйте снова.");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Возникла ошибка");
             }
 
-            else if (currentClient != null)
-            {
-                NavigationService.Navigate(new MainMenuClientPage());
-            }
-            else
-
-            {
-                MessageBox.Show("Неверный логин или пароль. Попробуйте снова.");
-            }
 
         }
         private void GuestBTN_Click(object sender, RoutedEventArgs e)

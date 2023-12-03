@@ -45,7 +45,11 @@ namespace AirportGit.Pages
 
         private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new EditWorkerPage());
+            if (WorkersLV.SelectedItem is Worker)
+            {
+                DBConnection.selectedForEditWorker = WorkersLV.SelectedItem as Worker;
+                NavigationService.Navigate(new EditWorkerPage());
+            }
         }
 
         private void DeleteWorkerBTN_Click(object sender, RoutedEventArgs e)

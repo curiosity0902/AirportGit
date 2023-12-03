@@ -21,11 +21,12 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class FlightsPage : Page
     {
-        public static List<Flight> flights = new List<Flight>();
+        public static List<Flight> flights { get; set; }
         public FlightsPage()
         {
             InitializeComponent();
-            flights = (List<Flight>)DBConnection.airportEntities.Flight.ToList().Where(x => x.DepartureDate >= DateTime.Now);
+            flights = new List<Flight>(DBConnection.airportEntities.Flight.ToList().Where(x => x.DepartureDate >= DateTime.Now));
+            FlightsLV.ItemsSource = flights;
         }
 
         private void BackBTN_Click(object sender, RoutedEventArgs e)

@@ -32,7 +32,6 @@ namespace AirportGit.Pages
         }
         private void WorkersBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AllWorkersPage());
         }
         private void ClientsBTN_Click(object sender, RoutedEventArgs e)
         {

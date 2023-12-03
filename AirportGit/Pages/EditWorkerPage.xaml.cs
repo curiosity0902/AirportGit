@@ -1,5 +1,8 @@
-﻿using System;
+﻿using AirportGit.DB;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,24 +23,61 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class EditWorkerPage : Page
     {
+        public static List<Worker> workers { get; set; }
+        public static List<Position> positions { get; set; }
+        public static List<Aircompany> aircompanies { get; set; }
         public EditWorkerPage()
         {
             InitializeComponent();
+            workers = DBConnection.airportEntities.Worker.ToList();
+            positions = DBConnection.airportEntities.Position.ToList();
+            aircompanies = DBConnection.airportEntities.Aircompany.ToList();
+            this.DataContext = this;
+            Worker w = DBConnection.selectedForEditWorker;
+            SurnameTB.Text = w.Surname;
+            NameTB.Text = w.Name;
+            PatronymicTB.Text = w.Patronymic;
+            DateOfBirthDP.SelectedDate = w.DateOfBirth;
+            PassportTB.Text = w.Passport;
+            PhoneTB.Text = w.Phone;
+            PositionCB.SelectedIndex = (int)w.IDPosition - 1;
+            AircompanyCB.SelectedIndex = (int)w.IDAircompany - 1;
+            EmailTB.Text = w.Email;
+            PasswordTB.Text = w.Password;
+            if(w.Photo != null)
+            {
+                PhotoWorker.Source = new BitmapImage(new Uri(w.Photo.ToString()));
+            }
         }
 
         private void AddPhotoBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpeg|*.jpeg|*.jpg|*.jpg"
+            };
+            if (openFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                DBConnection.selectedForEditWorker.Photo = File.ReadAllBytes(openFileDialog.FileName);
+                PhotoWorker.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+            }
         }
 
         private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
+            }
+            catch
+            {
+                MessageBox.Show("Возникла ошибка");
+            }
         }
 
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AllWorkersPage());
         }
     }
 }
