@@ -44,12 +44,12 @@
             VerticalAlignment="Center"/>
         <TextBlock
             Grid.Column="2"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="3"
             x:Name="UserTB"
             Grid.Row="2"
-            Width="640"
+            Width="900"
             Height="60"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
         <TextBlock Text="Логин:"
             Grid.Column="1"
@@ -59,13 +59,13 @@
             VerticalAlignment="Center"/>
         <TextBlock
             Grid.Column="2"
-            Grid.ColumnSpan="2"
+            Grid.ColumnSpan="3"
             x:Name="EmailTB"
             Grid.Row="3"
             FontSize="25"
-            Width="640"
+            Width="900"
             Height="60"
-            HorizontalAlignment="Center"
+            HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
         <Button Content="Сотрудники"
             x:Name="WorkersBTN"
@@ -138,6 +138,4 @@
             Height="60"
             Click="BackBTN_Click"/>
     </Grid>
-    
-    
 </Page>

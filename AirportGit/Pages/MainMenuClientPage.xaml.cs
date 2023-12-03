@@ -23,6 +23,7 @@ namespace AirportGit.Pages
     {
         public static List<Client> clients { get; set; }
         public static Client loggedClient;
+        public static Client cli { get; set; }
         public MainMenuClientPage()
         {
             InitializeComponent();
@@ -65,7 +66,7 @@ namespace AirportGit.Pages
 
         private void EditBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new EditClientPage());
+            NavigationService.Navigate(new EditClientPage(cli));
         }
     }
 }

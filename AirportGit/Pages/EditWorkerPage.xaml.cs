@@ -47,7 +47,7 @@ namespace AirportGit.Pages
             AircompanyCB.SelectedIndex = (int)w.IDAircompany - 1;
             EmailTB.Text = w.Email;
             PasswordTB.Text = w.Password;
-            if(w.Photo != null)
+            if (w.Photo != null)
             {
                 PhotoWorker.Source = new BitmapImage(new Uri(w.Photo.ToString()));
             }
