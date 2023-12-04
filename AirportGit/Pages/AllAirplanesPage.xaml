@@ -17,6 +17,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
 
@@ -34,11 +37,11 @@
         <ListView
             x:Name="AirplanesLv"
             Grid.Row="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="4"
-            Grid.RowSpan="6"
-            ItemsSource="{Binding airplanes}" SelectionChanged="AirplanesLv_SelectionChanged"
-            >
+            Grid.Column="2"
+            Grid.ColumnSpan="6"
+            Grid.RowSpan="4"
+            ItemsSource="{Binding airplanes}"
+                SelectionChanged="AirplanesLv_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -82,12 +85,13 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
         <Button x:Name="BackBtn"
             Grid.Column="3"
-            Grid.Row="7"
-            Height="65"
-            Content="Вернуться назад" Click="BackBtn_Click"
-            />
+            Grid.Row="6"
+            Height="40"
+            Width="200"
+            Grid.ColumnSpan="4"
+            Content="Назад"
+            Click="BackBtn_Click"/>
     </Grid>
 </Page>
