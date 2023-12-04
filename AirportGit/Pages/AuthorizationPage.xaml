@@ -86,7 +86,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
             Width="400"
-            Height="60"/>
+            Height="60" BorderBrush="Black"/>
 
         <!-->НАДПИСЬ ВВЕДИТЕ ПАРОЛЬ<-->
         <TextBlock Text="Введите пароль"
@@ -106,7 +106,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Width="400"
-            Height="60"/>
+            Height="60" BorderBrush="Black"/>
 
         <!-->КНОПКА ВОЙТИ<-->
         <Button Content="ВОЙТИ"
@@ -118,11 +118,11 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Width="250"
-            Height="70"
+            Height="50"
             Click="EnterBTN_Click" Background="#FF28729C" Foreground="White" FontWeight="Bold" FontSize="35"/>
-        <Border BorderThickness="35" BorderBrush="#FF28729C" CornerRadius="60"
+        <Border BorderThickness="30" BorderBrush="#FF28729C" CornerRadius="60"
             MaxWidth="300"
-            MaxHeight="100"
+            MaxHeight="90"
             Grid.Column="2"
             Grid.ColumnSpan="2"
             Grid.Row="7"

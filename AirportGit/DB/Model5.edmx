@@ -969,7 +969,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Airport03Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Airport03Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aircompany" EntityType="Self.Aircompany" />
           <EntitySet Name="Airplane" EntityType="Self.Airplane" />
           <EntitySet Name="AirplaneModel" EntityType="Self.AirplaneModel" />
@@ -1075,7 +1075,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Airport03ModelContainer" CdmEntityContainer="Airport03Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Airport03ModelContainer" CdmEntityContainer="Airport03Entities1">
           <EntitySetMapping Name="Aircompany">
             <EntityTypeMapping TypeName="Airport03Model.Aircompany">
               <MappingFragment StoreEntitySet="Aircompany">

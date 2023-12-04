@@ -89,41 +89,41 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB\Aircompany.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Airplane.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AirplaneModel.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Baggage.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\City.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ClassReservation.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Client.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Country.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Count_tickets.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnection.cs" />
     <Compile Include="DB\Flight.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\FlightStatus.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Flyghtport.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Model2.Context.cs">
       <AutoGen>True</AutoGen>
@@ -155,35 +155,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model3.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model4.Context.cs">
+    <Compile Include="DB\Model5.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.Context.tt</DependentUpon>
+      <DependentUpon>Model5.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model4.cs">
+    <Compile Include="DB\Model5.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model4.Designer.cs">
+    <Compile Include="DB\Model5.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model4.edmx</DependentUpon>
+      <DependentUpon>Model5.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Position.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sysdiagrams.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Team.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Ticket.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Worker.cs">
-      <DependentUpon>Model4.tt</DependentUpon>
+      <DependentUpon>Model5.tt</DependentUpon>
     </Compile>
     <Compile Include="Functions\AddCheck.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -377,12 +377,12 @@
     <None Include="DB\Model3.edmx.diagram">
       <DependentUpon>Model3.edmx</DependentUpon>
     </None>
-    <EntityDeploy Include="DB\Model4.edmx">
+    <EntityDeploy Include="DB\Model5.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model4.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model5.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DB\Model4.edmx.diagram">
-      <DependentUpon>Model4.edmx</DependentUpon>
+    <None Include="DB\Model5.edmx.diagram">
+      <DependentUpon>Model5.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -417,15 +417,15 @@
       <DependentUpon>Model3.edmx</DependentUpon>
       <LastGenOutput>Model3.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\Model4.Context.tt">
+    <Content Include="DB\Model5.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model4.edmx</DependentUpon>
-      <LastGenOutput>Model4.Context.cs</LastGenOutput>
+      <DependentUpon>Model5.edmx</DependentUpon>
+      <LastGenOutput>Model5.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\Model4.tt">
+    <Content Include="DB\Model5.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model4.edmx</DependentUpon>
-      <LastGenOutput>Model4.cs</LastGenOutput>
+      <DependentUpon>Model5.edmx</DependentUpon>
+      <LastGenOutput>Model5.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
