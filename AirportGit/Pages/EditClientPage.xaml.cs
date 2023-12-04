@@ -52,7 +52,7 @@ namespace AirportGit.Pages
             NavigationService.Navigate(new MainMenuClientPage());
         }
 
-        private void EditClientBTN_Click(object sender, RoutedEventArgs e)
+        private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
         {
             Client client = loggedClient;
             if (string.IsNullOrWhiteSpace(SurnameTB.Text) || string.IsNullOrWhiteSpace(NameTB.Text) || string.IsNullOrWhiteSpace(PatronymicTB.Text) ||
