@@ -29,6 +29,7 @@ namespace AirportGit.Pages
             flights = new List<Flight>(DBConnection.airportEntities.Flight.ToList().Where(x => x.DepartureDate >= DateTime.Now));
             FlightsLV.ItemsSource = flights;
             loggedWorker = DBConnection.loginedWorker;
+            CheckConditionAndToggleButtonVisibility();
         }
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {

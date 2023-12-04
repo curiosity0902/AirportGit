@@ -97,7 +97,7 @@
         FontSize="20"
         Width="250"
         Height="40"
-        Grid.Column="2"
+        Grid.Column="3"
         Grid.ColumnSpan="2"
         Grid.Row="7"
         Click="BackBTN_Click"/>
