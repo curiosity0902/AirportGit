@@ -39,9 +39,9 @@ namespace AirportGit.Pages
                     error.AppendLine("Заполните все поля");
                 }
                 if (DateOfBirthDP.SelectedDate != null &&
-                    (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 16 + 4)
+                    (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 14 + 3)
                 {
-                    error.AppendLine("Для регистрации вам должно быть минимум 16 лет");
+                    error.AppendLine("Для регистрации вам должно быть минимум 14 лет");
                 }
                 if (AddCheck.SameEmail(EmailTB.Text.Trim()))
                 {

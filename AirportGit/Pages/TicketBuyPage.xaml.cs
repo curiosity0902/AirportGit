@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,35 +26,76 @@ namespace AirportGit.Pages
         public static List<ClassReservation> classReservations { get; set; }
         public static List<Flight> flights { get; set; }
 
+        public static Ticket ticket = new Ticket();
 
         Flight contextFlight;
         public TicketBuyPage(Flight flight)
         {
             InitializeComponent();
             contextFlight = flight;
-            InitializeDataInPage();
             this.DataContext = this;
             Refresh();
         }
 
         public void InitializeDataInPage()
         {
-            //tickets = new List<Ticket>(DBConnection.airportEntities.Ticket.ToList().Where(x => x.IDClient == contextTicket.IDClient));
-            //flights = new List<Flight>(DBConnection.airportEntities.Flight.ToList());
             tickets = DBConnection.airportEntities.Ticket.ToList();
             classReservations = DBConnection.airportEntities.ClassReservation.ToList();
             flights = DBConnection.airportEntities.Flight.ToList();
             this.DataContext = this;
-            ClassReservationTBl.Text = DBConnection.airportEntities.ClassReservation.ToString();
-                //DBConnection.loginedWorker.Patronymic.ToString();
+            FlightTBl.Text = DBConnection.selectedForFlight.Flyghtport.City.Nazvanie.ToString() + " - " + DBConnection.selectedForFlight.Flyghtport1.City.Nazvanie.ToString();
+            FlightDateTBl.Text = Convert.ToString(contextFlight.DepartureDate) + " - " + Convert.ToString(contextFlight.ArivalDate);
+            CountSeatsTBl.Text = Convert.ToString(DBConnection.selectedForFlight.Airplane.AirplaneModel.CountSeats);
+
+
         }
 
         public void Refresh()
-        { 
-                   
+        {
+            if (ClassReservationCb.SelectedItem is ClassReservation classReservation)
+            {
+                var exam = contextFlight;
+                exam.Ticket = classReservation.Ticket;
+                var studentInList = tickets.FirstOrDefault(x => x.IDClassReservation == ticket.IDClassReservation);
+    
+            }
+
+
+            //int cost = 0;
+            //CostTbl.Text = Convert.ToString(cost);
+
+            //int price = int.Parse(DBConnection.selectedForFlight.Price.ToString());
+
+            //var c = ClassReservationCb.SelectedItem as ClassReservation;
+            //ticket.IDClassReservation = c.IDClassReservation;
+
+
+            //if (c.IDClassReservation == 0)
+            //{
+            //    cost = price + 950;
+            //}
+            //else if (c.IDClassReservation == 1)
+            //{
+            //    cost = price + 2000;
+            //}
+            //else
+            //{
+            //    cost = price + 550;
+            //}
+
+            InitializeDataInPage();
+
         }
 
         private void BuyTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+            DBConnection.airportEntities.Ticket.Add(ticket);
+            DBConnection.airportEntities.SaveChanges();
+            NavigationService.Navigate(new MainMenuClientPage());
+        }
+
+        private void ClassReservationCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
