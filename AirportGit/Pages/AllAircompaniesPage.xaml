@@ -17,9 +17,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -30,15 +31,19 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        <TextBlock Text="Авиакомпании"
+            Grid.Column="3"
+            Grid.ColumnSpan="4"
+            FontSize="40"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"/>
         <ListView
             x:Name="AircompaniesLv"
             Grid.Row="1"
-            Grid.Column="0"
-            Grid.ColumnSpan="7"
-            Grid.RowSpan="6"
-            ItemsSource="{Binding aircompanies}"
-            >
+            Grid.Column="2"
+            Grid.ColumnSpan="6"
+            Grid.RowSpan="4"
+            ItemsSource="{Binding aircompanies}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -48,17 +53,17 @@
                         <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding ContactPhone}" Width="220"/>
                         <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding ContactEmail}" Width="350"/>
                         <GridViewColumn Header="Год создания" DisplayMemberBinding="{Binding YearOfCreate}" Width="250"/>
-                        
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
-
         <Button x:Name="BackBtn"
             Grid.Column="3"
-            Grid.Row="7"
-            Height="65"
-            Content="Вернуться назад" Click="BackBtn_Click"
-            />
+            Grid.ColumnSpan="4"
+            Grid.Row="6"
+            Height="40"
+            Width="200"
+            Content="Вернуться назад"
+            Click="BackBtn_Click"/>
     </Grid>
 </Page>
