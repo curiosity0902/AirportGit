@@ -69,5 +69,25 @@ namespace AirportGit.Pages
         {
             Refresh();
         }
+
+        private void FlightsLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            //if (FlightsLV.SelectedItem is Flight)
+            //{
+            //    DBConnection.selectedForFlight = FlightsLV.SelectedItem as Flight;
+            //    NavigationService.Navigate(new EditWorkerPage(FlightsLV.SelectedItem as Flight));
+            //}
+        }
+
+        private void BuyTicketBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (FlightsLV.SelectedItem is Flight)
+            {
+                DBConnection.selectedForFlight = FlightsLV.SelectedItem as Flight;
+                NavigationService.Navigate(new TicketBuyPage(FlightsLV.SelectedItem as Flight));
+            }
+        }
     }
 }

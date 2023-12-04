@@ -57,7 +57,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -89,41 +91,41 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB\Aircompany.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Airplane.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AirplaneModel.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Baggage.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\City.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ClassReservation.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Client.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Country.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Count_tickets.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnection.cs" />
     <Compile Include="DB\Flight.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\FlightStatus.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Flyghtport.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Model2.Context.cs">
       <AutoGen>True</AutoGen>
@@ -170,20 +172,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model5.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DB\Model8.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model8.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model8.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model8.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model8.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DB\Position.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sysdiagrams.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Team.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Ticket.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Worker.cs">
-      <DependentUpon>Model5.tt</DependentUpon>
+      <DependentUpon>Model8.tt</DependentUpon>
     </Compile>
     <Compile Include="Functions\AddCheck.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -384,6 +401,13 @@
     <None Include="DB\Model5.edmx.diagram">
       <DependentUpon>Model5.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="DB\Model8.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model8.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB\Model8.edmx.diagram">
+      <DependentUpon>Model8.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -426,6 +450,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model5.edmx</DependentUpon>
       <LastGenOutput>Model5.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model8.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model8.edmx</DependentUpon>
+      <LastGenOutput>Model8.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model8.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model8.edmx</DependentUpon>
+      <LastGenOutput>Model8.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

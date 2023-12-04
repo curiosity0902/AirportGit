@@ -53,7 +53,7 @@
             Grid.Row="2"
             Grid.RowSpan="6"
             Margin="10"
-                  FontSize="11">
+                  FontSize="11" SelectionChanged="FlightsLV_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -152,6 +152,14 @@
             Grid.ColumnSpan="2"
             Grid.Row="8"
             Click="BackBTN_Click"/>
-        
+        <Button x:Name="BuyTicketBTN"
+            Content="Купить билет на этот рейс"
+            Width="250"
+            Height="30"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Grid.Row="8"
+            Click="BuyTicketBTN_Click"/>
+
     </Grid>
 </Page>

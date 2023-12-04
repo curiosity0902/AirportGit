@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AirportGit.DB;
 
 namespace AirportGit.Pages
 {
@@ -20,9 +21,41 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class TicketBuyPage : Page
     {
-        public TicketBuyPage()
+        public static List<Ticket> tickets = new List<Ticket>();
+        public static List<ClassReservation> classReservations { get; set; }
+        public static List<Flight> flights { get; set; }
+
+
+        Flight contextFlight;
+        public TicketBuyPage(Flight flight)
         {
             InitializeComponent();
+            contextFlight = flight;
+            InitializeDataInPage();
+            this.DataContext = this;
+            Refresh();
+        }
+
+        public void InitializeDataInPage()
+        {
+            //tickets = new List<Ticket>(DBConnection.airportEntities.Ticket.ToList().Where(x => x.IDClient == contextTicket.IDClient));
+            //flights = new List<Flight>(DBConnection.airportEntities.Flight.ToList());
+            tickets = DBConnection.airportEntities.Ticket.ToList();
+            classReservations = DBConnection.airportEntities.ClassReservation.ToList();
+            flights = DBConnection.airportEntities.Flight.ToList();
+            this.DataContext = this;
+            ClassReservationTBl.Text = DBConnection.airportEntities.ClassReservation.ToString();
+                //DBConnection.loginedWorker.Patronymic.ToString();
+        }
+
+        public void Refresh()
+        { 
+                   
+        }
+
+        private void BuyTicket_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
