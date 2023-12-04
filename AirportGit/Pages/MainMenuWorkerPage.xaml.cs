@@ -55,6 +55,10 @@ namespace AirportGit.Pages
         {
             NavigationService.Navigate(new AllCountriesPage());
         }
+        private void TeamsBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AllTeamsPage());
+        }
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthorizationPage());

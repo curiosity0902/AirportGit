@@ -23,11 +23,13 @@ namespace AirportGit.Pages
     {
         public static List<Worker> workers { get; set; }
         public static Worker loggedWorker;
+        public static Client loggedClient;
 
         public AllWorkersPage()
         {
             InitializeComponent();
             loggedWorker = DBConnection.loginedWorker;
+            loggedClient = DBConnection.loginedClient;
             workers = DBConnection.airportEntities.Worker.ToList();
             this.DataContext = this;
             Refresh();
@@ -83,6 +85,12 @@ namespace AirportGit.Pages
                 EditWorkerBTN.Visibility = Visibility.Visible;
                 AddWorkerBTN.Visibility = Visibility.Visible;
                 DeleteWorkerBTN.Visibility = Visibility.Visible;
+            }
+            else if (loggedClient != null)
+            {
+                EditWorkerBTN.Visibility = Visibility.Collapsed;
+                AddWorkerBTN.Visibility = Visibility.Collapsed;
+                DeleteWorkerBTN.Visibility = Visibility.Collapsed;
             }
             else
             {
