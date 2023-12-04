@@ -29,6 +29,7 @@ namespace AirportGit.Pages
             loggedWorker = DBConnection.loginedWorker;
             UserTB.Text = DBConnection.loginedWorker.Surname.ToString() + " " + DBConnection.loginedWorker.Name.ToString() + " " + DBConnection.loginedWorker.Patronymic.ToString();
             EmailTB.Text = DBConnection.loginedWorker.Email;
+            CheckConditionAndToggleButtonVisibility();
         }
         private void WorkersBTN_Click(object sender, RoutedEventArgs e)
         {
@@ -57,6 +58,17 @@ namespace AirportGit.Pages
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthorizationPage());
+        }
+        private void CheckConditionAndToggleButtonVisibility()
+        {
+            if (loggedWorker.IDPosition == 4)
+            {
+                ClientsBTN.Visibility = Visibility.Visible; // Показать кнопку
+            }
+            else
+            {
+                ClientsBTN.Visibility = Visibility.Collapsed; // Скрыть кнопку
+            }
         }
     }
 }
