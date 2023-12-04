@@ -71,14 +71,14 @@ namespace AirportGit.Pages
                         worker.DateOfBirth = DateOfBirthDP.SelectedDate;
                     }
                     worker.Passport = PassportTB.Text.Trim();
-                    if (AddCheck.SameEmail(EmailTB.Text.Trim()))
-                    {
-                        MessageBox.Show("Такая почта уже используется!");
-                    }
-                    else
-                    {
-                        worker.Email = EmailTB.Text.Trim();
-                    }
+                    //if (AddCheck.SameEmail(EmailTB.Text.Trim()))
+                    //{
+                    //    MessageBox.Show("Такая почта уже используется!");
+                    //}
+                    //else
+                    //{
+                    //    worker.Email = EmailTB.Text.Trim();
+                    //}
                     worker.Password = PasswordTB.Text.Trim();
                     var a = PositionCB.SelectedItem as Position;
                     worker.IDPosition = a.IDPosition;
