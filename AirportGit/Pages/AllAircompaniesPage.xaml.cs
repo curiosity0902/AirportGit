@@ -44,7 +44,7 @@ namespace AirportGit.Pages
         {
             if (SearchTB.Text.Length > 0)
             {
-                AircompaniesLv.ItemsSource = DBConnection.airportEntities.Aircompany.Where(i => i.Nazvanie.Contains(SearchTB.Text.Trim());
+                AircompaniesLv.ItemsSource = DBConnection.airportEntities.Aircompany.Where(i => i.Nazvanie.Contains(SearchTB.Text.Trim()));
             }
             else
             {
