@@ -22,22 +22,37 @@ namespace AirportGit.Pages
     public partial class FlightsPage : Page
     {
         public static List<Flight> flights { get; set; }
+        public static Worker loggedWorker;
         public FlightsPage()
         {
             InitializeComponent();
             flights = new List<Flight>(DBConnection.airportEntities.Flight.ToList().Where(x => x.DepartureDate >= DateTime.Now));
             FlightsLV.ItemsSource = flights;
+            loggedWorker = DBConnection.loginedWorker;
         }
-
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MainMenuWorkerPage());
         }
 
-        private void AddBTN_Click(object sender, RoutedEventArgs e)
+        private void AddFlightBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddFlightPage());
         }
-
+        private void CheckConditionAndToggleButtonVisibility()
+        {
+            if (loggedWorker.IDPosition == 4)
+            {
+                AddFlightBTN.Visibility = Visibility.Visible;
+                //EditWorkerBTN.Visibility = Visibility.Visible;
+                //DeleteWorkerBTN.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AddFlightBTN.Visibility = Visibility.Visible;
+                //EditWorkerBTN.Visibility = Visibility.Collapsed;
+                //DeleteWorkerBTN.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

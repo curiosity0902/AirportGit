@@ -148,14 +148,13 @@
             Grid.ColumnSpan="2"
             Grid.Row="8"
             Click="BackBTN_Click"/>
-        <Button x:Name="AddBTN"
+        <Button x:Name="AddFlightBTN"
             Content="Добавить"
             Width="250"
             Height="30"
             Grid.Column="3"
             Grid.ColumnSpan="2"
             Grid.Row="8"
-            Click="AddBTN_Click"/>
-
+            Click="AddFlightBTN_Click"/>
     </Grid>
 </Page>

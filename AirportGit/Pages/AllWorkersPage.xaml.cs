@@ -22,13 +22,16 @@ namespace AirportGit.Pages
     public partial class AllWorkersPage : Page
     {
         public static List<Worker> workers { get; set; }
+        public static Worker loggedWorker;
 
         public AllWorkersPage()
         {
             InitializeComponent();
+            loggedWorker = DBConnection.loginedWorker;
             workers = DBConnection.airportEntities.Worker.ToList();
             this.DataContext = this;
             Refresh();
+            CheckConditionAndToggleButtonVisibility();
         }
         private void Refresh()
         {
@@ -75,6 +78,21 @@ namespace AirportGit.Pages
 
             else
                 WorkersLV.ItemsSource = new List<Worker>(DBConnection.airportEntities.Worker.ToList());
+        }
+        private void CheckConditionAndToggleButtonVisibility()
+        {
+            if (loggedWorker.IDPosition == 4)
+            {
+                EditWorkerBTN.Visibility = Visibility.Visible;
+                AddWorkerBTN.Visibility = Visibility.Visible;
+                DeleteWorkerBTN.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                EditWorkerBTN.Visibility = Visibility.Collapsed;
+                AddWorkerBTN.Visibility = Visibility.Collapsed;
+                DeleteWorkerBTN.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }
