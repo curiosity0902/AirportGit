@@ -29,17 +29,26 @@ namespace AirportGit.Pages
             AircompaniesLv.ItemsSource = new List<Aircompany>(DBConnection.airportEntities.Aircompany.ToList());
             this.DataContext = this;
         }
-
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             if(DBConnection.loginedWorker != null)
             {
                 NavigationService.Navigate(new MainMenuWorkerPage());
             }
-
             if (DBConnection.loginedClient != null)
             {
                 NavigationService.Navigate(new MainMenuClientPage());
+            }
+        }
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchTB.Text.Length > 0)
+            {
+                AircompaniesLv.ItemsSource = DBConnection.airportEntities.Aircompany.Where(i => i.Nazvanie.Contains(SearchTB.Text.Trim());
+            }
+            else
+            {
+                AircompaniesLv.ItemsSource = new List<Aircompany>(DBConnection.airportEntities.Aircompany.ToList());
             }
         }
     }

@@ -54,7 +54,6 @@ namespace AirportGit.Pages
                 NavigationService.Navigate(new EditWorkerPage(WorkersLV.SelectedItem as Worker));
             }
         }
-
         private void DeleteWorkerBTN_Click(object sender, RoutedEventArgs e)
         {
             if (WorkersLV.SelectedItem is Worker work)
@@ -64,12 +63,10 @@ namespace AirportGit.Pages
             }
             Refresh();
         }
-
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MainMenuWorkerPage());
         }
-
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (SearchTB.Text.Length > 0)
