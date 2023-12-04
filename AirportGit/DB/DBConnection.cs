@@ -9,8 +9,10 @@ namespace AirportGit.DB
     internal class DBConnection
     {
         // База данных Аня
-        public static AirportEntities1 airportEntities = new AirportEntities1();
+        //public static AirportEntities1 airportEntities = new AirportEntities1();
 
+        //База данных Варвары (Model 04)
+        public static Airport03Entities airportEntities = new Airport03Entities();
 
 
         // База данных Ренат

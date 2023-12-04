@@ -45,8 +45,17 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.9.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.CodeCoverage.Shim, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeCoverage.17.8.0\lib\net462\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -80,41 +89,41 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB\Aircompany.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Airplane.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AirplaneModel.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Baggage.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\City.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ClassReservation.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Client.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Country.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Count_tickets.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnection.cs" />
     <Compile Include="DB\Flight.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\FlightStatus.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Flyghtport.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Model2.Context.cs">
       <AutoGen>True</AutoGen>
@@ -146,20 +155,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model3.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DB\Model4.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model4.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model4.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model4.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DB\Position.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sysdiagrams.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Team.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Ticket.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Worker.cs">
-      <DependentUpon>Model3.tt</DependentUpon>
+      <DependentUpon>Model4.tt</DependentUpon>
     </Compile>
     <Compile Include="Functions\AddCheck.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -353,6 +377,13 @@
     <None Include="DB\Model3.edmx.diagram">
       <DependentUpon>Model3.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="DB\Model4.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model4.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB\Model4.edmx.diagram">
+      <DependentUpon>Model4.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -386,6 +417,16 @@
       <DependentUpon>Model3.edmx</DependentUpon>
       <LastGenOutput>Model3.cs</LastGenOutput>
     </Content>
+    <Content Include="DB\Model4.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model4.edmx</DependentUpon>
+      <LastGenOutput>Model4.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model4.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model4.edmx</DependentUpon>
+      <LastGenOutput>Model4.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -396,7 +437,9 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.8.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.8.0\build\net462\Microsoft.NET.Test.Sdk.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
 </Project>
