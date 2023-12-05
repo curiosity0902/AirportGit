@@ -11,12 +11,12 @@ namespace AirportGit.DB
         // База данных Аня
         //public static AirportEntities1 airportEntities = new AirportEntities1();
 
-        //База данных Варвары (Model 12)
-        //public static Airport03Entities1 airportEntities = new Airport03Entities1();
+        //База данных Варвары (Model 1)
+        public static Airport05EntitiesV airportEntities = new Airport05EntitiesV();
 
 
         // База данных Ренат
-        public static AirportEntities22 airportEntities = new AirportEntities22();
+        //public static AirportEntities22 airportEntities = new AirportEntities22();
 
 
         public static Worker loginedWorker;

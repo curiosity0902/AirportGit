@@ -12,28 +12,15 @@ namespace AirportGit.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class Children
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
-        {
-            this.Children = new HashSet<Children>();
-            this.Ticket = new HashSet<Ticket>();
-        }
-    
-        public int IDClient { get; set; }
+        public int IDChildren { get; set; }
         public string Surname { get; set; }
         public string Name { get; set; }
         public string Patronymic { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public string Passport { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public Nullable<int> IDClient { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Children> Children { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Ticket { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

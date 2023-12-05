@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="40"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="40" FontFamily="Courier New"
       Title="AuthorizationPage">
 
     <Grid>
