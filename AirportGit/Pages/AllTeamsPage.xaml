@@ -50,15 +50,48 @@
                         <GridViewColumn Header="Номер экипажа"
                             DisplayMemberBinding="{Binding IDTeam}"
                             Width="280"/>
-                        <GridViewColumn Header="Номер экапажа"
-                            DisplayMemberBinding="{Binding Worker.Name}"
-                            Width="380"/>
-                        <GridViewColumn Header="Номер экапажа"
-                            DisplayMemberBinding="{Binding Worker1.Name}"
-                            Width="380"/>
-                        <GridViewColumn Header="Номер экапажа"
-                            DisplayMemberBinding="{Binding Worker2.Name}"
-                            Width="380"/>
+                        <GridViewColumn Header="Главный пилот"
+                            Width="380">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Worker.Surname}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding Worker.Name}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding Worker.Patronymic}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Второй пилот"
+                            Width="380">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Worker1.Surname}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding Worker1.Name}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding Worker1.Patronymic}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Бортмеханик"
+                            Width="380">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Worker2.Surname}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding Worker2.Name}"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding Worker2.Patronymic}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

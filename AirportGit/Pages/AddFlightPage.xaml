@@ -189,7 +189,7 @@
 
 
 
-        <TextBlock Text="Статус"
+        <!--<TextBlock Text="Статус"
            Grid.Column="4"
            Grid.Row="6"
            HorizontalAlignment="Center"/>
@@ -205,7 +205,7 @@
                     <TextBlock Text="{Binding NameStatus}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
-        </ComboBox>
+        </ComboBox>-->
 
 
 

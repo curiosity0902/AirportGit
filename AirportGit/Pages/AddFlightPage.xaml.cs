@@ -138,7 +138,11 @@ namespace AirportGit.Pages
                 if (DepartureDateDP.SelectedDate == null || DepartureTimeTb.Text.Trim() == "" ||
                     ArivalDateDP.SelectedDate == null || ArivalTimeTb.Text.Trim() == "" ||
                     StartFlyghtportCb.SelectedIndex == -1 || EndFlyghtportCb.SelectedIndex == -1 ||
-                    AirplaneCb.SelectedIndex == -1 || StatusCb.SelectedIndex == -1 || PriceTb.Text.Trim() == "")
+                    AirplaneCb.SelectedIndex == -1 
+                    
+                    //|| StatusCb.SelectedIndex == -1 || PriceTb.Text.Trim() == ""
+                    
+                    )
                 {
                     error.AppendLine("Заполните все поля");
                 }
@@ -175,7 +179,11 @@ namespace AirportGit.Pages
                         flight.IDBortworker2 = worker2.IDWorker;
                     if(worker3 != null)
                         flight.IDBortworker3 = worker3.IDWorker;
-                    flight.IDFlightStatus = (StatusCb.SelectedItem as FlightStatus).IDFlightStatus;
+
+
+                    //flight.IDFlightStatus = (StatusCb.SelectedItem as FlightStatus).IDFlightStatus;
+
+
                     flight.IDAirplane = (AirplaneCb.SelectedItem as Airplane).IDAirplane;
                     flight.Price = int.Parse(PriceTb.Text);
                     DBConnection.airportEntities.Flight.Add(flight);
