@@ -91,41 +91,41 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB\Aircompany.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Airplane.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AirplaneModel.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Baggage.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\City.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ClassReservation.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Client.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Country.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Count_tickets.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnection.cs" />
     <Compile Include="DB\Flight.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\FlightStatus.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Flyghtport.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Model2.Context.cs">
       <AutoGen>True</AutoGen>
@@ -187,20 +187,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model8.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DB\Model9.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model9.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model9.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DB\Position.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model9.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sysdiagrams.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Team.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Ticket.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Worker.cs">
-      <DependentUpon>Model8.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="Functions\AddCheck.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -408,6 +429,13 @@
     <None Include="DB\Model8.edmx.diagram">
       <DependentUpon>Model8.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="DB\Model9.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model9.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB\Model9.edmx.diagram">
+      <DependentUpon>Model9.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -460,6 +488,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model8.edmx</DependentUpon>
       <LastGenOutput>Model8.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model9.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model9.edmx</DependentUpon>
+      <LastGenOutput>Model9.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model9.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model9.edmx</DependentUpon>
+      <LastGenOutput>Model9.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

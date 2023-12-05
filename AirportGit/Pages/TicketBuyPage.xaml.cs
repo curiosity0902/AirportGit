@@ -45,43 +45,49 @@ namespace AirportGit.Pages
             this.DataContext = this;
             FlightTBl.Text = DBConnection.selectedForFlight.Flyghtport.City.Nazvanie.ToString() + " - " + DBConnection.selectedForFlight.Flyghtport1.City.Nazvanie.ToString();
             FlightDateTBl.Text = Convert.ToString(contextFlight.DepartureDate) + " - " + Convert.ToString(contextFlight.ArivalDate);
-            CountSeatsTBl.Text = Convert.ToString(DBConnection.selectedForFlight.Airplane.AirplaneModel.CountSeats);
+            CountSeatsTBl.Text = Convert.ToString(new List <Count_tickets>(DBConnection.airportEntities.);
 
 
         }
 
         public void Refresh()
         {
-            if (ClassReservationCb.SelectedItem is ClassReservation classReservation)
-            {
-                var exam = contextFlight;
-                exam.Ticket = classReservation.Ticket;
-                var studentInList = tickets.FirstOrDefault(x => x.IDClassReservation == ticket.IDClassReservation);
+        //    if (ClassReservationCb.SelectedItem is ClassReservation classReservation)
+        //    {
+        //        var exam = contextFlight;
+        //        exam.Ticket = classReservation.Ticket;
+        //        var studentInList = tickets.FirstOrDefault(x => x.IDClassReservation == ticket.IDClassReservation);
     
+        //    }
+
+
+            int price = int.Parse(DBConnection.selectedForFlight.Price.ToString());
+
+            var c = ClassReservationCb.SelectedItem as ClassReservation;
+
+            if (ClassReservationCb.SelectedIndex > -1)
+            {
+           
+                ticket.IDClassReservation = c.IDClassReservation;
             }
 
 
-            //int cost = 0;
-            //CostTbl.Text = Convert.ToString(cost);
+            
+            if (ClassReservationCb.SelectedIndex == 0)
+            {
+                price = price + 950;
+            }
+            if (ClassReservationCb.SelectedIndex == 1)
+            {
+                price = price + 2000;
+            }
+            if (ClassReservationCb.SelectedIndex == 2)
+            {
+                price = price + 550;
+            }
+                CostTbl.Text = Convert.ToString(price);
 
-            //int price = int.Parse(DBConnection.selectedForFlight.Price.ToString());
-
-            //var c = ClassReservationCb.SelectedItem as ClassReservation;
-            //ticket.IDClassReservation = c.IDClassReservation;
-
-
-            //if (c.IDClassReservation == 0)
-            //{
-            //    cost = price + 950;
-            //}
-            //else if (c.IDClassReservation == 1)
-            //{
-            //    cost = price + 2000;
-            //}
-            //else
-            //{
-            //    cost = price + 550;
-            //}
+                ticket.Cost = price;
 
             InitializeDataInPage();
 
@@ -90,14 +96,23 @@ namespace AirportGit.Pages
         private void BuyTicket_Click(object sender, RoutedEventArgs e)
         {
 
-            DBConnection.airportEntities.Ticket.Add(ticket);
-            DBConnection.airportEntities.SaveChanges();
-            NavigationService.Navigate(new MainMenuClientPage());
+            ticket.IDClassReservation = ClassReservationCb.SelectedIndex + 1;
+            ticket.IDFlight = contextFlight.IDFlight;
+            ticket.IDClient = DBConnection.loginedClient.IDClient;
+            //ticket.IDBaggage = 
+            //ticket.DateOfBuy = DateOfBirthDP.SelectedDate;
+            //ticket.Passport = PassportTB.Text.Trim();
+
+
+                DBConnection.airportEntities.Ticket.Add(ticket);
+                DBConnection.airportEntities.SaveChanges();
+                NavigationService.Navigate(new MainMenuClientPage());
+          
         }
 
         private void ClassReservationCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Refresh();
         }
     }
 }
