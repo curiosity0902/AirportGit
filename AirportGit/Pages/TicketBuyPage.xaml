@@ -172,5 +172,23 @@
                 FontSize="26"
                 Click="KidsBtn_Click"/>
 
+
+        <TextBlock Grid.Row="4"
+        x:Name="DateOfBuyTbl"
+        Grid.Column="0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Text="Дата рождения"/>
+
+        <DatePicker x:Name="DateOfBuyDP"
+        Grid.Row="5"
+        Grid.Column="2"
+        Width="200"
+        Height="40"
+        Grid.ColumnSpan="2"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Text="Дата рождения"/>
+
     </Grid>
 </Page>

@@ -95,8 +95,8 @@ namespace AirportGit.Pages
 
             }
 
-            result = allseats - count - 1;
-            CountSeatsTBl.Text = result.ToString();
+            result = allseats - count;
+          
         }
 
         }
