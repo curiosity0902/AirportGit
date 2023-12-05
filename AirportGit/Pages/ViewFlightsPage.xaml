@@ -30,9 +30,14 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="CBStudents"
-                      DisplayMemberPath="Nazvanie" SelectionChanged="CBStudents_SelectionChanged"/>
+        
+        
+        <!--<ComboBox x:Name="CBStudents"
+                      DisplayMemberPath="Nazvanie" SelectionChanged="CBStudents_SelectionChanged"/>-->
+       
+        
         <TextBlock Text="Рейсы"
             FontSize="30"
             Margin="10"
@@ -50,7 +55,7 @@
             ItemsSource="{Binding flights}"
             Grid.Column="1"
             Grid.ColumnSpan="5"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.RowSpan="6"
             Margin="10"
                   FontSize="11" SelectionChanged="FlightsLV_SelectionChanged">
@@ -150,7 +155,7 @@
             Height="30"
             Grid.Column="1"
             Grid.ColumnSpan="2"
-            Grid.Row="8"
+            Grid.Row="9"
             Click="BackBTN_Click"/>
         <Button x:Name="BuyTicketBTN"
             Content="Купить билет на этот рейс"
@@ -158,8 +163,42 @@
             Height="30"
             Grid.Column="3"
             Grid.ColumnSpan="2"
-            Grid.Row="8"
+            Grid.Row="9"
             Click="BuyTicketBTN_Click"/>
+
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1">
+            <TextBlock Text="От:" FontSize="20"/>
+            <DatePicker 
+                FontSize="20"                
+                Name="StartDp" SelectedDateChanged="EndDp_SelectedDateChanged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+            Grid.Column="2">
+            <TextBlock Text="До:" FontSize="20"/>
+            <DatePicker 
+                FontSize="20"
+                Name="EndDp" 
+                        SelectedDateChanged="EndDp_SelectedDateChanged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+            Grid.Column="3">
+            <TextBlock Text="Откуда:" FontSize="20"/>
+            <TextBox 
+                FontSize="20"                
+                Name="SearchStartTb" TextChanged="SearchStartTb_TextChanged"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+    Grid.Column="4">
+            <TextBlock Text="Куда:" FontSize="20"/>
+            <TextBox 
+                FontSize="20"                
+                Name="SearchEndTb" TextChanged="SearchEndTb_TextChanged"/>
+        </StackPanel>
 
     </Grid>
 </Page>

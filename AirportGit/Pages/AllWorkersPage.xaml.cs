@@ -77,7 +77,8 @@ namespace AirportGit.Pages
         {
             if (SearchTB.Text.Length > 0)
 
-                WorkersLV.ItemsSource = DBConnection.airportEntities.Worker.Where(i => i.Surname.StartsWith(SearchTB.Text.Trim()) || i.Name.Contains(SearchTB.Text.Trim()) || i.Patronymic.Contains(SearchTB.Text.Trim())).ToList();
+                WorkersLV.ItemsSource = DBConnection.airportEntities.Worker.Where(i => i.Surname.ToLower().StartsWith(SearchTB.Text.Trim().ToLower())
+                || i.Name.ToLower().StartsWith(SearchTB.Text.Trim().ToLower()) || i.Patronymic.ToLower().StartsWith(SearchTB.Text.Trim().ToLower())).ToList();
 
             else
                 WorkersLV.ItemsSource = new List<Worker>(DBConnection.airportEntities.Worker.ToList());

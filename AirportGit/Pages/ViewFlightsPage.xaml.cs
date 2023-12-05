@@ -45,19 +45,50 @@ namespace AirportGit.Pages
         }
         private void Refresh()
         {
-        //    var filtred = DBConnection.airportEntities.City.ToList();
+            //    var filtred = DBConnection.airportEntities.City.ToList();
 
-        //    var name = City1FilterCB.SelectedItem as City;
-        //    if (City1FilterCB.SelectedIndex != 0 && name != null)
-        //    filtred = filtred.Where(x => x.Nazvanie == name.Nazvanie).ToList();
-        //    FlightsLV.ItemsSource = filtred.ToList();
+            //    var name = City1FilterCB.SelectedItem as City;
+            //    if (City1FilterCB.SelectedIndex != 0 && name != null)
+            //    filtred = filtred.Where(x => x.Nazvanie == name.Nazvanie).ToList();
+            //    FlightsLV.ItemsSource = filtred.ToList();
 
-            var filtred = DBConnection.airportEntities.City.ToList();
+            //var filtred = DBConnection.airportEntities.City.ToList();
 
-            var name = CBStudents.SelectedItem as City;
-            if (CBStudents.SelectedIndex != 0 && name != null)
-                filtred = filtred.Where(x => x.Nazvanie == name.Nazvanie).ToList();
-            FlightsLV.ItemsSource = filtred.ToList();
+            //var name = CBStudents.SelectedItem as City;
+            //if (CBStudents.SelectedIndex != 0 && name != null)
+            //    filtred = filtred.Where(x => x.Nazvanie == name.Nazvanie).ToList();
+            //FlightsLV.ItemsSource = filtred.ToList();
+
+
+
+            IEnumerable<Flight> filter = flights;
+
+            if(StartDp.SelectedDate != null)
+            {
+                filter = filter.Where(x => x.DepartureDate >= StartDp.SelectedDate);
+            }
+
+            if(EndDp.SelectedDate != null)
+            {
+                filter = filter.Where(x => x.ArivalDate <= EndDp.SelectedDate);
+            }
+
+            if (SearchStartTb.Text != "")
+            {
+                string search = SearchStartTb.Text.Trim().ToLower();
+                filter = filter.Where(x => x.Flyghtport1.Name.ToLower().StartsWith(search) || x.Flyghtport1.City.Nazvanie.ToLower().StartsWith(search)
+                || x.Flyghtport1.City.Country.Nazvanie.ToLower().StartsWith(search));
+            }
+
+            if (SearchEndTb.Text != "")
+            {
+                string search = SearchEndTb.Text.Trim().ToLower();
+                filter = filter.Where(x => x.Flyghtport.Name.ToLower().StartsWith(search) || x.Flyghtport.City.Nazvanie.ToLower().StartsWith(search)
+                || x.Flyghtport.City.Country.Nazvanie.ToLower().StartsWith(search));
+            }
+
+            FlightsLV.ItemsSource = filter.ToList();
+
         }
 
         //private void City1FilterCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -88,6 +119,22 @@ namespace AirportGit.Pages
                 DBConnection.selectedForFlight = FlightsLV.SelectedItem as Flight;
                 NavigationService.Navigate(new TicketBuyPage(FlightsLV.SelectedItem as Flight));
             }
+        }
+
+
+        private void EndDp_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchStartTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchEndTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

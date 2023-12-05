@@ -55,5 +55,54 @@ namespace AirportGit.Pages
                 //DeleteWorkerBTN.Visibility = Visibility.Collapsed;
             }
         }
+
+
+        private void Refresh()
+        {
+            IEnumerable<Flight> filter = flights;
+
+            if (StartDp.SelectedDate != null)
+            {
+                filter = filter.Where(x => x.DepartureDate >= StartDp.SelectedDate);
+            }
+
+            if (EndDp.SelectedDate != null)
+            {
+                filter = filter.Where(x => x.ArivalDate <= EndDp.SelectedDate);
+            }
+
+            if (SearchStartTb.Text != "")
+            {
+                string search = SearchStartTb.Text.Trim().ToLower(); ;
+                filter = filter.Where(x => x.Flyghtport1.Name.ToLower().StartsWith(search) || x.Flyghtport1.City.Nazvanie.ToLower().StartsWith(search)
+                || x.Flyghtport1.City.Country.Nazvanie.ToLower().StartsWith(search));
+            }
+
+            if (SearchEndTb.Text != "")
+            {
+                string search = SearchEndTb.Text.Trim().ToLower();
+                filter = filter.Where(x => x.Flyghtport.Name.ToLower().StartsWith(search) || x.Flyghtport.City.Nazvanie.ToLower().StartsWith(search)
+                || x.Flyghtport.City.Country.Nazvanie.ToLower().StartsWith(search));
+            }
+
+            FlightsLV.ItemsSource = filter.ToList();
+
+        }
+
+
+        private void EndDp_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchStartTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchEndTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
+        }
     }
 }
