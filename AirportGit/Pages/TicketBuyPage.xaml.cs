@@ -136,7 +136,7 @@ namespace AirportGit.Pages
 
         private void KidsBtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddKids(Flight));
+            NavigationService.Navigate(new AddKids(contextFlight));
         }
     }
 }

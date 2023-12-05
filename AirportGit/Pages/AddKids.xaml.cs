@@ -37,12 +37,13 @@ namespace AirportGit.Pages
             clients = DBConnection.airportEntities.Client.ToList();
             flights = DBConnection.airportEntities.Flight.ToList();
             contextFlight = flight;
+            InitializeDataInPage();
             this.DataContext = this;
         }
 
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
 
         private void AddWorkerBTN_Click(object sender, RoutedEventArgs e)
@@ -94,7 +95,7 @@ namespace AirportGit.Pages
 
             }
 
-            result = allseats - count;
+            result = allseats - count - 1;
             CountSeatsTBl.Text = result.ToString();
         }
 
