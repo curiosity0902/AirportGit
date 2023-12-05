@@ -57,7 +57,7 @@ namespace AirportGit.Pages
 
             if (SearchTB.Text.Length > 0)
 
-                CountiesLv.ItemsSource = DBConnection.airportEntities.Country.Where(i => i.Nazvanie.Contains(SearchTB.Text.Trim())).ToList();
+                CountiesLv.ItemsSource = DBConnection.airportEntities.Country.Where(i => i.Nazvanie.StartsWith(SearchTB.Text.Trim())).ToList();
 
             else
                 CountiesLv.ItemsSource = new List<Country>(DBConnection.airportEntities.Country.ToList());

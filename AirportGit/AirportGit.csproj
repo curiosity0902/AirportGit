@@ -91,41 +91,41 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB\Aircompany.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Airplane.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AirplaneModel.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Baggage.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\City.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ClassReservation.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Client.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Country.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Count_tickets.cs">
       <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnection.cs" />
     <Compile Include="DB\Flight.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\FlightStatus.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Flyghtport.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Model11.Context.cs">
       <AutoGen>True</AutoGen>
@@ -141,6 +141,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model11.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model1111.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1111.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model1111.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1111.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model1111.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1111.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Model2.Context.cs">
       <AutoGen>True</AutoGen>
@@ -203,7 +218,7 @@
       <DependentUpon>Model9.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Position.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model9.tt</DependentUpon>
@@ -215,13 +230,13 @@
       <DependentUpon>Model11.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Team.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Ticket.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Worker.cs">
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model1111.tt</DependentUpon>
     </Compile>
     <Compile Include="Functions\AddCheck.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -419,6 +434,13 @@
     <None Include="DB\Model11.edmx.diagram">
       <DependentUpon>Model11.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="DB\Model1111.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1111.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB\Model1111.edmx.diagram">
+      <DependentUpon>Model1111.edmx</DependentUpon>
+    </None>
     <None Include="DB\Model2.edmx.diagram">
       <DependentUpon>Model2.edmx</DependentUpon>
     </None>
@@ -465,6 +487,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model11.edmx</DependentUpon>
       <LastGenOutput>Model11.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model1111.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1111.edmx</DependentUpon>
+      <LastGenOutput>Model1111.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model1111.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1111.edmx</DependentUpon>
+      <LastGenOutput>Model1111.cs</LastGenOutput>
     </Content>
     <Content Include="DB\Model2.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

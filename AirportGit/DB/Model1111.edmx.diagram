@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0d27520c82894d3e89e4abde3d4f1621" Name="Diagram1">
+        <EntityTypeShape EntityType="AirportModel.Aircompany" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Airplane" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.AirplaneModel" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Baggage" Width="1.5" PointX="11.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.City" Width="1.5" PointX="6.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.ClassReservation" Width="1.5" PointX="11.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Client" Width="1.5" PointX="11.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Country" Width="1.5" PointX="4.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Flight" Width="1.5" PointX="11.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.FlightStatus" Width="1.5" PointX="9" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Flyghtport" Width="1.5" PointX="9" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Position" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Team" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Ticket" Width="1.5" PointX="13.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Worker" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="AirportModel.FK_Airplane_Aircompany" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Worker_Aircompany" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Airplane_AirplaneModel" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Airplane_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Flight_Airplane" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Ticket_Baggage" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_City_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Flyghtport_City" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Ticket_ClassReservation" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Ticket_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Flight_FlightStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Flight_Flyghtport" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Flight_Flyghtport1" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Flight_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Flight_Worker1" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Flight_Worker2" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Ticket_Flight" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Worker_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Team_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Team_Worker1" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK_Team_Worker2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

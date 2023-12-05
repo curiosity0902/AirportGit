@@ -138,5 +138,10 @@ namespace AirportGit.Pages
         {
             NavigationService.Navigate(new AddKids(contextFlight));
         }
+
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ViewFlightsPage());
+        }
     }
 }

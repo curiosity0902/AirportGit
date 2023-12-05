@@ -106,6 +106,18 @@
                 FontSize="26"
                 Click="BuyTicket_Click"/>
 
+
+
+
+        <Button x:Name="CancelBtn" 
+                Grid.Column="1"
+                Grid.Row="6"
+                Width="350"
+                Grid.ColumnSpan="2"
+                Height="50"
+                Content="Отмена"
+                FontSize="26" Click="CancelBtn_Click"/>
+
         <TextBlock Grid.Row="7"
         Grid.Column="6"
         HorizontalAlignment="Left"
