@@ -13,10 +13,10 @@ namespace AirportGit.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Airport05EntitiesV : DbContext
+    public partial class Airport05EntitiesV02 : DbContext
     {
-        public Airport05EntitiesV()
-            : base("name=Airport05EntitiesV")
+        public Airport05EntitiesV02()
+            : base("name=Airport05EntitiesV02")
         {
         }
     

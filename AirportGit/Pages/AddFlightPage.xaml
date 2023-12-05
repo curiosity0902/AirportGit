@@ -41,7 +41,7 @@
                 Grid.ColumnSpan="6"
                 Grid.Row="1"
                 Grid.RowSpan="8"></Border>
-        <Border Background="#fff" MaxWidth="1650" MaxHeight="800" CornerRadius="70"
+        <Border Background="#fff" MaxWidth="1650" MaxHeight="700" CornerRadius="70"
                 Grid.Column="0"
                 Grid.ColumnSpan="6"
                 Grid.Row="1"
