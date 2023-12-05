@@ -144,6 +144,21 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
+        <TextBlock Grid.Row="4"
+        Grid.Column="0"
+        HorizontalAlignment="Center"
+        Text="У вас есть ребенок? "
+        VerticalAlignment="Center"/>
+
+        <Button x:Name="KidsBtn" 
+                Grid.Column="1"
+                Grid.Row="4"
+                Width="350"
+                Grid.ColumnSpan="2"
+                Height="50"
+                Content="У меня есть ребенок"
+                FontSize="26"
+                Click="KidsBtn_Click"/>
 
     </Grid>
 </Page>

@@ -213,6 +213,7 @@
         Width="300"
         Height="40"
         Click="AddPhotoBTN_Click"/>
+        
         <Button x:Name="AddWorkerBTN"
         Content="Добавить сотрудника"
         Grid.Column="6"
@@ -221,6 +222,7 @@
         Width="400"
         Height="40"
         Click="AddWorkerBTN_Click"/>
+        
         <Button x:Name="BackBTN"      
         Content="Назад"
         Grid.Column="6"

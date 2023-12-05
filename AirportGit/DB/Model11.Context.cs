@@ -40,5 +40,6 @@ namespace AirportGit.DB
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

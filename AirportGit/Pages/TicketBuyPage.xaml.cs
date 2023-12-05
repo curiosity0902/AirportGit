@@ -28,6 +28,7 @@ namespace AirportGit.Pages
 
         public static Ticket ticket = new Ticket();
 
+
         Flight contextFlight;
         public TicketBuyPage(Flight flight)
         {
@@ -45,21 +46,30 @@ namespace AirportGit.Pages
             this.DataContext = this;
             FlightTBl.Text = DBConnection.selectedForFlight.Flyghtport.City.Nazvanie.ToString() + " - " + DBConnection.selectedForFlight.Flyghtport1.City.Nazvanie.ToString();
             FlightDateTBl.Text = Convert.ToString(contextFlight.DepartureDate) + " - " + Convert.ToString(contextFlight.ArivalDate);
-            CountSeatsTBl.Text = Convert.ToString(new List <Count_tickets>(DBConnection.airportEntities.Count_tickets).FirstOrDefault(x => x.IDFlight == contextFlight.IDFlight).Ostatok);
+            //CountSeatsTBl.Text = Convert.ToString(new List <Count_tickets>(DBConnection.airportEntities.Count_tickets).FirstOrDefault(x => x.IDFlight == contextFlight.IDFlight).Ostatok);
+            
+            int allseats = (int)contextFlight.Airplane.AirplaneModel.CountSeats;
+            int count = 0;
+            int result = 0;
 
+            for (int i = 0; i < tickets.Count; i++)
+            {
+                if (tickets[i].IDFlight == contextFlight.IDFlight)
+                {
+                    count++;
+                }
+
+            }
+
+            result = allseats - count;
+            CountSeatsTBl.Text = result.ToString();
 
 
         }
 
         public void Refresh()
         {
-        //    if (ClassReservationCb.SelectedItem is ClassReservation classReservation)
-        //    {
-        //        var exam = contextFlight;
-        //        exam.Ticket = classReservation.Ticket;
-        //        var studentInList = tickets.FirstOrDefault(x => x.IDClassReservation == ticket.IDClassReservation);
-    
-        //    }
+            
 
 
             int price = int.Parse(DBConnection.selectedForFlight.Price.ToString());
@@ -96,24 +106,37 @@ namespace AirportGit.Pages
 
         private void BuyTicket_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
-            ticket.IDClassReservation = ClassReservationCb.SelectedIndex + 1;
-            ticket.IDFlight = contextFlight.IDFlight;
-            ticket.IDClient = DBConnection.loginedClient.IDClient;
-            //ticket.IDBaggage = 
-            //ticket.DateOfBuy = DateOfBirthDP.SelectedDate;
-            //ticket.Passport = PassportTB.Text.Trim();
+                ticket.IDClassReservation = ClassReservationCb.SelectedIndex + 1;
+                ticket.IDFlight = contextFlight.IDFlight;
+                ticket.IDClient = DBConnection.loginedClient.IDClient;
+                //ticket.IDBaggage = 
+                //ticket.DateOfBuy = DateOfBirthDP.SelectedDate;
+                //ticket.Passport = PassportTB.Text.Trim();
 
 
                 DBConnection.airportEntities.Ticket.Add(ticket);
                 DBConnection.airportEntities.SaveChanges();
                 NavigationService.Navigate(new MainMenuClientPage());
-          
+            }
+
+            catch
+            {
+                MessageBox.Show("Заполните все поля!");
+            }
+
         }
 
         private void ClassReservationCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void KidsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddKids(Flight));
         }
     }
 }
