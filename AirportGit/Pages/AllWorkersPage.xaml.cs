@@ -23,13 +23,10 @@ namespace AirportGit.Pages
     {
         public static List<Worker> workers { get; set; }
         public static Worker loggedWorker;
-        public static Client loggedClient;
-
         public AllWorkersPage()
         {
             InitializeComponent();
             loggedWorker = DBConnection.loginedWorker;
-            loggedClient = DBConnection.loginedClient;
             workers = DBConnection.airportEntities.Worker.ToList();
             this.DataContext = this;
             Refresh();
@@ -67,7 +64,14 @@ namespace AirportGit.Pages
         }
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainMenuWorkerPage());
+            if (loggedWorker == null)
+            {
+                NavigationService.Navigate(new MainMenuClientPage());
+            }
+            else
+            {
+                NavigationService.Navigate(new MainMenuWorkerPage());
+            }
         }
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -80,13 +84,7 @@ namespace AirportGit.Pages
         }
         private void CheckConditionAndToggleButtonVisibility()
         {
-            if (loggedWorker.IDPosition == 4)
-            {
-                EditWorkerBTN.Visibility = Visibility.Visible;
-                AddWorkerBTN.Visibility = Visibility.Visible;
-                DeleteWorkerBTN.Visibility = Visibility.Visible;
-            }
-            else if (loggedClient != null)
+            if (loggedWorker == null)
             {
                 EditWorkerBTN.Visibility = Visibility.Collapsed;
                 AddWorkerBTN.Visibility = Visibility.Collapsed;
@@ -94,9 +92,18 @@ namespace AirportGit.Pages
             }
             else
             {
-                EditWorkerBTN.Visibility = Visibility.Collapsed;
-                AddWorkerBTN.Visibility = Visibility.Collapsed;
-                DeleteWorkerBTN.Visibility = Visibility.Collapsed;
+                if (loggedWorker.IDPosition == 4)
+                {
+                    EditWorkerBTN.Visibility = Visibility.Visible;
+                    AddWorkerBTN.Visibility = Visibility.Visible;
+                    DeleteWorkerBTN.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    EditWorkerBTN.Visibility = Visibility.Collapsed;
+                    AddWorkerBTN.Visibility = Visibility.Collapsed;
+                    DeleteWorkerBTN.Visibility = Visibility.Collapsed;
+                }
             }
         }
     }
