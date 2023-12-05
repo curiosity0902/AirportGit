@@ -45,7 +45,8 @@ namespace AirportGit.Pages
             this.DataContext = this;
             FlightTBl.Text = DBConnection.selectedForFlight.Flyghtport.City.Nazvanie.ToString() + " - " + DBConnection.selectedForFlight.Flyghtport1.City.Nazvanie.ToString();
             FlightDateTBl.Text = Convert.ToString(contextFlight.DepartureDate) + " - " + Convert.ToString(contextFlight.ArivalDate);
-            CountSeatsTBl.Text = Convert.ToString(new List <Count_tickets>(DBConnection.airportEntities.);
+            CountSeatsTBl.Text = Convert.ToString(new List <Count_tickets>(DBConnection.airportEntities.Count_tickets).FirstOrDefault(x => x.IDFlight == contextFlight.IDFlight).Ostatok);
+
 
 
         }

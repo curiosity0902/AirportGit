@@ -115,7 +115,7 @@
       <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Count_tickets.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnection.cs" />
     <Compile Include="DB\Flight.cs">
