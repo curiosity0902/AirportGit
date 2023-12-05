@@ -2,10 +2,11 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30" FontFamily="Courier New"
       Title="RegistrationPage">
 
     <Grid>
@@ -33,19 +34,43 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Регистрация"
+
+
+        <!-->ДИЗАЙН ОКНА<-->
+        <Border Background="#B9D9E3" MaxWidth="1900" MaxHeight="1000" CornerRadius="150"
+                Grid.Column="1"
+                Grid.ColumnSpan="10"
+                Grid.Row="1"
+                Grid.RowSpan="6"></Border>
+        <Border Background="#B9D9E3" MaxWidth="600" MaxHeight="900" CornerRadius="150"
+                Grid.Column="1"
+                Grid.ColumnSpan="10"
+                Grid.Row="0"
+                Grid.RowSpan="8"></Border>
+        <Border Background="#FFF" MaxWidth="1500" MaxHeight="600" CornerRadius="150"
+                Grid.Column="1"
+                Grid.ColumnSpan="10"
+                Grid.Row="1"
+                Grid.RowSpan="6"></Border>
+
+        <!-->ТЕКСТ РЕГИСТРАЦИЯ<-->
+        <TextBlock Text="РЕГИСТРАЦИЯ"
             Grid.Column="5"
             Grid.ColumnSpan="2"
             Grid.Row="0"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
             FontSize="50"/>
-        <TextBlock Text="Фамилия"
-            Grid.Column="1"
-            Grid.ColumnSpan="2"
+
+        <!-->ТЕКСТ ФАМИЛИЯ<-->
+        <TextBlock Text="Фамилия:"
+            Grid.Column="2"
+            Grid.ColumnSpan="1"
             Grid.Row="2"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
+
+
         <TextBox x:Name="SurnameTB"
             Grid.Column="3"
             Grid.ColumnSpan="3"
@@ -54,12 +79,16 @@
             VerticalAlignment="Center"
             Width="400"
             Height="60"/>
-        <TextBlock Text="Имя"
-            Grid.Column="1"
+
+        <!-->ТЕКСТ ИМЯ<-->
+        <TextBlock Text="Имя:"
+            Grid.Column="2"
             Grid.ColumnSpan="2"
             Grid.Row="3"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
+
+
         <TextBox x:Name="NameTB"
             Grid.Column="3"
             Grid.ColumnSpan="3"
@@ -68,12 +97,16 @@
             VerticalAlignment="Center"
             Width="400"
             Height="60"/>
-        <TextBlock Text="Отчество"
-            Grid.Column="1"
+
+        <!--> ТЕКСТ ОТЧЕСТВО<-->
+        <TextBlock Text="Отчество:"
+            Grid.Column="2"
             Grid.ColumnSpan="2"
             Grid.Row="4"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
+
+
         <TextBox x:Name="PatronymicTB"
             Grid.Column="3"
             Grid.ColumnSpan="3"
@@ -82,12 +115,16 @@
             VerticalAlignment="Center"
             Width="400"
             Height="60"/>
-        <TextBlock Text="Дата рождения"
-            Grid.Column="1"
+
+        <!-->ТЕКСТ ДР<-->
+        <TextBlock Text="Дата рождения:"
+            Grid.Column="2"
             Grid.ColumnSpan="2"
             Grid.Row="5"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
+
+        <!-->КАЛЕНДАРЬ<-->
         <DatePicker x:Name="DateOfBirthDP"
             Grid.Column="3"
             Grid.ColumnSpan="3"
@@ -96,12 +133,15 @@
             VerticalAlignment="Center"
             Width="400"
             Height="60"/>
-        <TextBlock Text="Паспортные данные"
+
+        <!-->ПАСПОРТ<-->
+        <TextBlock Text="Паспортные данные:"
             Grid.Column="6"
             Grid.ColumnSpan="2"
             Grid.Row="2"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
+
         <TextBox x:Name="PassportTB"
             Grid.Column="8"
             Grid.ColumnSpan="3"
@@ -111,12 +151,15 @@
             FontSize="25"
             Width="400"
             Height="60"/>
-        <TextBlock Text="Номер телефона"
+
+        <!-->ТЕЛЕФОН<-->
+        <TextBlock Text="Номер телефона:"
             Grid.Column="6"
             Grid.ColumnSpan="2"
             Grid.Row="3"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
+
         <TextBox x:Name="PhoneTB"
             Grid.Column="8"
             Grid.ColumnSpan="3"
@@ -125,12 +168,15 @@
             VerticalAlignment="Center"
             Width="400"
             Height="60"/>
-        <TextBlock Text="Почта"
+
+        <!-->ПОЧТА<-->
+        <TextBlock Text="Почта:"
             Grid.Column="6"
             Grid.ColumnSpan="2"
             Grid.Row="4"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
+
         <TextBox x:Name="EmailTB"
             Grid.Column="8"
             Grid.ColumnSpan="3"
@@ -139,12 +185,15 @@
             VerticalAlignment="Center"
             Width="400"
             Height="60"/>
-        <TextBlock Text="Пароль"
+
+        <!-->ПАРОЛЬ<-->
+        <TextBlock Text="Пароль:"
             Grid.Column="6"
             Grid.ColumnSpan="2"
             Grid.Row="5"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"/>
+
         <PasswordBox x:Name="PasswordTB"
             Grid.Column="8"
             Grid.ColumnSpan="3"
@@ -153,7 +202,9 @@
             VerticalAlignment="Center"
             Width="400"
             Height="60"/>
-        <Button Content="Зарегистрироваться"
+
+        <!-->КНОПКА РЕГИСТРАЦИИ<-->
+        <Button Content="ЗАРЕГИСТРИРОВАТЬСЯ"
             x:Name="RegBTN"
             Grid.Column="4"
             Grid.ColumnSpan="4"
@@ -162,16 +213,23 @@
             VerticalAlignment="Center"
             Width="400"
             Height="60"
-            Click="RegBTN_Click"/>
+            Click="RegBTN_Click"
+            Background="#FF28729C" Foreground="White" FontFamily="Courier New" FontWeight="DemiBold" FontSize="27"
+            Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
+
+        <!-->КНОПКА ЕСТЬ АККАУНТ<-->
         <Button Content="У меня есть аккаунт"
             x:Name="AuthBTN"
             Grid.Column="4"
             Grid.ColumnSpan="4"
             Grid.Row="7"
+            Grid.RowSpan="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Width="400"
-            Height="60"
-            Click="AuthBTN_Click"/>
+            Height="40"
+            Click="AuthBTN_Click"
+            Background="{x:Null}" BorderThickness="0,0,0,1" BorderBrush="Black" Foreground="Black" FontSize="25" 
+            FontFamily="Courier New" FontWeight="Medium"/>
     </Grid>
 </Page>

@@ -24,5 +24,10 @@ namespace AirportGit.Pages
         {
             InitializeComponent();
         }
+
+        private void EnterBTN_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AuthorizationPage());
+        }
     }
 }

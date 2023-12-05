@@ -24,7 +24,7 @@ namespace AirportGit
         public MainWindow()
         {
             InitializeComponent();
-            navFr.NavigationService.Navigate(new AuthorizationPage());
+            navFr.NavigationService.Navigate(new WelcomePage());
         }
     }
 }
