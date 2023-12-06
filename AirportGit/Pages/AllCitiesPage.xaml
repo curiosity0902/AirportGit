@@ -17,7 +17,6 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/> 
         </Grid.ColumnDefinitions>
         
         
@@ -31,14 +30,13 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <Border Background="#B9D9E3" MaxWidth="1850" MaxHeight="1000" CornerRadius="70"
+        <Border Background="#B9D9E3" MaxWidth="1850" MaxHeight="800" CornerRadius="70"
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
                 Grid.Row="0"
                 Grid.RowSpan="8"></Border>
 
-        <Border Background="#fff" MaxWidth="1550" MaxHeight="700" CornerRadius="70"
+        <Border Background="#fff" MaxWidth="900" MaxHeight="700" CornerRadius="70"
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
                 Grid.Row="1"
@@ -49,12 +47,14 @@
             Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.RowSpan="6"
+                  MaxWidth="550"
+                  MaxHeight="500"
             ItemsSource="{Binding cities}" SelectionChanged="CitiesLv_SelectionChanged"
             >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="Город" DisplayMemberBinding="{Binding Nazvanie}" Width="550"/>
+                        <GridViewColumn Header="Город" DisplayMemberBinding="{Binding Nazvanie}" Width="500"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
@@ -66,7 +66,7 @@
         Grid.Column="4"
         Grid.ColumnSpan="3"
         Grid.Row="7"
-        Click="BackBTN_Click"
+        Click="BackBTN_Click" FontSize="35"
                                 Background="#FF28729C" Foreground="White" FontFamily="Courier New" 
                 Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
 
