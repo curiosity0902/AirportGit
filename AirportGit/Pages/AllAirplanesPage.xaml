@@ -43,7 +43,7 @@
                 Grid.Row="0"
                 Grid.RowSpan="8"></Border>
 
-        <Border Background="#fff" MaxWidth="1750" MaxHeight="700" CornerRadius="70"
+        <Border Background="#fff" MaxWidth="1100" MaxHeight="800" CornerRadius="70"
                 Grid.Column="0"
                 Grid.ColumnSpan="6"
                 Grid.Row="1"
@@ -60,7 +60,7 @@
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="6"
-            Grid.RowSpan="6"
+            Grid.RowSpan="6" MaxWidth="800"
             ItemsSource="{Binding airplanes}"
                 SelectionChanged="AirplanesLv_SelectionChanged">
             <ListView.View>
@@ -124,7 +124,7 @@
             Grid.Row="7"
             Grid.ColumnSpan="4"
             Content="Назад"
-            FontSize="20"  
+            FontSize="30"  
             Margin="10" 
             Width="250" 
             Height="40"
