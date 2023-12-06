@@ -105,7 +105,7 @@
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
         Text="Дата рождения"/>
-        
+
         <Button x:Name="AddWorkerBTN"
         Content="Добавить ребенка"
         Grid.Column="4"
@@ -113,9 +113,9 @@
         Grid.Row="3" Grid.RowSpan="2"
         Width="450"
         Height="50"
-        Click="AddWorkerBTN_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  FontSize="35"
+        Click="AddWorkerBTN_Click"
+                Background="#FF28729C" Foreground="White" FontFamily="Courier New"  FontSize="35"
                 Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
-
         <Button x:Name="BackBTN"      
         Content="Назад"
         Grid.Column="2"
@@ -125,22 +125,5 @@
         Height="50"
         Click="BackBTN_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  FontSize="35"
                 Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
-        
-        <TextBlock
-            Text="Количество мест на данный момент: "
-            Grid.Column="4" Grid.ColumnSpan="3"
-            VerticalAlignment="Center"
-            Grid.Row="1"
-            HorizontalAlignment ="Center"
-            />
-
-        <TextBlock Grid.Row="2"
-        x:Name="CountSeatsTBl"
-        Grid.Column="4"
-        Width="700"
-        FontSize="28"
-        Grid.ColumnSpan="3"
-        HorizontalAlignment="Center"
-        />
     </Grid>
 </Page>

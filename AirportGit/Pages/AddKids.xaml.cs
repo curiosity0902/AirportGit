@@ -22,31 +22,23 @@ namespace AirportGit.Pages
     /// </summary>
     public partial class AddKids : Page
     {
+        public static Client loggedClient;
+        public static List<Children> childrens { get; set; }
+        public static Children children = new Children();
         public static List<Client> clients { get; set; }
-        public static List<Flight> flights { get; set; }
-
-        public static List<Ticket> tickets = new List<Ticket>();
-
-        public static Ticket ticket = new Ticket();
-        public static Client client = new Client();
-
-        Flight contextFlight;
-        public AddKids(Flight flight)
+        public AddKids()
         {
             InitializeComponent();
+            loggedClient = DBConnection.loginedClient;
+            childrens = DBConnection.airportEntities.Children.ToList();
             clients = DBConnection.airportEntities.Client.ToList();
-            flights = DBConnection.airportEntities.Flight.ToList();
-            contextFlight = flight;
-            InitializeDataInPage();
             this.DataContext = this;
         }
-
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new AllChildrenPage());
         }
-
-        private void AddWorkerBTN_Click(object sender, RoutedEventArgs e)
+        private void AddKidBTN_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -57,48 +49,29 @@ namespace AirportGit.Pages
                 }
                 else
                 {
-                    client.Surname = SurnameTB.Text.Trim();
-                    client.Name = NameTB.Text.Trim();
-                    client.Patronymic = PatronymicTB.Text.Trim();
+                    children.Surname = SurnameTB.Text.Trim();
+                    children.Name = NameTB.Text.Trim();
+                    children.Patronymic = PatronymicTB.Text.Trim();
                     if (DateOfBirthDP.SelectedDate != null && (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays > 365 * 14 + 3)
                     {
                         MessageBox.Show("По тарифу ребенок могут ездить только пассажиры младше 14 лет.");
                     }
                     else
                     {
-                        client.DateOfBirth = DateOfBirthDP.SelectedDate;
+                        children.DateOfBirth = DateOfBirthDP.SelectedDate;
                     }
+                    children.IDClient = loggedClient.IDClient;
 
-                    DBConnection.airportEntities.Client.Add (client);
+                    DBConnection.airportEntities.Children.Add(children);
                     DBConnection.airportEntities.SaveChanges();
-                    NavigationService.GoBack();
+                    NavigationService.Navigate(new AllChildrenPage());
                 }
             }
             catch
             {
                 MessageBox.Show("Заполните все поля!");
             }
-        }
-        public void InitializeDataInPage()
-        {
-
-            int allseats = (int)contextFlight.Airplane.AirplaneModel.CountSeats;
-            int count = 0;
-            int result = 0;
-
-            for (int i = 0; i < tickets.Count; i++)
-            {
-                if (tickets[i].IDFlight == contextFlight.IDFlight)
-                {
-                    count++;
-                }
-
-            }
-
-            result = allseats - count;
-            CountSeatsTBl.Text = result.ToString();
-
-        }
 
         }
     }
+}
