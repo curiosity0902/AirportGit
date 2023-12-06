@@ -3,9 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30" FontFamily="Courier New"
       Title="MyTicketsPage">
 
     <Grid>
@@ -30,12 +31,25 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <Border Background="#B9D9E3" MaxWidth="1850" MaxHeight="1000" CornerRadius="70"
+                Grid.Column="0"
+                Grid.ColumnSpan="7"
+                Grid.Row="1"
+                Grid.RowSpan="8"></Border>
+        <Border Background="#fff" MaxWidth="1750" MaxHeight="750" CornerRadius="70"
+                Grid.Column="0"
+                Grid.ColumnSpan="7"
+                Grid.Row="1"
+                Grid.RowSpan="8"></Border>
+
         <ListView
             x:Name="TicketsLv"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="0"
-            Grid.ColumnSpan="7"
+            Grid.ColumnSpan="8"
             Grid.RowSpan="6"
+            MaxWidth="1550"
             ItemsSource="{Binding tickets}"
             >
                 <ListView.View>
@@ -98,9 +112,10 @@
 
             <Button x:Name="BackBtn"
             Grid.Column="3"
-            Grid.Row="7"
-            Height="65"
-            Content="Вернуться назад" Click="BackBtn_Click_1"
-            />
+            Grid.Row="8" Grid.RowSpan="2"
+            Height="45"
+            Content="НАЗАД" Click="BackBtn_Click_1"
+            Background="#FF28729C" Foreground="White" FontFamily="Courier New" 
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" FontSize="35"/>
     </Grid>
 </Page>
