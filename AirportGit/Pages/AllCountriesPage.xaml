@@ -32,13 +32,13 @@
 
         <!-->ДИЗАЙН ОКНА<-->
 
-        <Border Background="#B9D9E3" MaxWidth="1850" MaxHeight="1000" CornerRadius="70"
+        <Border Background="#B9D9E3" MaxWidth="1850" MaxHeight="800" CornerRadius="70"
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
                 Grid.Row="0"
                 Grid.RowSpan="8"></Border>
 
-        <Border Background="#fff" MaxWidth="1550" MaxHeight="700" CornerRadius="70"
+        <Border Background="#fff" MaxWidth="900" MaxHeight="700" CornerRadius="70"
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
                 Grid.Row="1"
@@ -60,13 +60,15 @@
             Grid.Column="1"
             Grid.ColumnSpan="3"
             Grid.RowSpan="6"
+                  MaxWidth="550"
+                  MaxHeight="500"
                   ItemsSource="{Binding countries}" SelectionChanged="CountiesLv_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Страна" 
                           DisplayMemberBinding="{Binding Nazvanie}"
-                          Width="750"/>
+                          Width="500"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
@@ -75,7 +77,7 @@
         <Button x:Name="BackBTN"
         Content="Назад"
            FontWeight="DemiBold"
-        FontSize="20"
+        FontSize="35"
         Margin="10"
         Width="270"
         Height="40"
@@ -88,12 +90,12 @@
                 />
 
         <TextBlock
-        Grid.Column="5"
-        Grid.ColumnSpan="2"
+        Grid.Column="4"
+        Grid.ColumnSpan="1"
         Grid.Row="1"
         HorizontalAlignment="Center"
         VerticalAlignment="Center" 
-        Text="Поиск">
+        Text="🔎">
         </TextBlock>
 
         <TextBox x:Name="SearchTB"
