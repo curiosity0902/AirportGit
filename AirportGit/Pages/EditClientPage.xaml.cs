@@ -93,9 +93,5 @@ namespace AirportGit.Pages
             }
         }
 
-        private void MyChildrenBTN_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AllKidsPage());
-        }
     }
 }

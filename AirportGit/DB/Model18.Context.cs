@@ -13,10 +13,10 @@ namespace AirportGit.DB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AirportEntities2 : DbContext
+    public partial class AirportEntities3 : DbContext
     {
-        public AirportEntities2()
-            : base("name=AirportEntities2")
+        public AirportEntities3()
+            : base("name=AirportEntities3")
         {
         }
     
@@ -29,7 +29,6 @@ namespace AirportGit.DB
         public virtual DbSet<Airplane> Airplane { get; set; }
         public virtual DbSet<AirplaneModel> AirplaneModel { get; set; }
         public virtual DbSet<Baggage> Baggage { get; set; }
-        public virtual DbSet<Children> Children { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<ClassReservation> ClassReservation { get; set; }
         public virtual DbSet<Client> Client { get; set; }

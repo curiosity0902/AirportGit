@@ -91,104 +91,56 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DB\Aircompany.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Airplane.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\AirplaneModel.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Baggage.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Children.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\City.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\ClassReservation.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Client.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Country.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Count_tickets.cs">
       <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\DBConnection.cs" />
     <Compile Include="DB\Flight.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\FlightStatus.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Flyghtport.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model11.Context.cs">
+    <Compile Include="DB\Model18.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model11.Context.tt</DependentUpon>
+      <DependentUpon>Model18.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model11.cs">
+    <Compile Include="DB\Model18.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model11.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Model11.Designer.cs">
+    <Compile Include="DB\Model18.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model11.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model1111.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1111.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model1111.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1111.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model1111.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1111.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model13.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model13.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model13.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model13.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model13.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model13.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model15.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model15.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model15.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model15.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Model15.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model15.edmx</DependentUpon>
+      <DependentUpon>Model18.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Model2.Context.cs">
       <AutoGen>True</AutoGen>
@@ -236,7 +188,7 @@
       <DependentUpon>Model9.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Position.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>Model9.tt</DependentUpon>
@@ -245,16 +197,16 @@
       <DependentUpon>Model9.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\sysdiagrams.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Team.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Ticket.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="DB\Worker.cs">
-      <DependentUpon>Model15.tt</DependentUpon>
+      <DependentUpon>Model18.tt</DependentUpon>
     </Compile>
     <Compile Include="Functions\AddCheck.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -266,10 +218,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddFlightPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AddKids.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -298,10 +246,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AllCountriesPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AllKidsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -365,9 +309,6 @@
     <Compile Include="Pages\AddFlightPage.xaml.cs">
       <DependentUpon>AddFlightPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddKids.xaml.cs">
-      <DependentUpon>AddKids.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AddWorkerPage.xaml.cs">
       <DependentUpon>AddWorkerPage.xaml</DependentUpon>
     </Compile>
@@ -388,9 +329,6 @@
     </Compile>
     <Compile Include="Pages\AllCountriesPage.xaml.cs">
       <DependentUpon>AllCountriesPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\AllKidsPage.xaml.cs">
-      <DependentUpon>AllKidsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AllTeamsPage.xaml.cs">
       <DependentUpon>AllTeamsPage.xaml</DependentUpon>
@@ -452,33 +390,12 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model2.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="DB\Model11.edmx">
+    <EntityDeploy Include="DB\Model18.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model11.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model18.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DB\Model11.edmx.diagram">
-      <DependentUpon>Model11.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="DB\Model1111.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1111.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DB\Model1111.edmx.diagram">
-      <DependentUpon>Model1111.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="DB\Model13.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model13.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DB\Model13.edmx.diagram">
-      <DependentUpon>Model13.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="DB\Model15.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model15.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DB\Model15.edmx.diagram">
-      <DependentUpon>Model15.edmx</DependentUpon>
+    <None Include="DB\Model18.edmx.diagram">
+      <DependentUpon>Model18.edmx</DependentUpon>
     </None>
     <None Include="DB\Model2.edmx.diagram">
       <DependentUpon>Model2.edmx</DependentUpon>
@@ -510,45 +427,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB\Model11.Context.tt">
+    <Content Include="DB\Model18.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model11.edmx</DependentUpon>
-      <LastGenOutput>Model11.Context.cs</LastGenOutput>
+      <DependentUpon>Model18.edmx</DependentUpon>
+      <LastGenOutput>Model18.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\Model11.tt">
+    <Content Include="DB\Model18.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model11.edmx</DependentUpon>
-      <LastGenOutput>Model11.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB\Model1111.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1111.edmx</DependentUpon>
-      <LastGenOutput>Model1111.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB\Model1111.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1111.edmx</DependentUpon>
-      <LastGenOutput>Model1111.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB\Model13.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model13.edmx</DependentUpon>
-      <LastGenOutput>Model13.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB\Model13.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model13.edmx</DependentUpon>
-      <LastGenOutput>Model13.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB\Model15.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model15.edmx</DependentUpon>
-      <LastGenOutput>Model15.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB\Model15.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model15.edmx</DependentUpon>
-      <LastGenOutput>Model15.cs</LastGenOutput>
+      <DependentUpon>Model18.edmx</DependentUpon>
+      <LastGenOutput>Model18.cs</LastGenOutput>
     </Content>
     <Content Include="DB\Model2.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
