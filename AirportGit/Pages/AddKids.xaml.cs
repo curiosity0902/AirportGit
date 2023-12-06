@@ -64,7 +64,7 @@ namespace AirportGit.Pages
 
                     DBConnection.airportEntities.Children.Add(children);
                     DBConnection.airportEntities.SaveChanges();
-                    NavigationService.Navigate(new AllChildrenPage());
+                    NavigationService.Navigate(new AllKidsPage());
                 }
             }
             catch

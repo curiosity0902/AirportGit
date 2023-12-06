@@ -301,6 +301,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AllKidsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AllTeamsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -384,6 +388,9 @@
     </Compile>
     <Compile Include="Pages\AllCountriesPage.xaml.cs">
       <DependentUpon>AllCountriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllKidsPage.xaml.cs">
+      <DependentUpon>AllKidsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\AllTeamsPage.xaml.cs">
       <DependentUpon>AllTeamsPage.xaml</DependentUpon>
