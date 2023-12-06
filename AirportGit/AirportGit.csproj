@@ -573,6 +573,7 @@
       <DependentUpon>Model9.edmx</DependentUpon>
       <LastGenOutput>Model9.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image\логотип.png" />
     <Resource Include="Image\fly1.png" />
     <Resource Include="Image\fly.png" />
   </ItemGroup>
