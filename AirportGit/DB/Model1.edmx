@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Airport03Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище AirportModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aircompany">
           <Key>
             <PropertyRef Name="IDAircompany" />
@@ -122,6 +122,16 @@
           <Property Name="IDPosition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazvanie" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="IDTeam" />
@@ -135,7 +145,7 @@
           <Key>
             <PropertyRef Name="IDTicket" />
           </Key>
-          <Property Name="IDTicket" Type="int" Nullable="false" />
+          <Property Name="IDTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateOfBuy" Type="datetime" />
           <Property Name="IDClassReservation" Type="int" />
           <Property Name="IDFlight" Type="int" />
@@ -413,7 +423,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище Airport03ModelContainer">
+        <EntityContainer Name="Хранилище AirportModelContainer">
           <EntitySet Name="Aircompany" EntityType="Self.Aircompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Airplane" EntityType="Self.Airplane" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AirplaneModel" EntityType="Self.AirplaneModel" Schema="dbo" store:Type="Tables" />
@@ -426,6 +436,7 @@
           <EntitySet Name="FlightStatus" EntityType="Self.FlightStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Flyghtport" EntityType="Self.Flyghtport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
@@ -518,7 +529,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Airport03Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AirportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Aircompany">
           <Key>
             <PropertyRef Name="IDAircompany" />
@@ -662,6 +673,16 @@
           <Property Name="Nazvanie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Position" FromRole="Position" ToRole="Worker" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="IDTeam" />
@@ -679,7 +700,7 @@
           <Key>
             <PropertyRef Name="IDTicket" />
           </Key>
-          <Property Name="IDTicket" Type="Int32" Nullable="false" />
+          <Property Name="IDTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateOfBuy" Type="DateTime" Precision="3" />
           <Property Name="IDClassReservation" Type="Int32" />
           <Property Name="IDFlight" Type="Int32" />
@@ -969,7 +990,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Airport03Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AirportEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aircompany" EntityType="Self.Aircompany" />
           <EntitySet Name="Airplane" EntityType="Self.Airplane" />
           <EntitySet Name="AirplaneModel" EntityType="Self.AirplaneModel" />
@@ -982,6 +1003,7 @@
           <EntitySet Name="FlightStatus" EntityType="Self.FlightStatus" />
           <EntitySet Name="Flyghtport" EntityType="Self.Flyghtport" />
           <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Team" EntityType="Self.Team" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" />
           <EntitySet Name="Worker" EntityType="Self.Worker" />
@@ -1075,9 +1097,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Airport03ModelContainer" CdmEntityContainer="Airport03Entities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AirportModelContainer" CdmEntityContainer="AirportEntities">
           <EntitySetMapping Name="Aircompany">
-            <EntityTypeMapping TypeName="Airport03Model.Aircompany">
+            <EntityTypeMapping TypeName="AirportModel.Aircompany">
               <MappingFragment StoreEntitySet="Aircompany">
                 <ScalarProperty Name="IDAircompany" ColumnName="IDAircompany" />
                 <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
@@ -1090,7 +1112,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Airplane">
-            <EntityTypeMapping TypeName="Airport03Model.Airplane">
+            <EntityTypeMapping TypeName="AirportModel.Airplane">
               <MappingFragment StoreEntitySet="Airplane">
                 <ScalarProperty Name="IDAirplane" ColumnName="IDAirplane" />
                 <ScalarProperty Name="IDAirplaneModel" ColumnName="IDAirplaneModel" />
@@ -1100,7 +1122,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AirplaneModel">
-            <EntityTypeMapping TypeName="Airport03Model.AirplaneModel">
+            <EntityTypeMapping TypeName="AirportModel.AirplaneModel">
               <MappingFragment StoreEntitySet="AirplaneModel">
                 <ScalarProperty Name="NumberModel" ColumnName="NumberModel" />
                 <ScalarProperty Name="Decoding" ColumnName="Decoding" />
@@ -1113,7 +1135,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Baggage">
-            <EntityTypeMapping TypeName="Airport03Model.Baggage">
+            <EntityTypeMapping TypeName="AirportModel.Baggage">
               <MappingFragment StoreEntitySet="Baggage">
                 <ScalarProperty Name="IDBaggage" ColumnName="IDBaggage" />
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
@@ -1124,7 +1146,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="City">
-            <EntityTypeMapping TypeName="Airport03Model.City">
+            <EntityTypeMapping TypeName="AirportModel.City">
               <MappingFragment StoreEntitySet="City">
                 <ScalarProperty Name="IDCity" ColumnName="IDCity" />
                 <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
@@ -1133,7 +1155,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClassReservation">
-            <EntityTypeMapping TypeName="Airport03Model.ClassReservation">
+            <EntityTypeMapping TypeName="AirportModel.ClassReservation">
               <MappingFragment StoreEntitySet="ClassReservation">
                 <ScalarProperty Name="IDClassReservation" ColumnName="IDClassReservation" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1141,7 +1163,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="Airport03Model.Client">
+            <EntityTypeMapping TypeName="AirportModel.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -1156,7 +1178,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Country">
-            <EntityTypeMapping TypeName="Airport03Model.Country">
+            <EntityTypeMapping TypeName="AirportModel.Country">
               <MappingFragment StoreEntitySet="Country">
                 <ScalarProperty Name="IDCountry" ColumnName="IDCountry" />
                 <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
@@ -1164,7 +1186,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Flight">
-            <EntityTypeMapping TypeName="Airport03Model.Flight">
+            <EntityTypeMapping TypeName="AirportModel.Flight">
               <MappingFragment StoreEntitySet="Flight">
                 <ScalarProperty Name="IDFlight" ColumnName="IDFlight" />
                 <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
@@ -1181,7 +1203,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FlightStatus">
-            <EntityTypeMapping TypeName="Airport03Model.FlightStatus">
+            <EntityTypeMapping TypeName="AirportModel.FlightStatus">
               <MappingFragment StoreEntitySet="FlightStatus">
                 <ScalarProperty Name="IDFlightStatus" ColumnName="IDFlightStatus" />
                 <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
@@ -1189,7 +1211,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Flyghtport">
-            <EntityTypeMapping TypeName="Airport03Model.Flyghtport">
+            <EntityTypeMapping TypeName="AirportModel.Flyghtport">
               <MappingFragment StoreEntitySet="Flyghtport">
                 <ScalarProperty Name="IDFlyghtport" ColumnName="IDFlyghtport" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1198,15 +1220,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Position">
-            <EntityTypeMapping TypeName="Airport03Model.Position">
+            <EntityTypeMapping TypeName="AirportModel.Position">
               <MappingFragment StoreEntitySet="Position">
                 <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
                 <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AirportModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Team">
-            <EntityTypeMapping TypeName="Airport03Model.Team">
+            <EntityTypeMapping TypeName="AirportModel.Team">
               <MappingFragment StoreEntitySet="Team">
                 <ScalarProperty Name="IDTeam" ColumnName="IDTeam" />
                 <ScalarProperty Name="IDMainPilot" ColumnName="IDMainPilot" />
@@ -1216,7 +1249,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ticket">
-            <EntityTypeMapping TypeName="Airport03Model.Ticket">
+            <EntityTypeMapping TypeName="AirportModel.Ticket">
               <MappingFragment StoreEntitySet="Ticket">
                 <ScalarProperty Name="IDTicket" ColumnName="IDTicket" />
                 <ScalarProperty Name="DateOfBuy" ColumnName="DateOfBuy" />
@@ -1229,7 +1262,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Worker">
-            <EntityTypeMapping TypeName="Airport03Model.Worker">
+            <EntityTypeMapping TypeName="AirportModel.Worker">
               <MappingFragment StoreEntitySet="Worker">
                 <ScalarProperty Name="IDWorker" ColumnName="IDWorker" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
