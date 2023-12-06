@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AirportGit.DB;
@@ -40,12 +41,20 @@ namespace AirportGit.Pages
         }
         public void InitializeDataInPage()
         {
-            airplaneModels = new List<AirplaneModel>(DBConnection.airportEntities.AirplaneModel).ToList();
+                airplaneModels = new List<AirplaneModel>(DBConnection.airportEntities.AirplaneModel).ToList();
+                this.DataContext = this;
+                SpeedTBl.Text = DBConnection.selectedForAirplane.AirplaneModel.Speed.ToString() + " км/ч ";
+                DecodingTB.Text = DBConnection.selectedForAirplane.AirplaneModel.Decoding.ToString();
+                MaxLenghtTB.Text = DBConnection.selectedForAirplane.AirplaneModel.LenghtFly.ToString() + " м";
+                CountSeatsTB.Text = "  " + DBConnection.selectedForAirplane.AirplaneModel.CountSeats.ToString();
+                MaxWeightTlB.Text = DBConnection.selectedForAirplane.AirplaneModel.MaxWeight.ToString() + " кг";
+
+
         }
 
-        private void BackBtn_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
+            private void BackBtn_Click(object sender, RoutedEventArgs e)
+            {
+                NavigationService.GoBack();
+            }
     }
 }

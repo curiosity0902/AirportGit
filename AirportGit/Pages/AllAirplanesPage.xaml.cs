@@ -61,5 +61,14 @@ namespace AirportGit.Pages
 
             }
         }
+
+        private void InfoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (AirplanesLv.SelectedItem is Airplane)
+            {
+                DBConnection.selectedForAirplane = AirplanesLv.SelectedItem as Airplane;
+                NavigationService.Navigate(new AboutAirplanePage(AirplanesLv.SelectedItem as Airplane));
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище AirportModel2" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище AirportModel5" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aircompany">
           <Key>
             <PropertyRef Name="IDAircompany" />
@@ -46,6 +46,17 @@
           <Property Name="Weight" Type="int" />
           <Property Name="Lenght" Type="int" />
           <Property Name="Height" Type="int" />
+          <Property Name="IDClient" Type="int" />
+        </EntityType>
+        <EntityType Name="Children">
+          <Key>
+            <PropertyRef Name="IDChildren" />
+          </Key>
+          <Property Name="IDChildren" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateOfBirth" Type="date" />
           <Property Name="IDClient" Type="int" />
         </EntityType>
         <EntityType Name="City">
@@ -122,6 +133,16 @@
           <Property Name="IDPosition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazvanie" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="IDTeam" />
@@ -135,7 +156,7 @@
           <Key>
             <PropertyRef Name="IDTicket" />
           </Key>
-          <Property Name="IDTicket" Type="int" Nullable="false" />
+          <Property Name="IDTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateOfBuy" Type="datetime" />
           <Property Name="IDClassReservation" Type="int" />
           <Property Name="IDFlight" Type="int" />
@@ -194,6 +215,18 @@
             </Principal>
             <Dependent Role="Airplane">
               <PropertyRef Name="IDTeam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Children_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Children" Type="Self.Children" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IDClient" />
+            </Principal>
+            <Dependent Role="Children">
+              <PropertyRef Name="IDClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -413,11 +446,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище AirportModel2Container">
+        <EntityContainer Name="Хранилище AirportModel5Container">
           <EntitySet Name="Aircompany" EntityType="Self.Aircompany" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Airplane" EntityType="Self.Airplane" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AirplaneModel" EntityType="Self.AirplaneModel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Baggage" EntityType="Self.Baggage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Children" EntityType="Self.Children" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClassReservation" EntityType="Self.ClassReservation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
@@ -426,6 +460,7 @@
           <EntitySet Name="FlightStatus" EntityType="Self.FlightStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Flyghtport" EntityType="Self.Flyghtport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
@@ -440,6 +475,10 @@
           <AssociationSet Name="FK_Airplane_Team" Association="Self.FK_Airplane_Team">
             <End Role="Team" EntitySet="Team" />
             <End Role="Airplane" EntitySet="Airplane" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Children_Client" Association="Self.FK_Children_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Children" EntitySet="Children" />
           </AssociationSet>
           <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
             <End Role="Country" EntitySet="Country" />
@@ -518,7 +557,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AirportModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AirportModel5" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Aircompany">
           <Key>
             <PropertyRef Name="IDAircompany" />
@@ -570,6 +609,18 @@
           <Property Name="IDClient" Type="Int32" />
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Baggage" FromRole="Baggage" ToRole="Ticket" />
         </EntityType>
+        <EntityType Name="Children">
+          <Key>
+            <PropertyRef Name="IDChildren" />
+          </Key>
+          <Property Name="IDChildren" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="IDClient" Type="Int32" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Children_Client" FromRole="Children" ToRole="Client" />
+        </EntityType>
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="IDCity" />
@@ -601,6 +652,7 @@
           <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Children" Relationship="Self.FK_Children_Client" FromRole="Client" ToRole="Children" />
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Client" FromRole="Client" ToRole="Ticket" />
         </EntityType>
         <EntityType Name="Country">
@@ -662,6 +714,16 @@
           <Property Name="Nazvanie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Worker" Relationship="Self.FK_Worker_Position" FromRole="Position" ToRole="Worker" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="IDTeam" />
@@ -679,7 +741,7 @@
           <Key>
             <PropertyRef Name="IDTicket" />
           </Key>
-          <Property Name="IDTicket" Type="Int32" Nullable="false" />
+          <Property Name="IDTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateOfBuy" Type="DateTime" Precision="3" />
           <Property Name="IDClassReservation" Type="Int32" />
           <Property Name="IDFlight" Type="Int32" />
@@ -786,6 +848,18 @@
             </Principal>
             <Dependent Role="Ticket">
               <PropertyRef Name="IDBaggage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Children_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Children" Type="Self.Children" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IDClient" />
+            </Principal>
+            <Dependent Role="Children">
+              <PropertyRef Name="IDClient" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -974,6 +1048,7 @@
           <EntitySet Name="Airplane" EntityType="Self.Airplane" />
           <EntitySet Name="AirplaneModel" EntityType="Self.AirplaneModel" />
           <EntitySet Name="Baggage" EntityType="Self.Baggage" />
+          <EntitySet Name="Children" EntityType="Self.Children" />
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="ClassReservation" EntityType="Self.ClassReservation" />
           <EntitySet Name="Client" EntityType="Self.Client" />
@@ -982,6 +1057,7 @@
           <EntitySet Name="FlightStatus" EntityType="Self.FlightStatus" />
           <EntitySet Name="Flyghtport" EntityType="Self.Flyghtport" />
           <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Team" EntityType="Self.Team" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" />
           <EntitySet Name="Worker" EntityType="Self.Worker" />
@@ -1008,6 +1084,10 @@
           <AssociationSet Name="FK_Ticket_Baggage" Association="Self.FK_Ticket_Baggage">
             <End Role="Baggage" EntitySet="Baggage" />
             <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Children_Client" Association="Self.FK_Children_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Children" EntitySet="Children" />
           </AssociationSet>
           <AssociationSet Name="FK_City_Country" Association="Self.FK_City_Country">
             <End Role="Country" EntitySet="Country" />
@@ -1075,9 +1155,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище AirportModel2Container" CdmEntityContainer="AirportEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AirportModel5Container" CdmEntityContainer="AirportEntities2">
           <EntitySetMapping Name="Aircompany">
-            <EntityTypeMapping TypeName="AirportModel2.Aircompany">
+            <EntityTypeMapping TypeName="AirportModel5.Aircompany">
               <MappingFragment StoreEntitySet="Aircompany">
                 <ScalarProperty Name="IDAircompany" ColumnName="IDAircompany" />
                 <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
@@ -1090,7 +1170,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Airplane">
-            <EntityTypeMapping TypeName="AirportModel2.Airplane">
+            <EntityTypeMapping TypeName="AirportModel5.Airplane">
               <MappingFragment StoreEntitySet="Airplane">
                 <ScalarProperty Name="IDAirplane" ColumnName="IDAirplane" />
                 <ScalarProperty Name="IDAirplaneModel" ColumnName="IDAirplaneModel" />
@@ -1100,7 +1180,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AirplaneModel">
-            <EntityTypeMapping TypeName="AirportModel2.AirplaneModel">
+            <EntityTypeMapping TypeName="AirportModel5.AirplaneModel">
               <MappingFragment StoreEntitySet="AirplaneModel">
                 <ScalarProperty Name="NumberModel" ColumnName="NumberModel" />
                 <ScalarProperty Name="Decoding" ColumnName="Decoding" />
@@ -1113,7 +1193,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Baggage">
-            <EntityTypeMapping TypeName="AirportModel2.Baggage">
+            <EntityTypeMapping TypeName="AirportModel5.Baggage">
               <MappingFragment StoreEntitySet="Baggage">
                 <ScalarProperty Name="IDBaggage" ColumnName="IDBaggage" />
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
@@ -1123,8 +1203,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Children">
+            <EntityTypeMapping TypeName="AirportModel5.Children">
+              <MappingFragment StoreEntitySet="Children">
+                <ScalarProperty Name="IDChildren" ColumnName="IDChildren" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="City">
-            <EntityTypeMapping TypeName="AirportModel2.City">
+            <EntityTypeMapping TypeName="AirportModel5.City">
               <MappingFragment StoreEntitySet="City">
                 <ScalarProperty Name="IDCity" ColumnName="IDCity" />
                 <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
@@ -1133,7 +1225,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClassReservation">
-            <EntityTypeMapping TypeName="AirportModel2.ClassReservation">
+            <EntityTypeMapping TypeName="AirportModel5.ClassReservation">
               <MappingFragment StoreEntitySet="ClassReservation">
                 <ScalarProperty Name="IDClassReservation" ColumnName="IDClassReservation" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1141,7 +1233,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="AirportModel2.Client">
+            <EntityTypeMapping TypeName="AirportModel5.Client">
               <MappingFragment StoreEntitySet="Client">
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -1156,7 +1248,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Country">
-            <EntityTypeMapping TypeName="AirportModel2.Country">
+            <EntityTypeMapping TypeName="AirportModel5.Country">
               <MappingFragment StoreEntitySet="Country">
                 <ScalarProperty Name="IDCountry" ColumnName="IDCountry" />
                 <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
@@ -1164,7 +1256,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Flight">
-            <EntityTypeMapping TypeName="AirportModel2.Flight">
+            <EntityTypeMapping TypeName="AirportModel5.Flight">
               <MappingFragment StoreEntitySet="Flight">
                 <ScalarProperty Name="IDFlight" ColumnName="IDFlight" />
                 <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
@@ -1181,7 +1273,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FlightStatus">
-            <EntityTypeMapping TypeName="AirportModel2.FlightStatus">
+            <EntityTypeMapping TypeName="AirportModel5.FlightStatus">
               <MappingFragment StoreEntitySet="FlightStatus">
                 <ScalarProperty Name="IDFlightStatus" ColumnName="IDFlightStatus" />
                 <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
@@ -1189,7 +1281,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Flyghtport">
-            <EntityTypeMapping TypeName="AirportModel2.Flyghtport">
+            <EntityTypeMapping TypeName="AirportModel5.Flyghtport">
               <MappingFragment StoreEntitySet="Flyghtport">
                 <ScalarProperty Name="IDFlyghtport" ColumnName="IDFlyghtport" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1198,15 +1290,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Position">
-            <EntityTypeMapping TypeName="AirportModel2.Position">
+            <EntityTypeMapping TypeName="AirportModel5.Position">
               <MappingFragment StoreEntitySet="Position">
                 <ScalarProperty Name="IDPosition" ColumnName="IDPosition" />
                 <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AirportModel5.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Team">
-            <EntityTypeMapping TypeName="AirportModel2.Team">
+            <EntityTypeMapping TypeName="AirportModel5.Team">
               <MappingFragment StoreEntitySet="Team">
                 <ScalarProperty Name="IDTeam" ColumnName="IDTeam" />
                 <ScalarProperty Name="IDMainPilot" ColumnName="IDMainPilot" />
@@ -1216,7 +1319,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ticket">
-            <EntityTypeMapping TypeName="AirportModel2.Ticket">
+            <EntityTypeMapping TypeName="AirportModel5.Ticket">
               <MappingFragment StoreEntitySet="Ticket">
                 <ScalarProperty Name="IDTicket" ColumnName="IDTicket" />
                 <ScalarProperty Name="DateOfBuy" ColumnName="DateOfBuy" />
@@ -1229,7 +1332,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Worker">
-            <EntityTypeMapping TypeName="AirportModel2.Worker">
+            <EntityTypeMapping TypeName="AirportModel5.Worker">
               <MappingFragment StoreEntitySet="Worker">
                 <ScalarProperty Name="IDWorker" ColumnName="IDWorker" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />

@@ -45,6 +45,33 @@
                 Grid.ColumnSpan="6"
                 Grid.Row="1"
                 Grid.RowSpan="5"></Border>
+        
+        <TextBlock Grid.Row="2"
+        Grid.Column="2"
+        Grid.ColumnSpan="1"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Text="Скорость:"/>
+        
+        <TextBlock x:Name="SpeedTBl"
+        Grid.Row="2"
+        Grid.Column="3"
+        Grid.ColumnSpan="2"
+        Width="230"
+        Height="40"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"/>
+
+
+        <TextBlock x:Name="MaxLenghtTB"
+        Grid.Row="3"
+        Grid.Column="4"
+        Grid.ColumnSpan="2"
+        Width="230"
+        Height="40"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"/>
+
 
         <TextBlock
         Grid.Column="2"
@@ -52,7 +79,7 @@
         Grid.Row="3"
         HorizontalAlignment="Left"
         VerticalAlignment="Center" 
-        Text="Максимальная скорость">
+        Text="Дальность полета:">
         </TextBlock>
         
         <TextBlock Grid.Row="1"
@@ -60,8 +87,8 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
         Text="Самолет:"/>
-        
-        <TextBox x:Name="DecodingTB"
+
+        <TextBlock x:Name="DecodingTB"
         Grid.Row="1"
         Grid.Column="4"
         Grid.ColumnSpan="2"
@@ -76,25 +103,29 @@
         Grid.ColumnSpan="2"
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
-        Text="Количество сидений"/>
-        
-        <TextBox x:Name="MaxSpeedTB"
-        Grid.Row="3"
-        Grid.Column="4"
-        Grid.ColumnSpan="2"
-        Width="230"
-        Height="40"
-        HorizontalAlignment="Left"
-        VerticalAlignment="Center"/>
+        Text="Кол-во сидений:"/>
+
+   
         
         <TextBlock Grid.Row="4"
         Grid.Column="2"
         Grid.ColumnSpan="2"
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
-        Text="Дальность полета"/>
-        
-        <TextBox x:Name="PatronymicTB"
+        Text="Максимальный вес:"/>
+
+
+        <TextBlock x:Name="MaxWeightTlB"
+        Grid.Row="4"
+        Grid.Column="4"
+        Grid.ColumnSpan="2"
+        Width="230"
+        Height="40"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"/>
+
+
+        <TextBlock x:Name="CountSeatsTB"
         Grid.Row="2"
         Grid.Column="5"
         Grid.ColumnSpan="2"
@@ -103,12 +134,6 @@
         HorizontalAlignment="Center"
         VerticalAlignment="Center"/>
         
-        <TextBlock Grid.Row="2"
-        Grid.Column="2"
-        Grid.ColumnSpan="1"
-        HorizontalAlignment="Left"
-        VerticalAlignment="Center"
-        Text="Скорость"/>
 
         <Button x:Name="BackBtn" Content="Назад"
                 Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2"

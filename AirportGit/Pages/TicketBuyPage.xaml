@@ -118,16 +118,17 @@
                 Content="Отмена"
                 FontSize="26" Click="CancelBtn_Click"/>
 
-        <TextBlock Grid.Row="7"
-        Grid.Column="6"
-        HorizontalAlignment="Left"
+        <TextBlock Grid.Row="3"
+        Grid.Column="3"
+        HorizontalAlignment="Center"
         VerticalAlignment="Center"
-        Grid.ColumnSpan="2"
-        Text="Телефон"/>
+        Grid.ColumnSpan="1"
+        FontSize="26"
+        Text="У вас есть багаж?"/>
         
         <TextBox x:Name="PhoneTB"
-        Grid.Row="7"
-        Grid.Column="8"
+        Grid.Row="3"
+        Grid.Column="4"
         Grid.ColumnSpan="2"
         Width="230"
         Height="40"
@@ -173,14 +174,14 @@
                 Click="KidsBtn_Click"/>
 
 
-        <TextBlock Grid.Row="4"
+        <TextBlock Grid.Row="5"
         x:Name="DateOfBuyTbl"
         Grid.Column="0"
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
-        Text="Дата рождения"/>
+        Text="Дата покупки"/>
 
-        <DatePicker x:Name="DateOfBuyDP"
+        <TextBlock x:Name="DateOfBuytbL"
         Grid.Row="5"
         Grid.Column="2"
         Width="200"
@@ -188,7 +189,7 @@
         Grid.ColumnSpan="2"
         HorizontalAlignment="Left"
         VerticalAlignment="Center"
-        Text="Дата рождения"/>
+        />
 
     </Grid>
 </Page>

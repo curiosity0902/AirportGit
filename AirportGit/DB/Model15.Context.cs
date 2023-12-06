@@ -29,6 +29,7 @@ namespace AirportGit.DB
         public virtual DbSet<Airplane> Airplane { get; set; }
         public virtual DbSet<AirplaneModel> AirplaneModel { get; set; }
         public virtual DbSet<Baggage> Baggage { get; set; }
+        public virtual DbSet<Children> Children { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<ClassReservation> ClassReservation { get; set; }
         public virtual DbSet<Client> Client { get; set; }
@@ -37,6 +38,7 @@ namespace AirportGit.DB
         public virtual DbSet<FlightStatus> FlightStatus { get; set; }
         public virtual DbSet<Flyghtport> Flyghtport { get; set; }
         public virtual DbSet<Position> Position { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<Worker> Worker { get; set; }
