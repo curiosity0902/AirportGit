@@ -3,9 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30" FontFamily="Courier New"
       Title="FlightsPage">
 
     <Grid>
@@ -148,7 +149,8 @@
             Grid.Column="1"
             Grid.ColumnSpan="2"
             Grid.Row="9"
-            Click="BackBTN_Click"/>
+            Click="BackBTN_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
         <Button x:Name="AddFlightBTN"
             Content="Добавить"
             Width="250"
@@ -156,7 +158,8 @@
             Grid.Column="3"
             Grid.ColumnSpan="2"
             Grid.Row="9"
-            Click="AddFlightBTN_Click"/>
+            Click="AddFlightBTN_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
 
 
 

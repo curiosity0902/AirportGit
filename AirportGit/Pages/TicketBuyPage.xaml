@@ -3,9 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30" FontFamily="Courier New"
       Title="TicketBuyPage">
 
     <Grid>
@@ -104,7 +105,8 @@
                 Height="50"
                 Content="Купить"
                 FontSize="26"
-                Click="BuyTicket_Click"/>
+                Click="BuyTicket_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
 
 
 
@@ -116,7 +118,8 @@
                 Grid.ColumnSpan="2"
                 Height="50"
                 Content="Отмена"
-                FontSize="26" Click="CancelBtn_Click"/>
+                FontSize="26" Click="CancelBtn_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
 
         <TextBlock Grid.Row="3"
         Grid.Column="3"
@@ -171,7 +174,8 @@
                 Height="50"
                 Content="У меня есть ребенок"
                 FontSize="26"
-                Click="KidsBtn_Click"/>
+                Click="KidsBtn_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
 
 
         <TextBlock Grid.Row="5"
