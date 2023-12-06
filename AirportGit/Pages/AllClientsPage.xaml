@@ -66,18 +66,11 @@
         </ListView>
 
         <Button x:Name="BackBtn"
-            Grid.Column="2"
+            Grid.Column="3"
             Grid.Row="6" Grid.RowSpan="2"
             Height="65" FontSize="35"
             Content="НАЗАД" Click="BackBtn_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"
-                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"
-            />
-        <Button x:Name="AddClientBtn"
-            Grid.Column="4"
-            Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2"
-            Height="65" Width="400" FontSize="35"
-            Content="Добавить клиента" Click="AddClientBtn_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"
-                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"
-            />
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
+        
     </Grid>
 </Page>

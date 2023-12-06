@@ -30,17 +30,10 @@ namespace AirportGit.Pages
             this.DataContext = this;
             Refresh();
         }
-
         public void Refresh()
         {
             ClientsLv.ItemsSource = new List<Client>(DBConnection.airportEntities.Client.ToList());
         }
-
-        private void AddClientBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MainMenuWorkerPage());
