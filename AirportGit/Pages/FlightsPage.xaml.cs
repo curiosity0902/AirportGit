@@ -45,14 +45,10 @@ namespace AirportGit.Pages
             if (loggedWorker.IDPosition == 4)
             {
                 AddFlightBTN.Visibility = Visibility.Visible;
-                //EditWorkerBTN.Visibility = Visibility.Visible;
-                //DeleteWorkerBTN.Visibility = Visibility.Visible;
             }
             else
             {
-                AddFlightBTN.Visibility = Visibility.Visible;
-                //EditWorkerBTN.Visibility = Visibility.Collapsed;
-                //DeleteWorkerBTN.Visibility = Visibility.Collapsed;
+                AddFlightBTN.Visibility = Visibility.Collapsed;
             }
         }
 
