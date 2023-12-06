@@ -52,6 +52,11 @@
                 Grid.ColumnSpan="2"
                 Grid.Row="0"
                 Grid.RowSpan="5"></Border>
+        <Border Background="#fff" MaxWidth="500" MaxHeight="350" CornerRadius="100"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                Grid.Row="5"
+                Grid.RowSpan="3"></Border>
         <Border Background="#fff" MaxWidth="150" MaxHeight="50" CornerRadius="150"
                 Grid.Column="2"
                 Grid.ColumnSpan="2"
