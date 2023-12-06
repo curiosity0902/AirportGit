@@ -54,7 +54,7 @@
         Content="Назад"
         Width="250"
         Height="50"
-        Grid.Column="2"
+        Grid.Column="2" FontSize="30"
         Grid.Row="7" Click="BackBTN_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
                 Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
     </Grid>
