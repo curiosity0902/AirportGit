@@ -46,7 +46,7 @@ namespace AirportGit.Pages
             this.DataContext = this;
             FlightTBl.Text = DBConnection.selectedForFlight.Flyghtport.City.Nazvanie.ToString() + " - " + DBConnection.selectedForFlight.Flyghtport1.City.Nazvanie.ToString();
             FlightDateTBl.Text = Convert.ToString(contextFlight.DepartureDate) + " - " + Convert.ToString(contextFlight.ArivalDate);
-            DateOfBuyTbl.Text = Convert.ToString(DateTime.Now);
+            DateOfBuytbL.Text = Convert.ToString(DateTime.Now);
             //CountSeatsTBl.Text = Convert.ToString(new List <Count_tickets>(DBConnection.airportEntities.Count_tickets).FirstOrDefault(x => x.IDFlight == contextFlight.IDFlight).Ostatok);
             
             int allseats = (int)contextFlight.Airplane.AirplaneModel.CountSeats;

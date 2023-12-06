@@ -74,26 +74,28 @@ namespace AirportGit.Pages
         {
             try
             {
+                StringBuilder error = new StringBuilder();
                 Worker worker = contextWorker;
                 if (string.IsNullOrWhiteSpace(SurnameTB.Text) || string.IsNullOrWhiteSpace(NameTB.Text) || string.IsNullOrWhiteSpace(PatronymicTB.Text) ||
                         DateOfBirthDP.SelectedDate == null || string.IsNullOrWhiteSpace(PassportTB.Text) || string.IsNullOrWhiteSpace(PhoneTB.Text) ||
                         string.IsNullOrWhiteSpace(EmailTB.Text) || string.IsNullOrWhiteSpace(PasswordTB.Text))
                 {
-                    MessageBox.Show("Заполните все поля!");
+                    error.AppendLine("Заполните все поля!");
+                }
+                if (DateOfBirthDP.SelectedDate != null && (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 18 + 4)
+                {
+                    error.AppendLine("Сотрудник не может быть младше 18 лет.");
+                }
+                if (error.Length > 0)
+                {
+                    MessageBox.Show(error.ToString());
                 }
                 else
                 {
                     worker.Surname = SurnameTB.Text;
                     worker.Name = NameTB.Text;
                     worker.Patronymic = PatronymicTB.Text;
-                    if (DateOfBirthDP.SelectedDate != null && (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 18 + 4)
-                    {
-                        MessageBox.Show("Сотрудник не может быть младше 18 лет.");
-                    }
-                    else
-                    {
-                        worker.DateOfBirth = Convert.ToDateTime(DateOfBirthDP.Text);
-                    }
+                    worker.DateOfBirth = DateOfBirthDP.SelectedDate;
                     worker.IDPosition = (PositionCB.SelectedItem as Position).IDPosition;
                     worker.IDAircompany = (AircompanyCB.SelectedItem as Aircompany).IDAircompany;
                     worker.Phone = PhoneTB.Text;

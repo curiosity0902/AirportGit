@@ -34,28 +34,13 @@ namespace AirportGit.Pages
             Refresh();
             loggedWorker = DBConnection.loginedWorker;
             this.DataContext = this;
-            CheckConditionAndToggleButtonVisibility();
         }
 
         public void Refresh()
         {
             TeamLv.ItemsSource = DBConnection.airportEntities.Team.ToList();
         }
-        private void CheckConditionAndToggleButtonVisibility()
-        {
-            if (loggedWorker.IDPosition == 4)
-            {
-                AddTeamBTN.Visibility = Visibility.Visible;
-                EditTeamBTN.Visibility = Visibility.Visible;
-                DeleteTeamBTN.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                AddTeamBTN.Visibility = Visibility.Collapsed;
-                EditTeamBTN.Visibility = Visibility.Collapsed;
-                DeleteTeamBTN.Visibility = Visibility.Collapsed;
-            }
-        }
+   
         private void BackBTN_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MainMenuWorkerPage());

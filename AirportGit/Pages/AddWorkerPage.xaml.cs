@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AirportGit.Functions;
 
 namespace AirportGit.Pages
 {
@@ -51,37 +52,36 @@ namespace AirportGit.Pages
         {
             try
             {
+                StringBuilder error = new StringBuilder();
                 if (string.IsNullOrWhiteSpace(SurnameTB.Text) || string.IsNullOrWhiteSpace(NameTB.Text) || string.IsNullOrWhiteSpace(PatronymicTB.Text) ||
                         DateOfBirthDP.SelectedDate == null || string.IsNullOrWhiteSpace(PassportTB.Text) || string.IsNullOrWhiteSpace(PhoneTB.Text) ||
                         string.IsNullOrWhiteSpace(EmailTB.Text) || string.IsNullOrWhiteSpace(PasswordTB.Text))
                 {
-                    MessageBox.Show("Заполните все поля!");
+                    error.AppendLine("Заполните все поля!");
+                }
+                if (DateOfBirthDP.SelectedDate != null && (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 18 + 4)
+                {
+                    error.AppendLine("Сотрудник не может быть младше 18 лет.");
+                }
+                if (error.Length > 0)
+                {
+                    MessageBox.Show(error.ToString());
                 }
                 else
                 {
                     worker.Surname = SurnameTB.Text.Trim();
                     worker.Name = NameTB.Text.Trim();
                     worker.Patronymic = PatronymicTB.Text.Trim();
-                    if (DateOfBirthDP.SelectedDate != null && (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 18 + 4)
-                    {
-                        MessageBox.Show("Сотрудник не может быть младше 18 лет.");
-                    }
-                    else
-                    {
-                        worker.DateOfBirth = DateOfBirthDP.SelectedDate;
-                    }
+                    worker.Phone = PhoneTB.Text.Trim();
+                    worker.DateOfBirth = DateOfBirthDP.SelectedDate;
                     worker.Passport = PassportTB.Text.Trim();
-                    //if (AddCheck.SameEmail(EmailTB.Text.Trim()))
-                    //{
-                    //    MessageBox.Show("Такая почта уже используется!");
-                    //}
-                    //else
-                    //{
-                    //    worker.Email = EmailTB.Text.Trim();
-                    //}
+                    worker.Email = EmailTB.Text.Trim();
                     worker.Password = PasswordTB.Text.Trim();
                     var a = PositionCB.SelectedItem as Position;
                     worker.IDPosition = a.IDPosition;
+
+                    var b = AircompanyCB.SelectedItem as Aircompany;
+                    worker.IDAircompany = b.IDAircompany;
 
                     DBConnection.airportEntities.Worker.Add(worker);
                     DBConnection.airportEntities.SaveChanges();

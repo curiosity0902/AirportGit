@@ -17,7 +17,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -29,88 +31,77 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
         <TextBlock
             Text="Рейс: "
             Grid.Column="0"
             VerticalAlignment="Center"
             Grid.Row="1"
-            HorizontalAlignment ="Center"
-            />
-
+            HorizontalAlignment ="Center"/>
         <TextBlock Grid.Row="1"
-        x:Name="FlightTBl"
-        Grid.Column="1"
-        Width="600"
-        FontSize="28"
-        Grid.ColumnSpan="2"
-        HorizontalAlignment="Left"
-        />
-
+            x:Name="FlightTBl"
+            Grid.Column="1"
+            Width="600"
+            Height="60"
+            FontSize="28"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"/>
         <TextBlock
-            Text="Дата и время: "
-            Grid.Column="3"
+            Text="Дата и время:"
+            Grid.Column="4"
+            Grid.ColumnSpan="2"
             VerticalAlignment="Center"
             Grid.Row="1"
-            HorizontalAlignment ="Center"
-            />
-
-        <TextBlock Grid.Row="1"
-        x:Name="FlightDateTBl"
-        Grid.Column="4"
-        Width="600"
-        FontSize="28"
-        Grid.ColumnSpan="2"
-        HorizontalAlignment="Left"
-        />
-
+            HorizontalAlignment ="Center"/>
+        <TextBlock Grid.Row="2"
+            x:Name="FlightDateTBl"
+            Grid.Column="4"
+            Width="800"
+            Height="60"
+            FontSize="28"
+            Grid.ColumnSpan="4"
+            HorizontalAlignment="Left"/>
         <TextBlock
             Text="Количество мест на данный момент: "
             Grid.Column="3"
+            Grid.ColumnSpan="3"
             VerticalAlignment="Center"
-            Grid.Row="2"
-            HorizontalAlignment ="Center"
-            />
-
-        <TextBlock Grid.Row="2"
-        x:Name="CountSeatsTBl"
-        Grid.Column="4"
-        Width="600"
-        FontSize="28"
-        Grid.ColumnSpan="2"
-        HorizontalAlignment="Left"
-        />
+            Grid.Row="4"
+            HorizontalAlignment ="Center"/>
+        <TextBlock Grid.Row="4"
+            x:Name="CountSeatsTBl"
+            Grid.Column="6"
+            Width="400"
+            Height="60"
+            FontSize="28"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"/>
         <TextBlock
             Text="Общая стоимость: "
             Grid.Column="0"
+            Grid.ColumnSpan="2"
             VerticalAlignment="Center"
             Grid.Row="3"
-            HorizontalAlignment ="Center"
-            />
-
+            HorizontalAlignment ="Center"/>
         <TextBlock Grid.Row="3"
-        x:Name="CostTbl"
-        Grid.Column="1"
-        Width="600"
-        FontSize="28"
-        Grid.ColumnSpan="2"
-        HorizontalAlignment="Left"
-        />
-
+            x:Name="CostTbl"
+            Grid.Column="2"
+            Width="400"
+            Height="60"
+            FontSize="28"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Left"/>
         <Button x:Name="BuyTicket" 
-                Grid.Column="3"
-                Grid.Row="6"
-                Width="350"
-                Grid.ColumnSpan="2"
-                Height="50"
-                Content="Купить"
-                FontSize="26"
-                Click="BuyTicket_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
-                materialDesign:ButtonAssist.CornerRadius="30"/>
-
-
-
-
+            Grid.Column="3"
+            Grid.Row="6"
+            Width="350"
+            Grid.ColumnSpan="2"
+            Height="50"
+            Content="Купить"
+            FontSize="26"
+            Click="BuyTicket_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
+            materialDesign:ButtonAssist.CornerRadius="30"/>
         <Button x:Name="CancelBtn" 
                 Grid.Column="1"
                 Grid.Row="6"
@@ -120,69 +111,41 @@
                 Content="Отмена"
                 FontSize="26" Click="CancelBtn_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  
                 materialDesign:ButtonAssist.CornerRadius="30"/>
-
-        <TextBlock Grid.Row="3"
-        Grid.Column="3"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Grid.ColumnSpan="1"
-        FontSize="26"
-        Text="У вас есть багаж?"/>
-        
-        <TextBox x:Name="PhoneTB"
-        Grid.Row="3"
-        Grid.Column="4"
-        Grid.ColumnSpan="2"
-        Width="230"
-        Height="40"
-        HorizontalAlignment="Left"
-        VerticalAlignment="Center"/>
-        
         <TextBlock Grid.Row="2"
                    x:Name="ClassReservationTBl"
         Grid.Column="0"
         HorizontalAlignment="Center"
         Text="Класс: "
         VerticalAlignment="Center"/>
-        
+
         <ComboBox x:Name="ClassReservationCb"
-        Grid.Row="2"
-        Grid.Column="1"
-        Width="230"
-        Height="40"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        ItemsSource="{Binding classReservations}" SelectionChanged="ClassReservationCb_SelectionChanged">
+            Grid.Row="2"
+            Grid.Column="1"
+                  Grid.ColumnSpan="2"
+            Width="300"
+            Height="60"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            ItemsSource="{Binding classReservations}" SelectionChanged="ClassReservationCb_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-
-        <TextBlock Grid.Row="4"
-        Grid.Column="0"
-        HorizontalAlignment="Center"
-        Text="У вас есть ребенок? "
-        VerticalAlignment="Center"/>
-
-
         <TextBlock Grid.Row="5"
-        x:Name="DateOfBuyTbl"
-        Grid.Column="0"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Text="Дата покупки"/>
-
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="Дата покупки"/>
         <TextBlock x:Name="DateOfBuytbL"
-        Grid.Row="5"
-        Grid.Column="2"
-        Width="200"
-        Height="40"
-        Grid.ColumnSpan="2"
-        HorizontalAlignment="Left"
-        VerticalAlignment="Center"
-        />
-
+            Grid.Row="5"
+            Grid.Column="2"
+            Width="400"
+            Height="60"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"/>
     </Grid>
 </Page>

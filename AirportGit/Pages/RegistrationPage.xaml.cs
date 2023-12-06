@@ -66,6 +66,8 @@ namespace AirportGit.Pages
                     client.Password = PasswordTB.Password.Trim();
                     DBConnection.airportEntities.Client.Add(client);
                     DBConnection.airportEntities.SaveChanges();
+
+                    NavigationService.Navigate(new AuthorizationPage());
                 }
             }
             catch

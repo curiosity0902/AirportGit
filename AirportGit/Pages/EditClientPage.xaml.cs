@@ -54,44 +54,53 @@ namespace AirportGit.Pages
 
         private void EditWorkerBTN_Click(object sender, RoutedEventArgs e)
         {
-            Client client = loggedClient;
-            if (string.IsNullOrWhiteSpace(SurnameTB.Text) || string.IsNullOrWhiteSpace(NameTB.Text) || string.IsNullOrWhiteSpace(PatronymicTB.Text) ||
-                    DateOfBirthDP.SelectedDate == null || string.IsNullOrWhiteSpace(PassportTB.Text) || string.IsNullOrWhiteSpace(PhoneTB.Text) ||
-                    string.IsNullOrWhiteSpace(EmailTB.Text) || string.IsNullOrWhiteSpace(PasswordTB.Text))
+            try
             {
-                MessageBox.Show("Заполните все поля!");
-            }
-            else
-            {
-                client.Surname = SurnameTB.Text;
-                client.Name = NameTB.Text;
-                client.Patronymic = PatronymicTB.Text;
-                if (DateOfBirthDP.SelectedDate != null &&
-                        (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 14 + 4)
+                StringBuilder error = new StringBuilder();
+                Client client = loggedClient;
+                if (string.IsNullOrWhiteSpace(SurnameTB.Text) || string.IsNullOrWhiteSpace(NameTB.Text) || string.IsNullOrWhiteSpace(PatronymicTB.Text) ||
+                        DateOfBirthDP.SelectedDate == null || string.IsNullOrWhiteSpace(PassportTB.Text) || string.IsNullOrWhiteSpace(PhoneTB.Text) ||
+                        string.IsNullOrWhiteSpace(EmailTB.Text) || string.IsNullOrWhiteSpace(PasswordTB.Text))
                 {
-                    MessageBox.Show("Вы не можете быть младше 14 лет.");
+                    error.AppendLine("Заполните все поля");
+                }
+                if (DateOfBirthDP.SelectedDate != null &&
+                            (DateTime.Now - (DateTime)DateOfBirthDP.SelectedDate).TotalDays < 365 * 14 + 4)
+                {
+                    error.AppendLine("Для регистрации вам должно быть минимум 14 лет");
+                }
+                if (error.Length > 0)
+                {
+                    MessageBox.Show(error.ToString());
                 }
                 else
                 {
-                    client.DateOfBirth = Convert.ToDateTime(DateOfBirthDP.Text);
+                    client.Surname = SurnameTB.Text;
+                    client.Name = NameTB.Text;
+                    client.Patronymic = PatronymicTB.Text;
+                    client.DateOfBirth = DateOfBirthDP.SelectedDate;
+                    client.Phone = PhoneTB.Text;
+                    client.Email = EmailTB.Text;
+                    client.Password = PasswordTB.Text;
+                    DBConnection.airportEntities.SaveChanges();
+
+                    SurnameTB.Text = String.Empty;
+                    NameTB.Text = String.Empty;
+                    PatronymicTB.Text = String.Empty;
+                    DateOfBirthDP = null;
+                    PhoneTB.Text = String.Empty;
+                    EmailTB.Text = String.Empty;
+                    PasswordTB.Text = String.Empty;
+
+                    DBConnection.airportEntities.SaveChanges();
+                    NavigationService.Navigate(new MainMenuClientPage());
                 }
-                client.Phone = PhoneTB.Text;
-                client.Email = EmailTB.Text;
-                client.Password = PasswordTB.Text;
-                DBConnection.airportEntities.SaveChanges();
-
-                SurnameTB.Text = String.Empty;
-                NameTB.Text = String.Empty;
-                PatronymicTB.Text = String.Empty;
-                DateOfBirthDP = null;
-                PhoneTB.Text = String.Empty;
-                EmailTB.Text = String.Empty;
-                PasswordTB.Text = String.Empty;
-
-                DBConnection.airportEntities.SaveChanges();
-                NavigationService.Navigate(new MainMenuClientPage());
+                
+            }
+            catch
+            {
+                MessageBox.Show("Возникла ошибка");
             }
         }
-
     }
 }
