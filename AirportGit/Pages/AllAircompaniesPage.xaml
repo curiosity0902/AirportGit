@@ -3,9 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30" FontFamily="Courier New"
       Title="AllAircompaniesPage">
 
     <Grid>
@@ -31,18 +32,38 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <Border Background="#B9D9E3" MaxWidth="1800" MaxHeight="750" CornerRadius="100"
+                Grid.Column="0"
+                Grid.ColumnSpan="16"
+                Grid.Row="0"
+                Grid.RowSpan="9"></Border>
+        <Border Background="#fff" MaxWidth="1700" MaxHeight="520" CornerRadius="100"
+                Grid.Column="0"
+                Grid.ColumnSpan="10"
+                Grid.Row="0"
+                Grid.RowSpan="11"></Border>
+        <Border Background="#fff" MaxWidth="350" MaxHeight="50" CornerRadius="30"
+                Grid.Column="7"
+                Grid.ColumnSpan="3"
+                Grid.Row="0"
+                Grid.RowSpan="3"></Border>
+
+
         <TextBlock Text="Авиакомпании"
             Grid.Column="3"
             Grid.ColumnSpan="4"
             FontSize="40"
+                   Grid.Row="1"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"/>
         <ListView
             x:Name="AircompaniesLv"
-            Grid.Row="1"
-            Grid.Column="2"
-            Grid.ColumnSpan="6"
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="8"
             Grid.RowSpan="4"
+            MaxWidth="1800"
             ItemsSource="{Binding aircompanies}">
             <ListView.View>
                 <GridView>
@@ -52,30 +73,33 @@
                         <GridViewColumn Header="Фактический адрес" DisplayMemberBinding="{Binding FactAdress}" Width="370"/>
                         <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding ContactPhone}" Width="220"/>
                         <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding ContactEmail}" Width="350"/>
-                        <GridViewColumn Header="Год создания" DisplayMemberBinding="{Binding YearOfCreate}" Width="250"/>
+                        <GridViewColumn Header="Год создания" DisplayMemberBinding="{Binding YearOfCreate}" Width="230"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
         <TextBlock
-            Grid.Column="3"
-            Grid.Row="5"
+            Grid.Column="7"
+            Grid.Row="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center" 
-            Text="Поиск"/>
+            Text="   🔎"/>
         <TextBox x:Name="SearchTB"
-            Grid.Column="3"
+            Grid.Column="7"
             Grid.ColumnSpan="4"
-            Grid.Row="5"
+            Grid.Row="1"
             Width="300"
+                 Height="50"
             TextChanged="SearchTB_TextChanged"/>
         <Button x:Name="BackBtn"
             Grid.Column="3"
             Grid.ColumnSpan="4"
             Grid.Row="6"
-            Height="40"
-            Width="200"
-            Content="Вернуться назад"
-            Click="BackBtn_Click"/>
+                Grid.RowSpan="2"
+            Height="45"
+            Width="270"
+            Content="Назад"
+            Click="BackBtn_Click" Background="#FF28729C" Foreground="White" FontFamily="Courier New"  FontSize="35"
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"/>
     </Grid>
 </Page>
