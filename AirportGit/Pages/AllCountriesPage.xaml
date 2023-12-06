@@ -3,9 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:AirportGit.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30"
+      d:DesignHeight="1080" d:DesignWidth="1920" FontSize="30" FontFamily="Courier New"
       Title="AllCountriesPage">
 
     <Grid>
@@ -28,6 +29,32 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+        <!-->ДИЗАЙН ОКНА<-->
+
+        <Border Background="#B9D9E3" MaxWidth="1850" MaxHeight="1000" CornerRadius="70"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Grid.Row="0"
+                Grid.RowSpan="8"></Border>
+
+        <Border Background="#fff" MaxWidth="1550" MaxHeight="700" CornerRadius="70"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Grid.Row="1"
+                Grid.RowSpan="6"></Border>
+
+        <Border Background="#B9D9E3" MaxWidth="460" MaxHeight="80" CornerRadius="30"
+                 Grid.Column="4"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                ></Border>
+        <Border Background="#fff" MaxWidth="420" MaxHeight="50" CornerRadius="30"
+                Grid.Column="4"
+                Grid.ColumnSpan="2"
+                Grid.Row="1"
+                Grid.RowSpan="1"></Border>
+
         <ListView x:Name="CountiesLv"
             Grid.Row="1"
             Grid.Column="1"
@@ -38,22 +65,31 @@
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Header="Страна" 
-                                        DisplayMemberBinding="{Binding Nazvanie}"
-                                        Width="750"/>
+                          DisplayMemberBinding="{Binding Nazvanie}"
+                          Width="750"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
+        
         <Button x:Name="BackBTN"
         Content="Назад"
-        Width="250"
-        Height="50"
-        Grid.Column="2"
-        Grid.Row="7"
-        Click="BackBTN_Click"/>
+           FontWeight="DemiBold"
+        FontSize="20"
+        Margin="10"
+        Width="270"
+        Height="40"
+        Grid.Column="4"
+        Grid.ColumnSpan="2"
+        Grid.Row="2"
+        Click="BackBTN_Click"
+                Background="#FF28729C" Foreground="White" FontFamily="Courier New" 
+                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30"
+                />
 
         <TextBlock
-        Grid.Column="6"
+        Grid.Column="5"
+        Grid.ColumnSpan="2"
         Grid.Row="1"
         HorizontalAlignment="Center"
         VerticalAlignment="Center" 
@@ -61,10 +97,17 @@
         </TextBlock>
 
         <TextBox x:Name="SearchTB"
-        Grid.Column="5"
-           Grid.Row="2"
+        Grid.Column="4"
+           Grid.Row="1"
            Grid.ColumnSpan="2"
            Height="55"
-             Width="250" TextChanged="SearchTB_TextChanged"/>
+
+           Width="250" TextChanged="SearchTB_TextChanged"/>
+
+        <Image Source="/Image/fly1.png"
+               Grid.Column="4"
+               Grid.Row="4"
+               Grid.RowSpan="3"
+               Grid.ColumnSpan="2"/>
     </Grid>
 </Page>
