@@ -32,6 +32,17 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        
+        <Border Background="#B9D9E3" MaxWidth="1850" MaxHeight="1000" CornerRadius="70"
+                Grid.Column="0"
+                Grid.ColumnSpan="7"
+                Grid.Row="1"
+                Grid.RowSpan="7"></Border>
+        <Border Background="#fff" MaxWidth="1750" MaxHeight="600" CornerRadius="70"
+                Grid.Column="0"
+                Grid.ColumnSpan="7"
+                Grid.Row="0"
+                Grid.RowSpan="8"></Border>
         <ListView
             x:Name="FlyghtportLv"
             Grid.Row="1"

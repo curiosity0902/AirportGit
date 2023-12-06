@@ -34,7 +34,7 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="7"
                 Grid.Row="1"
-                Grid.RowSpan="6"></Border>
+                Grid.RowSpan="7"></Border>
         <Border Background="#fff" MaxWidth="1750" MaxHeight="600" CornerRadius="70"
                 Grid.Column="0"
                 Grid.ColumnSpan="7"
