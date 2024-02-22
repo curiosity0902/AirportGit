@@ -38,7 +38,10 @@
                Grid.Row="2"
                Grid.RowSpan="5"
                />
-        <Border Background="#B9D9E3" MaxWidth="1920" MaxHeight="80" CornerRadius="0, 0, 50, 50"
+        <Border Background="#008500"
+                MaxWidth="1920"
+                MaxHeight="80"
+                CornerRadius="0, 0, 50, 50"
                 Grid.Column="0"
                 Grid.ColumnSpan="6"
                 Grid.Row="0"
@@ -54,8 +57,12 @@
             VerticalAlignment="Center"
             Width="400"
             Height="70"
-            Background="#FF28729C" Foreground="White" FontFamily="Courier New"  FontSize="50"
-                Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonAssist.CornerRadius="30" Click="EnterBTN_Click"/>
+            Background="#A60000"
+                Foreground="White"
+                FontFamily="Courier New"
+                FontSize="50"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                materialDesign:ButtonAssist.CornerRadius="30" Click="EnterBTN_Click"/>
 
 
 
